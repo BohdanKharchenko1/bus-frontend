@@ -1,11 +1,13 @@
-import { useEffect } from "react";
+import {useEffect, useState} from "react";
 import {allRoutes} from "../../api/bus";
 
 const HomeTable = () => {
+    const [data, SetData] = useState<unknown>('');
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await allRoutes();
+                SetData(response)
                 console.log("Routes data:", response.data);
             } catch (error) {
                 console.error("Error fetching routes:", error);
@@ -18,7 +20,7 @@ const HomeTable = () => {
     return (
         <div>
             <h1>Home Table</h1>
-            <p>Fetching route data...</p>
+            {String(data)}
         </div>
     );
 };

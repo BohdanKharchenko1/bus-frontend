@@ -1,16 +1,13 @@
-import {baseUrl} from "../lib/axios";
+import { baseUrl } from '../lib/axios';
+
+type GetPoints = {
+  autocomplete: string;
+};
+
+export const getPoints = async (body: GetPoints) => {
+  return await baseUrl.post('/booking/get_points', { body });
+};
 
 export const allRoutes = async () => {
-    return await baseUrl.post('/get_routes.php',
-        {
-            id_from: "3",
-            id_to: "6",
-            date: "2025-10-28",
-            trans: "bus",
-            search_type: 1,
-            change: "auto",
-            currency: "EUR",
-            lang: "en",
-            v: "1.1"
-        })
-}
+  return await baseUrl.get('/booking/get_routes');
+};

@@ -1,21 +1,26 @@
-import {create} from "zustand/react";
-import {Lang} from "../enums/bookingEnums.ts";
+import { create } from 'zustand/react';
+import { Lang } from '../enums/bookingEnums.ts';
 
-type Passenger = {}
+type Passenger = {};
 
 interface BookingState {
-    id_from?: number,
-    id_to?: number,
-    trans?: string,
-    lang?: Lang,
-    leavingDate?: Date,
-    passengers?: Passenger[],
-    step: number,
+  idFrom?: string;
+  idTo?: string;
+  trans?: string;
+  lang?: Lang;
+  leavingDate?: Date;
+  passengers?: Passenger[];
+  passengerCount?: number;
+  from?: string;
+  to?: string;
+  step: number;
+  startDate?: string;
+  endDate?: string;
+  setStep1: (data: Partial<BookingState>) => void;
 }
-export const useBookingStore = create<BookingState>((set) =>({
-    step:0,
-    nextStep: () => set((s) => ({ step: Math.min(s.step + 1, 5)})),
-    previousStep: () => set((s) => ({step: Math.max(s.step-1,1)}))
-}))
-
-
+export const useBookingStore = create<BookingState>((set) => ({
+  step: 0,
+  setStep1: (data) => set((state) => ({ ...state, ...data })),
+  nextStep: () => set((s) => ({ step: Math.min(s.step + 1, 5) })),
+  previousStep: () => set((s) => ({ step: Math.max(s.step - 1, 1) })),
+}));

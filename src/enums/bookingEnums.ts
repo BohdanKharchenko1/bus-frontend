@@ -6,3 +6,4 @@ export enum Lang {
     pl,
     cz,
 }
+

@@ -15,7 +15,7 @@ export default function BookingWizard() {
     ];
 
     return (
-        <div className = 'max-w-7xl mx-auto p-4'>
+        <div className = 'max-w-[100rem] mx-auto p-4'>
             <Card>
                 <CardHeader>
                     <CardTitle className='text-3xl'>Купить Билет</CardTitle>

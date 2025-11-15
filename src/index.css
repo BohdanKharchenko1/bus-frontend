@@ -42,6 +42,7 @@
 }
 
 :root {
+  --min-height: 100vh;
   --radius: 0.65rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
@@ -115,7 +116,13 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply h-full;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground h-full;
+  }
+  #root {
+    @apply h-full;
   }
 }

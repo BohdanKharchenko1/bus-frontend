@@ -1,13 +1,17 @@
 import { baseUrl } from '../lib/axios';
+import { AxiosResponse } from 'axios';
 
-type GetPoints = {
-  autocomplete: string;
+export const getPoints: any = async (body): Promise<AxiosResponse> => {
+  return await baseUrl.post('/booking/get_points', body);
 };
 
-export const getPoints = async (body: GetPoints) => {
-  return await baseUrl.post('/booking/get_points', { body });
+export const getRoutes = async (body): Promise<AxiosResponse> => {
+  return await baseUrl.post('/booking/get_routes', body);
 };
 
-export const allRoutes = async () => {
-  return await baseUrl.get('/booking/get_routes');
+export const getPlan = async (body): Promise<AxiosResponse> => {
+  return await baseUrl.post('/booking/get_plan', body);
+};
+export const getFreeSeats = async (body): Promise<AxiosResponse> => {
+  return await baseUrl.post('/booking/get_free_seats', body);
 };

@@ -1,99 +1,84 @@
-import * as React from "react"
-import { Check, ChevronsUpDown } from "lucide-react"
-import { cn } from "../../lib/utils"
+import * as React from 'react';
+import { Check, ChevronsUpDown } from 'lucide-react';
+import { cn } from '../../lib/utils';
 import {
-    Command,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem,
-    CommandList,
-} from "../../components/ui/command"
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "../../components/ui/popover"
-import { Button } from "../../components/ui/button"
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+  CommandList,
+} from '../../components/ui/command';
+import { Popover, PopoverContent, PopoverTrigger } from '../../components/ui/popover';
+import { Button } from '../../components/ui/button';
 
 type Option = {
-    value: string
-    label: string
-}
+  value: number;
+};
 
 interface SearchableSelectProps {
-    options?: Option[]
-    value?: string
-    onChange?: (value: string) => void
-    placeholder?: string
-    searchPlaceholder?: string
-    className?: string
-    disabled?: boolean
+  options?: Option[];
+  value?: number;
+  onChange?: (value: number) => void;
+  placeholder?: string;
+  searchPlaceholder?: string;
+  className?: string;
+  disabled?: boolean;
 }
 
 export function SearchableSelect({
-                                     options,
-                                     value,
-                                     onChange,
-                                     placeholder = "Select an option...",
-                                     searchPlaceholder = "Search...",
-                                     className,
-                                     disabled = false,
+  options,
+  value,
+  onChange,
+  placeholder = 'Select an option...',
+  className,
+  disabled = false,
+}: SearchableSelectProps) {
+  const [open, setOpen] = React.useState(false);
 
-                                 }: SearchableSelectProps) {
-    const [open, setOpen] = React.useState(false)
-    const selectedLabel = options?.find((o) => o.value === value)?.label
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          role="combobox"
+          aria-expanded={open}
+          disabled={disabled}
+          className={cn('justify-between border-2 h-[51px] w-48 md:text-lg font-normal', className)}
+        >
+          {String(value) || placeholder}
+          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+        </Button>
+      </PopoverTrigger>
 
-    return (
-        <Popover open={open} onOpenChange={setOpen} >
-            <PopoverTrigger asChild>
-                <Button
-                    variant="outline"
-                    role="combobox"
-                    aria-expanded={open}
-                    disabled={disabled}
-                    className={cn(
-                        "justify-between border-2 h-[51px] w-48 md:text-lg font-normal",
-                        className
-                    )}
+      <PopoverContent className="p-0 z-50" style={{ width: 'var(--radix-popover-trigger-width)' }}>
+        <Command>
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandGroup>
+              {options?.map((option) => (
+                <CommandItem
+                  className={cn('sm:text-lg')}
+                  key={option.value}
+                  value={String(option.value)}
+                  onSelect={(currentValue) => {
+                    onChange?.(Number(currentValue));
+                    console.log(Number(currentValue));
+                    setOpen(false);
+                  }}
                 >
-                    {selectedLabel || placeholder}
-                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                </Button>
-            </PopoverTrigger>
-
-            <PopoverContent
-                className="p-0 z-50"
-                style={{ width: "var(--radix-popover-trigger-width)" }}
-            >
-                <Command>
-                    <CommandList>
-                        <CommandEmpty>No results found.</CommandEmpty>
-                        <CommandGroup>
-                            {options?.map((option) => (
-                                <CommandItem
-                                    className={cn('sm:text-lg')}
-                                    key={option.value}
-                                    value={option.value}
-                                    onSelect={(currentValue) => {
-                                        onChange?.(currentValue === value ? "" : currentValue)
-                                        setOpen(false)
-                                    }}
-                                >
-                                    <Check
-                                        className={cn(
-                                            "mr-2 h-4 w-4",
-                                            value === option.value ? "opacity-100" : "opacity-0"
-                                        )}
-                                    />
-                                    {option.label}
-                                </CommandItem>
-                            ))}
-                        </CommandGroup>
-                    </CommandList>
-                </Command>
-            </PopoverContent>
-
-        </Popover>
-    )
+                  <Check
+                    className={cn(
+                      'mr-2 h-4 w-4',
+                      value === option.value ? 'opacity-100' : 'opacity-0',
+                    )}
+                  />
+                  {option.value}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
+  );
 }

@@ -1,0 +1,10 @@
+{
+  "title": "Krok 1 — Výběr trasy",
+  "from": "Odkud",
+  "to": "Kam",
+  "departureDate": "Datum odjezdu",
+  "returnDate": "Datum návratu",
+  "passengers": "Cestující",
+  "findConnection": "Najít spoj"
+
+}

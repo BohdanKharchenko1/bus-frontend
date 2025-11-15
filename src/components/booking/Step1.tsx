@@ -1,117 +1,157 @@
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Label } from '../ui/label';
-import { Input } from '../ui/input';
-import { useForm, Controller, useWatch } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { SearchableSelect } from '../../components/partials/SearchableSelect';
+import { SearchableSelect } from '../partials/SearchableSelect';
 import { useBookingStore } from '../../stores/bookingStore';
-import { useEffect } from 'react';
-import { getPoints } from '../../api/bus.ts';
 import { useShallow } from 'zustand/react/shallow';
+import { Point, SearchableInput } from '../partials/SearchableInput';
+import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
+import { DatePicker } from '../partials/DatePicker.tsx';
 
 const FormSchema = z.object({
-  from: z.string().optional(),
-  to: z.string().optional(),
-  startDate: z.string().optional(),
-  endDate: z.string().optional(),
-  passengerCount: z.string().optional(),
+  from: z.custom<Point>(),
+  to: z.custom<Point>(),
+  startDate: z
+    .string()
+    .optional()
+    .refine((val) => !val || new Date(val) >= new Date(), {
+      message: 'Cant be less than today',
+    }),
+  endDate: z
+    .string()
+    .optional()
+    .refine((val) => !val || new Date(val) >= new Date(), {
+      message: 'Cant be less than today',
+    }),
+  passengerCount: z.number().optional(),
 });
 
 type FormValues = z.infer<typeof FormSchema>;
 
-export default function Step1() {
-  const { from, to, startDate, endDate, passengerCount } = useBookingStore(
+type Step1Props = {
+  onNext?: () => void;
+};
+
+export default function Step1({ onNext }: Step1Props) {
+  const { t } = useTranslation('step1');
+  const { from, to, startDate, endDate, passengerCount, setStep1 } = useBookingStore(
     useShallow((state) => ({
       from: state.from,
       to: state.to,
       startDate: state.startDate,
       endDate: state.endDate,
       passengerCount: state.passengerCount,
+      setStep1: state.setStep1,
     })),
   );
 
   const form = useForm<FormValues>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      from: from || '',
-      to: to || '',
+      from: from ?? undefined,
+      to: to ?? undefined,
       startDate: startDate || '',
       endDate: endDate || '',
-      passengerCount: String(passengerCount || ''),
+      passengerCount: passengerCount,
     },
   });
-
-  const { control } = form;
-  const fromWatch = useWatch({ control, name: 'from' });
   useEffect(() => {
-    if (fromWatch!.length > 2) {
-      const response = getPoints({ autocomplete: fromWatch! }).then((res) => console.log(res));
-      console.log(response);
-    }
-  }, [fromWatch]);
+    useBookingStore.persist.rehydrate();
+  }, []);
+  const onSubmit = (data: FormValues) => {
+    console.log(data);
+    setStep1(data);
+    onNext?.();
+  };
+
   return (
-    <div className="max-w-[100rem] mx-auto pt-8">
+    <div className="max-w-7xl mx-auto pt-8">
       <Card>
         <CardHeader>
-          <CardTitle className="text-3xl">Шаг 1 — Выбор маршрута</CardTitle>
+          <CardTitle className="text-2xl md:text-3xl">{t('title')}</CardTitle>
         </CardHeader>
 
-        <CardContent className="pt-4 px-6 overflow-visible">
-          <form className="flex flex-row items-stretch gap-8">
-            {/* FROM */}
-            <div className="flex flex-col gap-2">
-              <Label className="text-lg">Откуда</Label>
-              <Input
-                {...form.register('from')}
-                className="py-6 md:text-lg border-2"
-                type="search"
-              />
-            </div>
-
-            {/* TO */}
-            <div className="flex flex-col gap-2">
-              <Label className="text-lg">Куда</Label>
-              <Input {...form.register('to')} className="py-6 md:text-lg border-2" type="search" />
-            </div>
-
-            {/* DATES */}
-            <div className="flex gap-0">
-              <div className="flex flex-col gap-2">
-                <Label className="text-lg">Дата выезда</Label>
-                <Input
-                  {...form.register('startDate')}
-                  type="date"
-                  className="appearance-none py-6 md:text-lg border-2 rounded-l-md rounded-r-none"
+        <CardContent className="pt-4 px-4 md:px-6 overflow-visible">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-6 w-full">
+            <div className="flex flex-wrap items-end gap-4 w-full">
+              <div className="flex flex-col gap-1 flex-[1_1_12rem]">
+                <Label className="text-base">{t('from')}</Label>
+                <Controller
+                  control={form.control}
+                  name="from"
+                  render={({ field }) => (
+                    <SearchableInput value={field.value} onChange={field.onChange} />
+                  )}
                 />
               </div>
-              <div className="flex flex-col gap-2">
-                <Label className="text-lg">Дата возврата</Label>
-                <Input
-                  {...form.register('endDate')}
-                  type="date"
-                  className="appearance-none py-6 md:text-lg border-2 rounded-r-md rounded-l-none border-l-0"
+
+              {/* To */}
+              <div className="flex flex-col gap-1 flex-[1_1_12rem]">
+                <Label className="text-base">{t('to')}</Label>
+                <Controller
+                  control={form.control}
+                  name="to"
+                  render={({ field }) => (
+                    <SearchableInput value={field.value} onChange={field.onChange} />
+                  )}
                 />
               </div>
-            </div>
 
-            {/* PASSENGERS */}
-            <div className="flex flex-col gap-2">
-              <Label className="text-lg">Пассажиры</Label>
-              <Controller
-                name="passengerCount"
-                control={form.control}
-                render={({ field }) => (
-                  <SearchableSelect
-                    className=""
-                    value={field.value}
-                    options={[1, 2, 3, 4, 5].map((n) => ({
-                      value: String(n),
-                      label: `${n} ${n === 1 ? 'Пассажир' : 'Пассажира'}`,
-                    }))}
-                  />
-                )}
-              />
+              {/* Dates */}
+              <div className="flex flex-row gap-1 flex-[1_1_15rem]">
+                <div className="flex flex-col gap-1 flex-1">
+                  <Label className="text-base">{t('departureDate')}</Label>
+                  <Controller
+                    name="startDate"
+                    control={form.control}
+                    render={({ field }) => (
+                      <DatePicker value={field.value ?? null} onChange={field.onChange} />
+                    )}
+                  ></Controller>
+                </div>
+                <div className="flex flex-col gap-1 flex-1">
+                  <Label className="text-base">{t('returnDate')}</Label>
+                  <Controller
+                    name="endDate"
+                    control={form.control}
+                    render={({ field }) => (
+                      <DatePicker value={field.value ?? null} onChange={field.onChange} />
+                    )}
+                  ></Controller>
+                </div>
+              </div>
+
+              {/* Passengers */}
+              <div className="flex flex-col gap-1 flex-[0_1_10rem]">
+                <Label className="text-base">{t('passengers')}</Label>
+                <Controller
+                  name="passengerCount"
+                  control={form.control}
+                  render={({ field }) => (
+                    <SearchableSelect
+                      value={field.value}
+                      onChange={field.onChange}
+                      options={[1, 2, 3, 4, 5].map((n) => ({
+                        value: n,
+                      }))}
+                      placeholder="1"
+                    />
+                  )}
+                />
+              </div>
+
+              {/* Button */}
+              <div className="flex flex-col justify-end flex-[0_1_auto]">
+                <button
+                  type="submit"
+                  className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold text-base md:text-lg px-6 py-3 rounded-md whitespace-nowrap"
+                >
+                  {t('findConnection')}
+                </button>
+              </div>
             </div>
           </form>
         </CardContent>

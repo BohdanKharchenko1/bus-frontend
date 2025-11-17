@@ -233,3 +233,8 @@ export interface IconCell {
   icon_name: string;
   icon: string;
 }
+
+export interface RouteError {
+  error: string;
+  detail: string;
+}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Check, ChevronsUpDown } from 'lucide-react';
+import { ChevronsUpDown } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import {
   Command,
@@ -43,9 +43,12 @@ export function SearchableSelect({
           role="combobox"
           aria-expanded={open}
           disabled={disabled}
-          className={cn('justify-between border-2 h-[51px] w-48 md:text-lg font-normal', className)}
+          className={cn(
+            'justify-between border-2 h-[51px] min-w-0 w-full text-base md:text-lg font-normal',
+            className,
+          )}
         >
-          {String(value) || placeholder}
+          {value !== undefined && value !== null ? value : placeholder}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -57,7 +60,7 @@ export function SearchableSelect({
             <CommandGroup>
               {options?.map((option) => (
                 <CommandItem
-                  className={cn('sm:text-lg')}
+                  className={cn('sm:text-lg justify-center')}
                   key={option.value}
                   value={String(option.value)}
                   onSelect={(currentValue) => {
@@ -66,12 +69,6 @@ export function SearchableSelect({
                     setOpen(false);
                   }}
                 >
-                  <Check
-                    className={cn(
-                      'mr-2 h-4 w-4',
-                      value === option.value ? 'opacity-100' : 'opacity-0',
-                    )}
-                  />
                   {option.value}
                 </CommandItem>
               ))}

@@ -1,9 +1,9 @@
 import { cn } from '../../lib/utils';
 import { Command, CommandGroup, CommandItem, CommandList } from '../../components/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '../../components/ui/popover';
-import { useEffect, useState } from 'react';
-import { Input } from '../../components/ui/input.tsx';
-import { getPoints } from '../../api/bus.ts';
+import { useEffect, useRef, useState } from 'react';
+import { Input } from '../../components/ui/input';
+import { getPoints } from '../../api/bus';
 
 export type Point = {
   point_id: number;
@@ -16,13 +16,24 @@ export type Point = {
 interface SearchableInputProps {
   value?: Point | null;
   onChange?: (value: Point | null) => void;
+  placeholder?: string;
+  className?: string;
+  disabled?: boolean;
 }
 
-export function SearchableInput({ value, onChange }: SearchableInputProps) {
+export function SearchableInput({
+  value,
+  onChange,
+  placeholder = 'Search location',
+  className,
+  disabled = false,
+}: SearchableInputProps) {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState<Point[]>([]);
   const [query, setQuery] = useState(value?.point_name ?? '');
-  const [chosen, setChosen] = useState<boolean>(false);
+  const [chosen, setChosen] = useState(!!value);
+
+  const clicked = useRef(false);
 
   useEffect(() => {
     const fetchPoints = async () => {
@@ -32,6 +43,7 @@ export function SearchableInput({ value, onChange }: SearchableInputProps) {
         setOpen(false);
         return;
       }
+
       try {
         const res = await getPoints({ autocomplete: query, lang: 'cz' });
         setOptions(res.data || []);
@@ -41,15 +53,34 @@ export function SearchableInput({ value, onChange }: SearchableInputProps) {
       }
     };
 
-    const debounce = setTimeout(fetchPoints, 400);
-    return () => clearTimeout(debounce);
+    const timeout = setTimeout(fetchPoints, 400);
+    return () => clearTimeout(timeout);
   }, [query, chosen]);
 
+  const handleOpenChange = (isOpen: boolean) => {
+    if (!isOpen) {
+      if (!clicked.current && !chosen && options.length > 0) {
+        const first = options[0];
+        onChange?.(first);
+        setQuery(first.point_name);
+        setChosen(true);
+      }
+      clicked.current = false;
+    }
+
+    setOpen(isOpen);
+  };
+
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover open={open} onOpenChange={handleOpenChange}>
       <PopoverTrigger asChild>
         <Input
-          className="py-6 md:text-lg border-2"
+          className={cn(
+            'py-3 h-[51px] text-base md:text-lg border-2 w-full min-w-0',
+            className,
+          )}
+          placeholder={placeholder}
+          disabled={disabled}
           type="search"
           value={query}
           onChange={(e) => {
@@ -62,6 +93,7 @@ export function SearchableInput({ value, onChange }: SearchableInputProps) {
           }}
         />
       </PopoverTrigger>
+
       {options.length > 0 && (
         <PopoverContent
           side="bottom"
@@ -79,10 +111,11 @@ export function SearchableInput({ value, onChange }: SearchableInputProps) {
                     value={option.point_name}
                     className={cn('sm:text-lg')}
                     onSelect={() => {
+                      clicked.current = true;
                       onChange?.(option);
                       setQuery(option.point_name);
-                      setOpen(false);
                       setChosen(true);
+                      setOpen(false);
                     }}
                   >
                     {option.point_name} ({option.country_name})

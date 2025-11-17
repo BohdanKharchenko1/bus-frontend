@@ -3,23 +3,28 @@ import { ChevronDownIcon } from 'lucide-react';
 
 import { Button } from '../../components/ui/button';
 import { Calendar } from '../../components/ui/calendar';
-import { Label } from '../../components/ui/label';
 import { Popover, PopoverContent, PopoverTrigger } from '../../components/ui/popover';
+import { cn } from '../../lib/utils';
 
 type Props = {
   onChange: (value: string | null) => void;
   value: string | null;
+  className?: string;
+  placeholder?: string;
 };
-export function DatePicker({ value, onChange }: Props) {
+export function DatePicker({ value, onChange, className, placeholder = 'Select date' }: Props) {
   const [open, setOpen] = React.useState(false);
 
   return (
     <div className="flex flex-col gap-3">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
-          <Button variant="outline" className="w-48 justify-between font-normal">
-            {value ? new Date(value).toLocaleDateString() : 'Select date'}
-            <ChevronDownIcon />
+          <Button
+            variant="outline"
+            className={cn('justify-between font-normal h-[51px] md:text-lg text-base', className)}
+          >
+            {value ? new Date(value).toLocaleDateString() : placeholder}
+            <ChevronDownIcon className="ml-2 size-4 shrink-0" />
           </Button>
         </PopoverTrigger>
 

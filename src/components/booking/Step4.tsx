@@ -1,8 +1,7 @@
-import { useBookingStore } from '../../stores/bookingStore.ts';
 import { useShallow } from 'zustand/react/shallow';
-import { useEffect } from 'react';
-import { getFreeSeats, getPlan } from '../../api/bus.ts';
-import SeatsPlan from '../../components/partials/SeatsPlan.tsx';
+import { useBookingStore } from '../../stores/bookingStore';
+import SeatsPlan from '../partials/SeatsPlan';
+import { useSeatsLoader } from './step4/hooks/useSeatsLoader';
 
 interface Step4Props {
   onNext?: () => void;
@@ -19,42 +18,18 @@ export default function Step4({ onPrevious, onNext }: Step4Props) {
         bustypeIdBack: state.routeBack?.bustype_id,
       })),
     );
-  useEffect(() => {
-    if (!intervalIdThere || !bustypeIdThere) return;
 
-    const load = async () => {
-      const [freeSeatsThere, freeSeatsBack, busPlanThere, busPlanBack] = await Promise.all([
-        getFreeSeats({ interval_id: intervalIdThere }),
-        intervalIdBack ? getFreeSeats({ interval_id: intervalIdBack }) : Promise.resolve(null),
-        getPlan({ bustype_id: bustypeIdThere, v: 2.0, position: 'h' }),
-        bustypeIdBack
-          ? getPlan({ bustype_id: bustypeIdBack, v: 2.0, position: 'h' })
-          : Promise.resolve(null),
-      ]);
-
-      const formattedData = {
-        busPlanBack: busPlanBack?.data || null,
-        freeSeatsThere: freeSeatsThere.data,
-        freeSeatsBack: freeSeatsBack?.data || null,
-        busPlanThere: busPlanThere.data,
-      };
-      console.log(`formatted data ${formattedData}`);
-
-      setBusPlanAndFreeSeats(formattedData);
-    };
-
-    load();
-  }, [intervalIdThere, intervalIdBack, bustypeIdThere, bustypeIdBack]);
+  useSeatsLoader({
+    intervalIdThere,
+    intervalIdBack,
+    bustypeIdThere,
+    bustypeIdBack,
+    setBusPlanAndFreeSeats,
+  });
 
   return (
     <div className="max-w-7xl mx-auto pt-8">
-      <button type="button" className="h-6 w-10 bg-blue-400" onClick={onPrevious}>
-        Prev
-      </button>
-      <button type="button" className="h-6 w-10 bg-blue-400" onClick={onNext}>
-        Next
-      </button>
-      <SeatsPlan />
+      <SeatsPlan onNext={onNext} onPrevious={onPrevious} />
     </div>
   );
 }

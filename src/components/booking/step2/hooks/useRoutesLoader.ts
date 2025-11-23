@@ -1,0 +1,44 @@
+import { useEffect } from 'react';
+import { format } from 'date-fns';
+import { getRoutes } from '../../../../api/bus';
+import { RouteError, RouteItemType } from '../../../../types/routes';
+import { AxiosResponse } from 'axios';
+
+type RoutesLoaderParams = {
+  cityFromId?: number;
+  cityToId?: number;
+  dateFrom: string;
+  dateTo?: string | null;
+  setAllRoutes: (dataThere: RouteItemType[] | null, dataBack: RouteItemType[] | null) => void;
+};
+
+export const useRoutesLoader = ({
+  cityFromId,
+  cityToId,
+  dateFrom,
+  dateTo,
+  setAllRoutes,
+}: RoutesLoaderParams) => {
+  useEffect(() => {
+    const fetchRoutes = async () => {
+      let resBack: AxiosResponse<RouteItemType[] | RouteError> | null = null;
+      const resThere = await getRoutes({
+        id_from: cityFromId,
+        id_to: cityToId,
+        date: format(dateFrom, 'yyyy-MM-dd'),
+      });
+
+      if (dateTo) {
+        resBack = await getRoutes({
+          id_from: cityToId,
+          id_to: cityFromId,
+          date: format(dateTo, 'yyyy-MM-dd'),
+        });
+      }
+
+      setAllRoutes(resThere.data, resBack?.data ?? []);
+    };
+
+    fetchRoutes();
+  }, [cityFromId, cityToId, dateFrom, dateTo, setAllRoutes]);
+};

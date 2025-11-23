@@ -16,6 +16,15 @@ export default function RouteItem({ route, direction }: RouteItemProps) {
       routeBack: state.routeBack,
     })),
   );
+
+  const handleClick = (route, direction) => {
+    if (isSelected) {
+      setRoute(undefined, direction);
+    } else {
+      setRoute(route, direction);
+    }
+  };
+
   const isSelected =
     direction === 'there'
       ? routeThere?.route_id === route.route_id
@@ -26,7 +35,9 @@ export default function RouteItem({ route, direction }: RouteItemProps) {
         <div className="flex items-start gap-16">
           <div className="flex flex-col items-center justify-between relative h-full">
             <div className="flex flex-col items-center">
-              <div className="text-gray-500 font-medium">{route.date_from}</div>
+              <div className="text-gray-500 font-medium">
+                {new Date(route.date_from).toLocaleDateString()}
+              </div>
               <div className="text-2xl font-bold">{route.time_from}</div>
             </div>
 
@@ -35,7 +46,9 @@ export default function RouteItem({ route, direction }: RouteItemProps) {
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="text-gray-500 font-medium">{route.date_to}</div>
+              <div className="text-gray-500 font-medium">
+                {new Date(route.date_to).toLocaleDateString()}
+              </div>
               <div className="text-2xl font-bold">{route.time_to}</div>
             </div>
           </div>
@@ -67,7 +80,7 @@ export default function RouteItem({ route, direction }: RouteItemProps) {
             </div>
           </div>
           <button
-            onClick={() => setRoute(route, direction)}
+            onClick={() => handleClick(route, direction)}
             className={
               `font-bold text-md text-white px-10 py-3 rounded-md transition ` +
               (isSelected ? 'bg-green-600 hover:bg-green-700' : 'bg-purple-700 hover:bg-purple-800')

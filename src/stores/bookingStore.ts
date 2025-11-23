@@ -1,44 +1,101 @@
 import { create } from 'zustand/react';
 import { Lang } from '../enums/bookingEnums.ts';
 import { Point } from '@/components/partials/SearchableInput.tsx';
-import { BusPlan, FreeSeats, RouteError, RouteItemType } from '@/types/routes.ts';
+import { BaggageItem, BusPlan, FreeSeats, RouteError, RouteItemType } from '@/types/routes.ts';
 import { persist } from 'zustand/middleware';
+
+const initialState = {
+  trans: undefined,
+  lang: undefined,
+  passengerCount: 0,
+  from: undefined,
+  to: undefined,
+  step: 1,
+  startDate: '',
+  endDate: null,
+  name: [],
+  surname: [],
+  discountsThere: undefined,
+  discountsBack: undefined,
+  baggageThere: undefined,
+  baggageBack: undefined,
+  discounts: [],
+  routeThere: undefined,
+  routeBack: undefined,
+  freeSeatsThere: [],
+  freeSeatsBack: [],
+  busPlanThere: null,
+  busPlanBack: undefined,
+  allRoutesThere: [],
+  allRoutesBack: [],
+};
 
 interface BookingState {
   trans?: string;
   lang?: Lang;
   passengerCount: number;
+  email: string;
+  phone: string;
   from?: Point;
   to?: Point;
   step: number;
   startDate: string;
-  endDate: string;
-  routeThere?: RouteItemType;
-  routeBack?: RouteItemType;
+  endDate: string | undefined | null;
+  name: (string | undefined)[];
+  surname: (string | undefined)[];
+  discountsThere?;
+  discountsBack?;
+  baggageThere?: BaggageItem[];
+  baggageBack?: BaggageItem[];
+  discounts?: number[][];
+  routeThere?: RouteItemType | undefined;
+  routeBack?: RouteItemType | undefined;
   freeSeatsThere: FreeSeats[];
   freeSeatsBack?: FreeSeats[];
   busPlanThere: BusPlan | null;
   busPlanBack?: BusPlan;
+  seat: string[][];
   allRoutesThere: RouteItemType[] | RouteError;
-  allRoutesBack?: RouteItemType[] | RouteError;
+  allRoutesBack: RouteItemType[] | RouteError;
   setStep1: (data: Partial<BookingState>) => void;
-  setAllRoutes: (dataThere: RouteItemType[], dataBack: RouteItemType[]) => void;
+  setAllRoutes: (dataThere: RouteItemType[] | null, dataBack: RouteItemType[] | null) => void;
   nextStep: () => void;
   previousStep: () => void;
-  setRoute: (route: RouteItemType, direction: 'there' | 'back') => void;
+  setRoute: (route: RouteItemType | undefined, direction: 'there' | 'back') => void;
   setBusPlanAndFreeSeats: (busPlan: Partial<BookingState>) => void;
+  savePassengers: (payload: Partial<BookingState>) => void;
+  saveBaggageAndDiscounts: (payload: Partial<BookingState>) => void;
+  saveStep3: (payload: Partial<BookingState>) => void;
+  setSeat: (payload: Partial<BookingState>) => void;
+  reset: () => void;
 }
 export const useBookingStore = create<BookingState>()(
   persist(
     (set) => ({
       freeSeatsThere: [],
+      seat: [[], []],
+      allRoutesBack: [],
       busPlanThere: null,
-      endDate: '',
+      endDate: null,
       startDate: '',
       passengerCount: 0,
       step: 1,
       allRoutesThere: [],
-      setRoute: (route: RouteItemType, direction: 'there' | 'back') =>
+      saveStep3: (payload: Partial<BookingState>) =>
+        set(() => ({
+          discounts: payload.discounts,
+          name: payload.name,
+          surname: payload.surname,
+          phone: payload.phone,
+          email: payload.email,
+        })),
+      savePassengers: (payload) =>
+        set(() => ({
+          name: payload.name,
+          surname: payload.surname,
+        })),
+      saveBaggageAndDiscounts: (data) => set((state) => ({ ...state, ...data })),
+      setRoute: (route: RouteItemType | undefined, direction: 'there' | 'back') =>
         set(() => (direction === 'there' ? { routeThere: route } : { routeBack: route })),
       setStep1: (data) => set((state) => ({ ...state, ...data })),
       nextStep: () => set((s) => ({ step: Math.min(s.step + 1, 5) })),
@@ -46,10 +103,15 @@ export const useBookingStore = create<BookingState>()(
       setAllRoutes: (dataThere: RouteItemType[], dataBack: RouteItemType[]) =>
         set((state) => ({
           ...state,
-          allRoutesThere: dataThere,
+          allRoutesThere: dataThere || null,
           allRoutesBack: dataBack || null,
         })),
       setBusPlanAndFreeSeats: (data) => set((state) => ({ ...state, ...data })),
+      setSeat: (data) => set((state) => ({ ...state, ...data })),
+      reset: () => {
+        set(initialState);
+        localStorage.removeItem('booking');
+      },
     }),
     {
       name: 'booking',

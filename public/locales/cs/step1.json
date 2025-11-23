@@ -5,6 +5,8 @@
   "departureDate": "Datum odjezdu",
   "returnDate": "Datum návratu",
   "passengers": "Cestující",
-  "findConnection": "Najít spoj"
-
+  "findConnection": "Najít spoj",
+  "errors": {
+    "incompleteForm": "Vyplňte prosím povinná pole před pokračováním."
+  }
 }

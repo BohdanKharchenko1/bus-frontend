@@ -1,0 +1,12 @@
+{
+  "title": "Step 1 — Route Selection",
+  "from": "From",
+  "to": "To",
+  "departureDate": "Departure date",
+  "returnDate": "Return date",
+  "passengers": "Passengers",
+  "findConnection": "Find connection",
+  "errors": {
+    "incompleteForm": "Please complete the required fields before continuing."
+  }
+}

@@ -31,7 +31,7 @@ export interface RouteItemType {
   international: number;
   inland: number;
   speed_type: number;
-  need_orderdata: number;
+  need_orderdata: boolean;
   can_cyrillic_orderdata: number;
   need_birth: number;
   need_doc: number;
@@ -237,4 +237,31 @@ export interface IconCell {
 export interface RouteError {
   error: string;
   detail: string;
+}
+type Discount = {
+  discount_id: string;
+  discount_name: string;
+  discount_price: number;
+  currency: string;
+};
+
+export interface DiscountResponse {
+  route_id: number;
+  discounts: Discount[];
+}
+export interface BaggageItem {
+  baggage_id: string;
+  baggage_type_id: string;
+  baggage_type: string;
+  baggage_title: string;
+  baggage_type_abbreviated: string | null;
+  currency: string;
+  height: string;
+  kg: string;
+  length: string;
+  max_in_bus: string;
+  max_per_person: string;
+  price: number;
+  typ: string;
+  width: string;
 }

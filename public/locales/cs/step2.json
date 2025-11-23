@@ -1,3 +1,8 @@
 {
-  "title": "Krok 2"
+  "title": "Krok 2",
+  "noRoutesTitle": "Spoje nenalezeny",
+  "noRoutesSubtitle": "Zkuste prosím vybrat jiné datum.",
+  "errors": {
+    "loadingRoutes": "Nepodařilo se načíst spoje. Zkuste to prosím znovu."
+  }
 }

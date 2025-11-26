@@ -1,0 +1,18 @@
+{
+  "title": "Шаг 3 — Данные пассажиров",
+  "email": "E-mail",
+  "phone": "Телефон",
+  "name": "Имя",
+  "last_name": "Фамилия",
+  "submit": "Продолжить",
+  "discount_for_route": "Билет для рейса",
+  "discount_for_route_outbound": "Билет для рейса — Туда",
+  "discount_for_route_return": "Билет для рейса — Обратно",
+  "baggage_for_route": "Багаж для рейса",
+  "outbound": "Туда",
+  "return": "Обратно",
+  "add_baggage_label": "Дополнительный багаж",
+  "add_baggage_hint": "Нажмите +, чтобы добавить ещё одно место",
+  "extra_baggage_count": "Количество доп. мест",
+  "extra_baggage_total": "Стоимость доп. багажа"
+}

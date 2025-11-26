@@ -22,3 +22,12 @@ export const getBaggage = async (body): Promise<AxiosResponse> => {
 export const getDiscount = async (body): Promise<AxiosResponse> => {
   return await baseUrl.post('/booking/get_discount', body);
 };
+export const newOrder = async (body): Promise<AxiosResponse> => {
+  return await baseUrl.post('/booking/new_order', body);
+};
+export const cancelTicket = async (body): Promise<AxiosResponse> => {
+  return await baseUrl.post('/booking/cancel_ticket', body);
+};
+export const buyTicket = async (body): Promise<AxiosResponse> => {
+  return await baseUrl.post('/booking/buy_ticket', body);
+};

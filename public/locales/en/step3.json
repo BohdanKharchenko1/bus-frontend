@@ -1,0 +1,18 @@
+{
+  "title": "Step 3 — Passenger Details",
+  "email": "E-mail",
+  "phone": "Phone",
+  "name": "First name",
+  "last_name": "Last name",
+  "submit": "Continue",
+  "discount_for_route": "Ticket for route",
+  "discount_for_route_outbound": "Ticket for route — Outbound",
+  "discount_for_route_return": "Ticket for route — Return",
+  "baggage_for_route": "Baggage for route",
+  "outbound": "Outbound",
+  "return": "Return",
+  "add_baggage_label": "Extra baggage",
+  "add_baggage_hint": "Tap + to add another piece",
+  "extra_baggage_count": "Extra pieces",
+  "extra_baggage_total": "Total extra cost"
+}

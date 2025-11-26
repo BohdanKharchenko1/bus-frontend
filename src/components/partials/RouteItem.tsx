@@ -59,7 +59,7 @@ export default function RouteItem({ route, direction }: RouteItemProps) {
                 <div className="w-3 h-3 rounded-full border-4 border-purple-700"></div>
                 <span className="font-bold text-lg">{route.point_from}</span>
               </div>
-              <div className="text-gray-500 font-medium ml-6">{route.station_from}</div>
+              <div className="text-gray-500 font-medium text-left ">{route.station_from}</div>
             </div>
 
             <div className="mt-[5rem] flex flex-col">
@@ -67,7 +67,7 @@ export default function RouteItem({ route, direction }: RouteItemProps) {
                 <div className="w-3 h-3 rounded-full bg-purple-700"></div>
                 <span className="font-bold text-lg">{route.point_to}</span>
               </div>
-              <div className="text-gray-500 font-medium ml-6">{route.station_to}</div>
+              <div className="text-gray-500 font-medium text-left">{route.station_to}</div>
             </div>
           </div>
         </div>

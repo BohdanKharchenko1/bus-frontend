@@ -1,6 +1,6 @@
 import { useBookingStore } from '../../stores/bookingStore.ts';
 import { useShallow } from 'zustand/react/shallow';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Card } from '../../components/ui/card.tsx';
 import { Row, SeatCell } from '../../types/routes.ts';
 import { toast } from 'sonner';
@@ -19,6 +19,7 @@ export default function SeatsPlan({ onPrevious, onNext }: SeatPlanProps) {
     setSeat,
     seat,
     routeBack,
+    routeThere,
   } = useBookingStore(
     useShallow((state) => ({
       freeSeatsThere: state.freeSeatsThere,
@@ -29,12 +30,17 @@ export default function SeatsPlan({ onPrevious, onNext }: SeatPlanProps) {
       seat: state.seat,
       setSeat: state.setSeat,
       routeBack: state.routeBack,
+      routeThere: state.routeThere,
     })),
   );
 
   const [seatsChosen, setSeatsChosen] = useState<string[][]>(seat);
   const [direction, setDirection] = useState<'there' | 'back'>('there');
   const index = direction === 'there' ? 0 : 1;
+
+  useEffect(() => {
+    if (!routeThere) setDirection('back');
+  }, [routeThere]);
 
   const rows: Row[] | null =
     direction === 'there'
@@ -91,7 +97,7 @@ export default function SeatsPlan({ onPrevious, onNext }: SeatPlanProps) {
   };
 
   const handlePrevious = () => {
-    if (direction === 'back') {
+    if (direction === 'back' && routeThere) {
       setDirection('there');
       return;
     }
@@ -134,11 +140,11 @@ export default function SeatsPlan({ onPrevious, onNext }: SeatPlanProps) {
 
   return (
     <Card>
-      <div className="flex flex-row justify-around">
+      <div className="flex flex-row justify-between px-6">
         <button
           type="button"
           onClick={handlePrevious}
-          className="px-5 py-2 rounded-lg bg-gray-200 text-gray-700 font-medium hover:bg-gray-300"
+          className="w-32 px-5 py-2 text-center rounded-lg bg-gray-200 text-gray-700 font-medium hover:bg-gray-300"
         >
           ← Previous
         </button>
@@ -148,7 +154,7 @@ export default function SeatsPlan({ onPrevious, onNext }: SeatPlanProps) {
         <button
           type="button"
           onClick={handleNext}
-          className="px-5 py-2 rounded-lg bg-purple-700 text-white font-medium hover:bg-purple-800"
+          className="w-32 px-5 py-2 text-center rounded-lg bg-purple-700 text-white font-medium hover:bg-purple-800"
         >
           Next →
         </button>

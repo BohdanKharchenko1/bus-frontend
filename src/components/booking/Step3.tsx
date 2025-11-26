@@ -32,10 +32,14 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
     phone,
     baggageThere,
     baggageBack,
+    needMiddleName,
+    needBirthDate,
   } = useBookingStore(
     useShallow((state) => ({
       passengerCount: state.passengerCount,
       needOrderData: !!(state.routeThere?.need_orderdata || state.routeBack?.need_orderdata),
+      needMiddleName: !!(state.routeThere?.need_middlename || state.routeBack?.need_middlename),
+      needBirthDate: !!(state.routeThere?.need_birth || state.routeBack?.need_birth),
       routeThere: state.routeThere,
       routeBack: state.routeBack,
       saveBaggageAndDiscounts: state.saveBaggageAndDiscounts,
@@ -60,6 +64,8 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
     surname,
     email,
     phone,
+    needMiddleName,
+    needBirthDate,
   });
   const { handleSubmit, watch } = form;
   const onSubmit = (data: Step3FormValues) => {
@@ -70,7 +76,9 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
       surname: data?.surname.map((v) => v || ''),
       phone: data?.phone,
       email: data?.email,
+      baggage: data?.baggage,
     });
+    onNext?.();
   };
 
   useDiscountsLoader({
@@ -92,27 +100,29 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
               <button
                 type="button"
                 onClick={onPrevious}
-                className="px-5 py-2 rounded-lg bg-gray-200 text-gray-700 font-medium
+                className="w-32 px-5 py-2 text-center rounded-lg bg-gray-200 text-gray-700 font-medium
                hover:bg-gray-300 active:scale-[0.97] transition-all"
               >
                 ← Previous
               </button>
+              <CardTitle className="text-2xl md:text-3xl">{t('title')}</CardTitle>
 
               <button
-                type="button"
-                onClick={onNext}
-                className="px-5 py-2 rounded-lg bg-purple-700 text-white font-medium
+                type="submit"
+                className="w-32 px-5 py-2 text-center rounded-lg bg-purple-700 text-white font-medium
                hover:bg-purple-800 active:scale-[0.97] transition-all"
               >
                 Next →
               </button>
             </div>
 
-            {calculateTotalPrice(allValues, { discountsThere, discountsBack })}
-            <CardTitle className="text-2xl md:text-3xl">{t('title')}</CardTitle>
+            {calculateTotalPrice(allValues, {
+              discountsThere,
+              discountsBack,
+              baggageThere,
+              baggageBack,
+            })}
             <Step3Inputs form={form} t={t} />
-
-            <button type="submit" className="w-10 h-10 bg-amber-400"></button>
           </CardHeader>
           <CardContent>
             {Array.from({ length: passengerCount }).map((_, i) => (
@@ -133,6 +143,7 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
         </Card>
       </form>
       <pre className="text-xs">{JSON.stringify(watch(), null, 2)}</pre>
+      <pre className="text-xs text-red-500">{JSON.stringify(form.formState.errors, null, 2)}</pre>
     </div>
   );
 }

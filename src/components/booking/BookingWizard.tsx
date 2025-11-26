@@ -8,6 +8,7 @@ import { useShallow } from 'zustand/react/shallow';
 import { Suspense } from 'react';
 import Step3 from '../booking/Step3.tsx';
 import Step4 from '../booking/Step4.tsx';
+import Step5 from '../booking/Step5.tsx';
 
 export default function BookingWizard() {
   const { step, nextStep, previousStep } = useBookingStore(
@@ -42,6 +43,7 @@ export default function BookingWizard() {
               {step === 2 && <Step2 onPrevious={previousStep} onNext={nextStep} />}
               {step === 3 && <Step3 onPrevious={previousStep} onNext={nextStep} />}
               {step === 4 && <Step4 onPrevious={previousStep} onNext={nextStep} />}
+              {step === 5 && <Step5 onPrevious={previousStep} />}
             </Suspense>
           </CardContent>
         </CardHeader>

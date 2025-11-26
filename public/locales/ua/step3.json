@@ -1,0 +1,18 @@
+{
+  "title": "Крок 3 — Дані пасажирів",
+  "email": "E-mail",
+  "phone": "Телефон",
+  "name": "Ім'я",
+  "last_name": "Прізвище",
+  "submit": "Продовжити",
+  "discount_for_route": "Квиток для рейсу",
+  "discount_for_route_outbound": "Квиток для рейсу — Туди",
+  "discount_for_route_return": "Квиток для рейсу — Назад",
+  "baggage_for_route": "Багаж для рейсу",
+  "outbound": "Туди",
+  "return": "Назад",
+  "add_baggage_label": "Додатковий багаж",
+  "add_baggage_hint": "Натисніть +, щоб додати ще один",
+  "extra_baggage_count": "Кількість додаткових",
+  "extra_baggage_total": "Сума за додатковий багаж"
+}

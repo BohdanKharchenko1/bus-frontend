@@ -5,6 +5,7 @@ import { useShallow } from 'zustand/react/shallow';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { useRoutesLoader } from './step2/hooks/useRoutesLoader';
 import RoutesList from './step2/components/RoutesList';
+import { toast } from 'sonner';
 
 interface Step2Props {
   onPrevious?: () => void;
@@ -51,11 +52,16 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
       setDirection('back');
       return;
     }
+    if (direction === 'there' && !routeThere) {
+      toast.error('Vyberi ');
+      return;
+    }
 
     if (direction === 'back' && !routeBack) {
       if (routeThere) {
         onNext?.();
       } else {
+        toast.error('Vyberi ');
         return;
       }
       return;
@@ -76,29 +82,30 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
   return (
     <div className="max-w-7xl mx-auto pt-8">
       <Card>
-        <div className="flex justify-between mb-6">
-          <button
-            type="button"
-            onClick={handlePrevious}
-            className="px-5 py-2 rounded-lg bg-gray-200 text-gray-700 font-medium
+        <CardHeader className="pb-4">
+          <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4">
+            <button
+              type="button"
+              onClick={handlePrevious}
+              className="w-32 px-5 py-2 text-center rounded-lg bg-gray-200 text-gray-700 font-medium
                hover:bg-gray-300 active:scale-[0.97] transition-all"
-          >
-            ← Previous
-          </button>
+            >
+              ← Previous
+            </button>
 
-          <button
-            type="button"
-            onClick={handleNext}
-            className="px-5 py-2 rounded-lg bg-purple-700 text-white font-medium
+            <CardTitle className="text-2xl md:text-3xl text-center">{t('title')}</CardTitle>
+
+            <button
+              type="button"
+              onClick={handleNext}
+              className="w-32 px-5 py-2 text-center rounded-lg bg-purple-700 text-white font-medium
                hover:bg-purple-800 active:scale-[0.97] transition-all"
-          >
-            Next →
-          </button>
-        </div>
-
-        <CardHeader>
-          <CardTitle className="text-2xl md:text-3xl ">{t('title')}</CardTitle>
+            >
+              Next →
+            </button>
+          </div>
         </CardHeader>
+
         <CardContent className="flex flex-col gap-6 ">
           {direction === 'there' ? (
             <RoutesList data={allRoutesThere} direction="there" />

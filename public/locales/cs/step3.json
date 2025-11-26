@@ -4,5 +4,15 @@
   "phone": "Telefon",
   "name": "Jméno",
   "last_name": "Příjmení",
-  "submit": "Pokračovat"
+  "submit": "Pokračovat",
+  "discount_for_route": "Jízdenka pro trasu",
+  "discount_for_route_outbound": "Jízdenka pro trasu — Směr tam",
+  "discount_for_route_return": "Jízdenka pro trasu — Směr zpět",
+  "baggage_for_route": "Zavazadla pro trasu",
+  "outbound": "Směr tam",
+  "return": "Směr zpět",
+  "add_baggage_label": "Dodatečné zavazadlo",
+  "add_baggage_hint": "Klikněte na + pro přidání dalšího kusu",
+  "extra_baggage_count": "Počet kusů navíc",
+  "extra_baggage_total": "Cena navíc celkem"
 }

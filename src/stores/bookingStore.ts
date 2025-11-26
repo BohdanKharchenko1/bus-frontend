@@ -32,7 +32,7 @@ const initialState = {
 
 interface BookingState {
   trans?: string;
-  lang?: Lang;
+  lang?: string;
   passengerCount: number;
   email: string;
   phone: string;
@@ -45,6 +45,7 @@ interface BookingState {
   surname: (string | undefined)[];
   discountsThere?;
   discountsBack?;
+  baggage: unknown;
   baggageThere?: BaggageItem[];
   baggageBack?: BaggageItem[];
   discounts?: number[][];
@@ -55,6 +56,7 @@ interface BookingState {
   busPlanThere: BusPlan | null;
   busPlanBack?: BusPlan;
   seat: string[][];
+  newOrder: unknown;
   allRoutesThere: RouteItemType[] | RouteError;
   allRoutesBack: RouteItemType[] | RouteError;
   setStep1: (data: Partial<BookingState>) => void;
@@ -67,7 +69,10 @@ interface BookingState {
   saveBaggageAndDiscounts: (payload: Partial<BookingState>) => void;
   saveStep3: (payload: Partial<BookingState>) => void;
   setSeat: (payload: Partial<BookingState>) => void;
+  setNewOrder: (payload: Partial<BookingState>) => void;
   reset: () => void;
+  resetNewOrder: () => void;
+  setLang: (lang: string) => void;
 }
 export const useBookingStore = create<BookingState>()(
   persist(
@@ -88,6 +93,7 @@ export const useBookingStore = create<BookingState>()(
           surname: payload.surname,
           phone: payload.phone,
           email: payload.email,
+          baggage: payload.baggage,
         })),
       savePassengers: (payload) =>
         set(() => ({
@@ -97,6 +103,8 @@ export const useBookingStore = create<BookingState>()(
       saveBaggageAndDiscounts: (data) => set((state) => ({ ...state, ...data })),
       setRoute: (route: RouteItemType | undefined, direction: 'there' | 'back') =>
         set(() => (direction === 'there' ? { routeThere: route } : { routeBack: route })),
+      setLang: (lang: string) => set(() => ({ lang: lang })),
+
       setStep1: (data) => set((state) => ({ ...state, ...data })),
       nextStep: () => set((s) => ({ step: Math.min(s.step + 1, 5) })),
       previousStep: () => set((s) => ({ step: Math.max(s.step - 1, 1) })),
@@ -106,12 +114,14 @@ export const useBookingStore = create<BookingState>()(
           allRoutesThere: dataThere || null,
           allRoutesBack: dataBack || null,
         })),
+      setNewOrder: (data) => set((state) => ({ ...state, ...data })),
       setBusPlanAndFreeSeats: (data) => set((state) => ({ ...state, ...data })),
       setSeat: (data) => set((state) => ({ ...state, ...data })),
       reset: () => {
         set(initialState);
         localStorage.removeItem('booking');
       },
+      resetNewOrder: () => set(() => ({ newOrder: undefined })),
     }),
     {
       name: 'booking',

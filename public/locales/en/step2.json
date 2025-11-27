@@ -1,0 +1,8 @@
+{
+  "title": "Step 2",
+  "noRoutesTitle": "No routes found",
+  "noRoutesSubtitle": "Try selecting a different date.",
+  "errors": {
+    "loadingRoutes": "Failed to load routes. Please try again."
+  }
+}

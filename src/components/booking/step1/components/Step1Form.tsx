@@ -1,10 +1,10 @@
 import { Controller, FieldErrors, UseFormReturn } from 'react-hook-form';
 import { TFunction } from 'i18next';
-import { SearchableSelect } from '@/components/partials/SearchableSelect.tsx';
-import { SearchableInput } from '@/components/partials/SearchableInput.tsx';
-import { DatePicker } from '@/components/booking/step1/components/DatePicker.tsx';
-import { Step1FormValues } from '@/components/booking/step1/schema/step1Schema.ts';
-import FieldGroup from '@/components/booking/step1/components/FieldGroup.tsx';
+import { SearchableSelect } from '../../../partials/SearchableSelect.tsx';
+import { SearchableInput } from '../../../partials/SearchableInput.tsx';
+import { DatePicker } from '../components/DatePicker.tsx';
+import { Step1FormValues } from '../schema/step1Schema.ts';
+import FieldGroup from './FieldGroup.tsx';
 
 type Step1FormProps = {
   form: UseFormReturn<Step1FormValues>;
@@ -15,7 +15,7 @@ type Step1FormProps = {
 
 const passengerOptions = [1, 2, 3, 4, 5].map((n) => ({ value: n }));
 
-const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => (
+export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => (
   <form onSubmit={form.handleSubmit(onSubmit, onError)} className="flex flex-col gap-6 w-full">
     <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6 lg:[grid-template-columns:repeat(11,minmax(0,1fr))_auto] lg:gap-6">
       <div className="min-w-0 sm:col-span-2 md:col-span-3 lg:col-span-3 w-full">
@@ -101,5 +101,3 @@ const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => (
     </div>
   </form>
 );
-
-export default Step1Form;

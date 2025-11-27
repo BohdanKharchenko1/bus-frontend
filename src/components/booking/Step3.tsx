@@ -1,14 +1,14 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useBookingStore } from '@/stores/bookingStore.ts';
+import { useBookingStore } from '../../stores/bookingStore.ts';
 import { useShallow } from 'zustand/react/shallow';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx';
-import { useStep3Form } from '@/components/booking/step3/hooks/useStep3Form.ts';
-import { useDiscountsLoader } from '@/components/booking/step3/hooks/useDiscountsLoader.ts';
-import { calculateTotalPrice } from '@/components/booking/step3/utils/price.ts';
-import PassengerCard from '@/components/booking/step3/components/PassengerCard.tsx';
-import Step3Inputs from '@/components/booking/step3/components/Step3Inputs.tsx';
-import { Step3FormValues } from '@/components/booking/step3/schema/step3Schema.ts';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card.tsx';
+import { useStep3Form } from './step3/hooks/useStep3Form';
+import { useDiscountsLoader } from './step3/hooks/useDiscountsLoader';
+import { calculateTotalPrice } from './step3/utils/price';
+import PassengerCard from './step3/components/PassengerCard';
+import Step3Inputs from './step3/components/Step3Inputs';
+import { Step3FormValues } from './step3/schema/step3Schema';
 
 interface Step3Props {
   onPrevious?: () => void;

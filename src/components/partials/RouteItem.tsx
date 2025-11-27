@@ -17,7 +17,7 @@ export default function RouteItem({ route, direction }: RouteItemProps) {
     })),
   );
 
-  const handleClick = (route, direction) => {
+  const handleClick = (route: RouteItemType, direction: 'there' | 'back') => {
     if (isSelected) {
       setRoute(undefined, direction);
     } else {

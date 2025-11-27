@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { format } from 'date-fns';
 import { getRoutes } from '../../../../api/bus';
-import { RouteError, RouteItemType } from '../../../../types/routes';
+import { RouteItemType } from '../../../../types/routes';
 import { AxiosResponse } from 'axios';
 
 type RoutesLoaderParams = {
@@ -21,7 +21,7 @@ export const useRoutesLoader = ({
 }: RoutesLoaderParams) => {
   useEffect(() => {
     const fetchRoutes = async () => {
-      let resBack: AxiosResponse<RouteItemType[] | RouteError> | null = null;
+      let resBack: AxiosResponse<RouteItemType[]> | null = null;
       const resThere = await getRoutes({
         id_from: cityFromId,
         id_to: cityToId,

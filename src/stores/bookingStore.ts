@@ -1,35 +1,9 @@
 import { create } from 'zustand/react';
-import { Lang } from '../enums/bookingEnums.ts';
 import { Point } from '@/components/partials/SearchableInput.tsx';
 import { BaggageItem, BusPlan, FreeSeats, RouteError, RouteItemType } from '@/types/routes.ts';
 import { persist } from 'zustand/middleware';
 
-const initialState = {
-  passengerCount: 0,
-  from: undefined,
-  to: undefined,
-  step: 1,
-  startDate: '',
-  endDate: null,
-  name: [],
-  surname: [],
-  discountsThere: undefined,
-  discountsBack: undefined,
-  baggageThere: undefined,
-  baggageBack: undefined,
-  discounts: [],
-  routeThere: undefined,
-  routeBack: undefined,
-  freeSeatsThere: [],
-  freeSeatsBack: [],
-  busPlanThere: null,
-  busPlanBack: undefined,
-  allRoutesThere: [],
-  allRoutesBack: [],
-  seat: [[], []],
-};
-
-interface BookingState {
+export interface BookingState {
   trans?: string;
   lang?: string;
   passengerCount: number;
@@ -42,9 +16,9 @@ interface BookingState {
   endDate: string | undefined | null;
   name: (string | undefined)[];
   surname: (string | undefined)[];
-  discountsThere?;
-  discountsBack?;
-  baggage: unknown;
+  discountsThere?: any;
+  discountsBack?: any;
+  baggage?: string[][];
   baggageThere?: BaggageItem[];
   baggageBack?: BaggageItem[];
   discounts?: number[][];
@@ -55,9 +29,9 @@ interface BookingState {
   busPlanThere: BusPlan | null;
   busPlanBack?: BusPlan;
   seat: string[][];
-  newOrder: unknown;
-  allRoutesThere: RouteItemType[] | RouteError;
-  allRoutesBack: RouteItemType[] | RouteError;
+  newOrder?: { order_id?: string | number } | null;
+  allRoutesThere: RouteItemType[] | RouteError | null;
+  allRoutesBack: RouteItemType[] | RouteError | null;
   setStep1: (data: Partial<BookingState>) => void;
   setAllRoutes: (dataThere: RouteItemType[] | null, dataBack: RouteItemType[] | null) => void;
   nextStep: () => void;
@@ -73,18 +47,56 @@ interface BookingState {
   resetNewOrder: () => void;
   setLang: (lang: string) => void;
 }
+const initialState = {
+  passengerCount: 0,
+  from: undefined,
+  to: undefined,
+  step: 1,
+  startDate: '',
+  endDate: null,
+  name: [],
+  surname: [],
+  email: '',
+  phone: '',
+  discountsThere: undefined,
+  discountsBack: undefined,
+  baggageThere: undefined,
+  baggageBack: undefined,
+  discounts: [],
+  baggage: [[], []],
+  routeThere: undefined,
+  routeBack: undefined,
+  freeSeatsThere: [],
+  freeSeatsBack: [],
+  busPlanThere: null,
+  busPlanBack: undefined,
+  allRoutesThere: [],
+  allRoutesBack: [],
+  seat: [[], []],
+  newOrder: null,
+  trans: undefined,
+  lang: undefined,
+} satisfies Omit<
+  BookingState,
+  | 'setStep1'
+  | 'setAllRoutes'
+  | 'nextStep'
+  | 'previousStep'
+  | 'setRoute'
+  | 'setBusPlanAndFreeSeats'
+  | 'savePassengers'
+  | 'saveBaggageAndDiscounts'
+  | 'saveStep3'
+  | 'setSeat'
+  | 'setNewOrder'
+  | 'reset'
+  | 'resetNewOrder'
+  | 'setLang'
+>;
 export const useBookingStore = create<BookingState>()(
   persist(
     (set) => ({
-      freeSeatsThere: [],
-      seat: [[], []],
-      allRoutesBack: [],
-      busPlanThere: null,
-      endDate: null,
-      startDate: '',
-      passengerCount: 0,
-      step: 1,
-      allRoutesThere: [],
+      ...initialState,
       saveStep3: (payload: Partial<BookingState>) =>
         set(() => ({
           discounts: payload.discounts,
@@ -107,7 +119,7 @@ export const useBookingStore = create<BookingState>()(
       setStep1: (data) => set((state) => ({ ...state, ...data })),
       nextStep: () => set((s) => ({ step: Math.min(s.step + 1, 5) })),
       previousStep: () => set((s) => ({ step: Math.max(s.step - 1, 1) })),
-      setAllRoutes: (dataThere: RouteItemType[], dataBack: RouteItemType[]) =>
+      setAllRoutes: (dataThere: RouteItemType[] | null, dataBack: RouteItemType[] | null) =>
         set((state) => ({
           ...state,
           allRoutesThere: dataThere || null,
@@ -117,7 +129,7 @@ export const useBookingStore = create<BookingState>()(
       setBusPlanAndFreeSeats: (data) => set((state) => ({ ...state, ...data })),
       setSeat: (data) => set((state) => ({ ...state, ...data })),
       reset: () => {
-        set(initialState);
+        set(() => ({ ...initialState }));
         localStorage.removeItem('booking');
       },
       resetNewOrder: () => set(() => ({ newOrder: undefined })),

@@ -17,7 +17,6 @@ type PassengerCardProps = {
   routeThere?: RouteItemType;
   routeBack?: RouteItemType;
   t: TFunction<'step3'>;
-  routeIndex: number;
 };
 
 const PassengerCard = ({

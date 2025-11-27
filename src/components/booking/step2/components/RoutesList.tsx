@@ -2,7 +2,7 @@ import RouteItem from '../../../partials/RouteItem';
 import { RouteError, RouteItemType } from '../../../../types/routes';
 
 type RoutesListProps = {
-  data: RouteItemType[] | RouteError | undefined;
+  data: RouteItemType[] | RouteError | null | undefined;
   direction: 'there' | 'back';
 };
 

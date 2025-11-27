@@ -14,5 +14,7 @@
   "add_baggage_label": "Дополнительный багаж",
   "add_baggage_hint": "Нажмите +, чтобы добавить ещё одно место",
   "extra_baggage_count": "Количество доп. мест",
-  "extra_baggage_total": "Стоимость доп. багажа"
+  "extra_baggage_total": "Стоимость доп. багажа",
+  "total_price_label": "Итоговая стоимость",
+  "total_price_hint": "Включая билеты и багаж"
 }

@@ -149,7 +149,9 @@ export default function SeatsPlan({ onPrevious, onNext }: SeatPlanProps) {
           ← Previous
         </button>
 
-        <h2 className="text-center">Осталось занять {passengerCount - selectedSeats.length}</h2>
+        <h2 className="text-center">
+          Осталось занять {passengerCount - (selectedSeats ? selectedSeats.length : 0)}
+        </h2>
 
         <button
           type="button"

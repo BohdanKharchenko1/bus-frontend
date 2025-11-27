@@ -5,8 +5,6 @@ import { BaggageItem, BusPlan, FreeSeats, RouteError, RouteItemType } from '@/ty
 import { persist } from 'zustand/middleware';
 
 const initialState = {
-  trans: undefined,
-  lang: undefined,
   passengerCount: 0,
   from: undefined,
   to: undefined,
@@ -28,6 +26,7 @@ const initialState = {
   busPlanBack: undefined,
   allRoutesThere: [],
   allRoutesBack: [],
+  seat: [[], []],
 };
 
 interface BookingState {

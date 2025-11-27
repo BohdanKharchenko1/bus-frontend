@@ -14,5 +14,7 @@
   "add_baggage_label": "Dodatečné zavazadlo",
   "add_baggage_hint": "Klikněte na + pro přidání dalšího kusu",
   "extra_baggage_count": "Počet kusů navíc",
-  "extra_baggage_total": "Cena navíc celkem"
+  "extra_baggage_total": "Cena navíc celkem",
+  "total_price_label": "Celková cena cesty",
+  "total_price_hint": "Včetně jízdenek a zavazadel"
 }

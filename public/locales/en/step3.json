@@ -14,5 +14,7 @@
   "add_baggage_label": "Extra baggage",
   "add_baggage_hint": "Tap + to add another piece",
   "extra_baggage_count": "Extra pieces",
-  "extra_baggage_total": "Total extra cost"
+  "extra_baggage_total": "Total extra cost",
+  "total_price_label": "Trip total",
+  "total_price_hint": "Includes tickets and baggage"
 }

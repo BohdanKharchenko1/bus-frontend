@@ -41,8 +41,8 @@ export default function BookingWizard() {
               <Stepper steps={steps} current={currentStepIndex} />
               {step === 1 && <Step1 onNext={nextStep} />}
               {step === 2 && <Step2 onPrevious={previousStep} onNext={nextStep} />}
-              {step === 3 && <Step3 onPrevious={previousStep} onNext={nextStep} />}
-              {step === 4 && <Step4 onPrevious={previousStep} onNext={nextStep} />}
+              {step === 4 && <Step3 onPrevious={previousStep} onNext={nextStep} />}
+              {step === 3 && <Step4 onPrevious={previousStep} onNext={nextStep} />}
               {step === 5 && <Step5 onPrevious={previousStep} />}
             </Suspense>
           </CardContent>

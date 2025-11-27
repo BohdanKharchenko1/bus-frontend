@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useBookingStore } from '../../stores/bookingStore.ts';
 import { useShallow } from 'zustand/react/shallow';
@@ -34,6 +35,7 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
     baggageBack,
     needMiddleName,
     needBirthDate,
+    baggage,
   } = useBookingStore(
     useShallow((state) => ({
       passengerCount: state.passengerCount,
@@ -53,6 +55,7 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
       phone: state.phone,
       baggageThere: state.baggageThere,
       baggageBack: state.baggageBack,
+      baggage: state.baggage,
     })),
   );
 
@@ -66,6 +69,7 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
     phone,
     needMiddleName,
     needBirthDate,
+    baggage,
   });
   const { handleSubmit, watch } = form;
   const onSubmit = (data: Step3FormValues) => {
@@ -87,9 +91,32 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
     routeThere,
     routeBack,
     saveBaggageAndDiscounts,
+    discountsThere,
+    discountsBack,
   });
 
   const allValues = watch();
+  const totalPrice = useMemo(
+    () =>
+      calculateTotalPrice(allValues, {
+        discountsThere,
+        discountsBack,
+        baggageThere,
+        baggageBack,
+      }),
+    [allValues, discountsBack, discountsThere, baggageBack, baggageThere],
+  );
+
+  const totalCurrency = useMemo(() => {
+    const candidates = [
+      discountsThere?.discounts?.[0]?.currency,
+      discountsBack?.discounts?.[0]?.currency,
+      baggageThere?.[0]?.currency,
+      baggageBack?.[0]?.currency,
+    ];
+
+    return candidates.find((c) => !!c) ?? '';
+  }, [discountsBack, discountsThere, baggageBack, baggageThere]);
 
   return (
     <div className="max-w-7xl mx-auto pt-8">
@@ -116,12 +143,24 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
               </button>
             </div>
 
-            {calculateTotalPrice(allValues, {
-              discountsThere,
-              discountsBack,
-              baggageThere,
-              baggageBack,
-            })}
+            <div className="mt-2 flex flex-col gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex flex-col">
+                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
+                    {t('total_price_label')}
+                  </span>
+                  <span className="text-xs text-slate-500">{t('total_price_hint')}</span>
+                </div>
+                <div className="flex items-baseline gap-2 text-slate-900">
+                  <span className="text-2xl font-semibold">{totalPrice.toFixed(2)}</span>
+                  {totalCurrency && (
+                    <span className="text-xs font-semibold uppercase tracking-[0.1em] text-slate-600">
+                      {totalCurrency}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
             <Step3Inputs form={form} t={t} />
           </CardHeader>
           <CardContent>
@@ -143,7 +182,6 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
         </Card>
       </form>
       <pre className="text-xs">{JSON.stringify(watch(), null, 2)}</pre>
-      <pre className="text-xs text-red-500">{JSON.stringify(form.formState.errors, null, 2)}</pre>
     </div>
   );
 }

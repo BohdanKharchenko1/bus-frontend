@@ -14,5 +14,7 @@
   "add_baggage_label": "Додатковий багаж",
   "add_baggage_hint": "Натисніть +, щоб додати ще один",
   "extra_baggage_count": "Кількість додаткових",
-  "extra_baggage_total": "Сума за додатковий багаж"
+  "extra_baggage_total": "Сума за додатковий багаж",
+  "total_price_label": "Загальна вартість",
+  "total_price_hint": "Включає квитки та багаж"
 }

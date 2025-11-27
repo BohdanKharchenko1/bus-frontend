@@ -1,7 +1,7 @@
-import NewOrderButton from './step5/components/NewOrderButton.tsx';
 import { cancelTicket } from '../../api/bus.ts';
 import { useBookingStore } from '../../stores/bookingStore.ts';
 import BuyTicketButton from './step5/components/BuyTicketButton.tsx';
+import { useCreateNewOrder } from './step5/hooks/useCreateNewOrder.ts';
 
 type Step5Props = {
   onPrevious?: () => void;
@@ -10,12 +10,13 @@ export default function Step5({ onPrevious }: Step5Props) {
   const orderId = useBookingStore((s) => s.newOrder?.order_id);
   const resetNewOrder = useBookingStore((s) => s.resetNewOrder);
 
-  const handleReturn = () => {
-    cancelTicket({ order_id: orderId });
+  const handleReturn = async () => {
+    await cancelTicket({ order_id: orderId });
     resetNewOrder();
     onPrevious?.();
   };
 
+  useCreateNewOrder();
   return (
     <>
       <button
@@ -26,7 +27,6 @@ export default function Step5({ onPrevious }: Step5Props) {
         ← Previous
       </button>
 
-      <NewOrderButton />
       <BuyTicketButton />
     </>
   );

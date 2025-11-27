@@ -1,10 +1,10 @@
 import { Controller, FieldErrors, UseFormReturn } from 'react-hook-form';
 import { TFunction } from 'i18next';
-import { SearchableSelect } from '../../../partials/SearchableSelect';
-import { SearchableInput } from '../../../partials/SearchableInput';
-import { DatePicker } from '../components/DatePicker';
-import { Step1FormValues } from '../schema/step1Schema';
-import FieldGroup from './FieldGroup';
+import { SearchableSelect } from '@/components/partials/SearchableSelect.tsx';
+import { SearchableInput } from '@/components/partials/SearchableInput.tsx';
+import { DatePicker } from '@/components/booking/step1/components/DatePicker.tsx';
+import { Step1FormValues } from '@/components/booking/step1/schema/step1Schema.ts';
+import FieldGroup from '@/components/booking/step1/components/FieldGroup.tsx';
 
 type Step1FormProps = {
   form: UseFormReturn<Step1FormValues>;

@@ -3,9 +3,9 @@ import { useBookingStore } from '../../stores/bookingStore';
 import { useShallow } from 'zustand/react/shallow';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
-import Step1Form from './step1/components/Step1Form';
-import { useStep1Form } from './step1/hooks/useStep1Form';
-import { Step1FormValues } from './step1/schema/step1Schema';
+import Step1Form from '@/components/booking/step1/components/Step1Form.tsx';
+import { useStep1Form } from '@/components/booking/step1/hooks/useStep1Form.ts';
+import { Step1FormValues } from '@/components/booking/step1/schema/step1Schema.ts';
 
 type Step1Props = {
   onNext?: () => void;

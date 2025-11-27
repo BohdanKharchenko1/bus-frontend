@@ -1,11 +1,11 @@
-import { Card, CardContent, CardHeader } from '../../../ui/card.tsx';
+import { Card, CardContent, CardHeader } from '@/components/ui/card.tsx';
 import { UseFormReturn } from 'react-hook-form';
 import { TFunction } from 'i18next';
-import { Step3FormValues } from '../schema/step3Schema';
-import { DiscountGroup } from '../utils/price';
+import { Step3FormValues } from '@/components/booking/step3/schema/step3Schema.ts';
+import { DiscountGroup } from '@/components/booking/step3/utils/price.ts';
 import { BaggageItem, RouteItemType } from '@/types/routes.ts';
-import SelectTicket from './SelectTicket';
-import BaggageCard from '../components/BaggageCard.tsx';
+import SelectTicket from '@/components/booking/step3/components/SelectTicket.tsx';
+import BaggageCard from '@/components/booking/step3/components/BaggageCard.tsx';
 
 type PassengerCardProps = {
   passengerIndex: number;

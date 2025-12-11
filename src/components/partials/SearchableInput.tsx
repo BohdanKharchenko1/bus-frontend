@@ -4,6 +4,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '../../components/ui/pop
 import { useEffect, useRef, useState } from 'react';
 import { Input } from '../../components/ui/input';
 import { getPoints } from '../../api/bus';
+import { useBookingStore } from '../../stores/bookingStore.ts';
 
 export type Point = {
   point_id: number;
@@ -33,6 +34,8 @@ export function SearchableInput({
   const [query, setQuery] = useState(value?.point_name ?? '');
   const [chosen, setChosen] = useState(!!value);
 
+  const lang = useBookingStore((state) => state.lang);
+
   const clicked = useRef(false);
 
   useEffect(() => {
@@ -45,7 +48,7 @@ export function SearchableInput({
       }
 
       try {
-        const res = await getPoints({ autocomplete: query, lang: 'cz' });
+        const res = await getPoints({ autocomplete: query, lang: lang });
         setOptions(res.data || []);
         setOpen(true);
       } catch (err) {
@@ -75,10 +78,7 @@ export function SearchableInput({
     <Popover open={open} onOpenChange={handleOpenChange}>
       <PopoverTrigger asChild>
         <Input
-          className={cn(
-            'py-3 h-[51px] text-base md:text-lg border-2 w-full min-w-0',
-            className,
-          )}
+          className={cn('py-3 h-[51px] text-base md:text-lg border-2 w-full min-w-0', className)}
           placeholder={placeholder}
           disabled={disabled}
           type="search"

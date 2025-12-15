@@ -1,5 +1,6 @@
 import { baseUrl } from '../lib/axios';
 import { AxiosResponse } from 'axios';
+import { LoginFormValues, SighUpFormValues } from '@/components/profile/schema/authSchema.ts';
 
 export const getPoints: any = async (body: any): Promise<AxiosResponse> => {
   return await baseUrl.post('/booking/get_points', body);
@@ -30,4 +31,10 @@ export const cancelTicket = async (body: any): Promise<AxiosResponse> => {
 };
 export const buyTicket = async (body: any): Promise<AxiosResponse> => {
   return await baseUrl.post('/booking/buy_ticket', body);
+};
+export const registerUser = async (body: SighUpFormValues): Promise<AxiosResponse> => {
+  return await baseUrl.post('auth/register', body);
+};
+export const loginUser = async (body: LoginFormValues): Promise<AxiosResponse> => {
+  return await baseUrl.post('auth/login', body);
 };

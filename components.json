@@ -2,6 +2,10 @@
   "style": "new-york",
   "rsc": false,
   "tsx": true,
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  },
   "tailwind": {
     "config": "",
     "css": "src/index.css",

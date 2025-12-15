@@ -9,6 +9,8 @@ import BookingPage from '../src/pages/BookingPage.tsx';
 import { Toaster } from 'sonner';
 import { useBookingStore } from './stores/bookingStore.ts';
 import i18n from 'i18next';
+import { Routes, Route } from 'react-router-dom';
+import ProfilePage from './pages/ProfilePage.tsx';
 
 const queryClient = new QueryClient();
 
@@ -23,8 +25,10 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <BookingPage />
-
+      <Routes>
+        <Route path="/buy_ticket" element={<BookingPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+      </Routes>
       <ReactQueryDevtools initialIsOpen={false} />
       <Toaster position="top-center" richColors={true} />
     </QueryClientProvider>

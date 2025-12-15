@@ -1,5 +1,6 @@
 import React from 'react';
 import { useBookingStore } from '../../stores/bookingStore.ts';
+import { Link } from 'react-router';
 
 const Navbar: React.FC = () => {
   const setLang = useBookingStore((s) => s.setLang);
@@ -19,12 +20,13 @@ const Navbar: React.FC = () => {
           <a href="#" className="hover:text-purple-700">
             Расписание
           </a>
-          <a href="#" className="hover:text-purple-700">
+          <Link to="/buy_ticket" className="hover:text-purple-700">
             Купить билет
-          </a>
-          <a href="#" className="hover:text-purple-700">
+          </Link>
+          <Link to="/profile" className="hover:text-purple-700">
             Профиль
-          </a>
+          </Link>
+
           <a href="#" className="hover:text-purple-700">
             Контакты
           </a>

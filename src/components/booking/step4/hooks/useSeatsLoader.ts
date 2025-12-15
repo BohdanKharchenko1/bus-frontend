@@ -20,11 +20,13 @@ export const useSeatsLoader = ({
   useEffect(() => {
     const load = async () => {
       const [freeSeatsThere, freeSeatsBack, busPlanThere, busPlanBack] = await Promise.all([
-        getFreeSeats({ interval_id: intervalIdThere }),
-        intervalIdBack ? getFreeSeats({ interval_id: intervalIdBack }) : Promise.resolve(null),
-        getPlan({ bustype_id: bustypeIdThere, v: 2.0, position: 'h' }),
+        getFreeSeats({ interval_id: intervalIdThere, fixed_types: true }),
+        intervalIdBack
+          ? getFreeSeats({ interval_id: intervalIdBack, fixed_types: true })
+          : Promise.resolve(null),
+        getPlan({ bustype_id: bustypeIdThere, v: 2.0, position: 'h', fixed_types: true }),
         bustypeIdBack
-          ? getPlan({ bustype_id: bustypeIdBack, v: 2.0, position: 'h' })
+          ? getPlan({ bustype_id: bustypeIdBack, v: 2.0, position: 'h', fixed_types: true })
           : Promise.resolve(null),
       ]);
 

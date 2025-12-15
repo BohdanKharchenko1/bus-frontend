@@ -14,9 +14,9 @@ const Navbar: React.FC = () => {
         <div className="text-xl font-bold text-purple-800">VO-TRANS</div>
 
         <nav className="flex space-x-6 text-sm font-medium text-black">
-          <a href="#" className="bg-purple-800 text-white px-4 py-1 rounded-full">
+          <Link to="/" className="hover:text-purple-700">
             Главная
-          </a>
+          </Link>
           <a href="#" className="hover:text-purple-700">
             Расписание
           </a>

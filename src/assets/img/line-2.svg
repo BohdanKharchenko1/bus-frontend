@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700.83 265.25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #4b2976;
+        stroke-dasharray: 50;
+        stroke-miterlimit: 10;
+        stroke-width: 5px;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M0,36.74c168.52,133.99,528.6-3.99,715.83,247.4"/>
+</svg>

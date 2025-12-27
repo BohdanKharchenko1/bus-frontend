@@ -7,12 +7,17 @@ import React from 'react';
 import { useLoginForm } from '../hooks/useAuthForm.ts';
 import { LoginFormValues } from '../schema/authSchema.ts';
 import { loginUser } from '../../../api/bus.ts';
+import { useUserStore } from '../../../stores/userStore.ts';
 
 export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) {
   const { form } = useLoginForm();
   const { handleSubmit, register } = form;
+  const setUser = useUserStore((s) => s.setUser);
   const sendLoginRequest = async (values: LoginFormValues) => {
-    await loginUser(values);
+    const result = await loginUser(values);
+    console.log(result);
+
+    if (result.status === 200) setUser(result.data.id, result.data.email);
   };
   return (
     <div className={cn('flex flex-col gap-6', className)} {...props}>

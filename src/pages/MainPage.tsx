@@ -6,7 +6,7 @@ import About from '../components/partials/About.tsx';
 import Reviews from '../components/partials/Reviews.tsx';
 import Services from '../components/partials/Services.tsx';
 import Step1 from '../components/booking/Step1.tsx';
-import { useBookingStore } from '@/stores/bookingStore.ts';
+import { useBookingStore } from '../stores/bookingStore.ts';
 
 export default function MainPage() {
   const nextStep = useBookingStore((s) => s.nextStep);

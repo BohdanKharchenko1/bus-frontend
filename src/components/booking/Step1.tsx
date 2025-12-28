@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 import { Step1Form } from './step1/components/Step1Form';
 import { useStep1Form } from './step1/hooks/useStep1Form';
 import { Step1FormValues } from '@/components/booking/step1/schema/step1Schema.ts';
+import { useNavigate } from 'react-router';
 
 type Step1Props = {
   onNext?: () => void;
@@ -13,6 +14,7 @@ type Step1Props = {
 
 export default function Step1({ onNext }: Step1Props) {
   const { t } = useTranslation('step1');
+  const navigate = useNavigate();
   const { from, to, startDate, endDate, passengerCount, setStep1 } = useBookingStore(
     useShallow((state) => ({
       from: state.from,
@@ -49,6 +51,7 @@ export default function Step1({ onNext }: Step1Props) {
       endDate: normalizedEndDate,
     });
 
+    navigate('/buy_ticket');
     onNext?.();
   };
 

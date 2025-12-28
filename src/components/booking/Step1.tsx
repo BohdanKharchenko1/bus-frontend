@@ -50,9 +50,9 @@ export default function Step1({ onNext }: Step1Props) {
       startDate: normalizedStartDate,
       endDate: normalizedEndDate,
     });
+    onNext?.();
 
     navigate('/buy_ticket');
-    onNext?.();
   };
 
   return (

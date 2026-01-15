@@ -6,6 +6,14 @@
   "returnDate": "Return date",
   "passengers": "Passengers",
   "findConnection": "Find connection",
+  "validation": {
+    "startDate": {
+      "startDateCantLowerThanToday": "Start date can't be earlier than today"
+    },
+    "endDate": {
+      "endDateCantLowerThanToday": "End date can't be earlier than today"
+    }
+  },
   "errors": {
     "incompleteForm": "Please complete the required fields before continuing."
   }

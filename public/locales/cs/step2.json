@@ -2,6 +2,9 @@
   "title": "Krok 2",
   "noRoutesTitle": "Spoje nenalezeny",
   "noRoutesSubtitle": "Zkuste prosím vybrat jiné datum.",
+  "priceLabel": "Cena:",
+  "bookButton": "Rezervovat",
+  "selectedButton": "Vybráno",
   "errors": {
     "loadingRoutes": "Nepodařilo se načíst spoje. Zkuste to prosím znovu."
   }

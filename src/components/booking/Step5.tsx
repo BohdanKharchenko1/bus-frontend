@@ -1,7 +1,7 @@
 import { cancelTicket } from '../../api/bus.ts';
 import { useBookingStore } from '../../stores/bookingStore.ts';
 import BuyTicketButton from './step5/components/BuyTicketButton.tsx';
-import { useCreateNewOrder } from './step5/hooks/useCreateNewOrder.ts';
+import useCreateNewOrder from './step5/hooks/useCreateNewOrder.ts';
 
 type Step5Props = {
   onPrevious?: () => void;

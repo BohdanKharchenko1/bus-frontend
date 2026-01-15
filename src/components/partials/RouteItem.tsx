@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '../../components/ui/card.tsx';
 import { RouteItemType } from '../../types/routes.ts';
 import { useBookingStore } from '../../stores/bookingStore.ts';
@@ -9,6 +10,7 @@ type RouteItemProps = {
 };
 
 export default function RouteItem({ route, direction }: RouteItemProps) {
+  const { t } = useTranslation('step2');
   const { setRoute, routeThere, routeBack } = useBookingStore(
     useShallow((state) => ({
       setRoute: state.setRoute,
@@ -74,7 +76,7 @@ export default function RouteItem({ route, direction }: RouteItemProps) {
 
         <div className="flex items-center gap-10">
           <div className="flex flex-row items-baseline gap-1">
-            <div className="text-gray-500 font-semibold">Price:</div>
+            <div className="text-gray-500 font-semibold">{t('priceLabel')}</div>
             <div className=" text-xl align-text-bottom whitespace-nowrap font-bold">
               {route.price_one_way} {route.currency}
             </div>
@@ -86,7 +88,7 @@ export default function RouteItem({ route, direction }: RouteItemProps) {
               (isSelected ? 'bg-green-600 hover:bg-green-700' : 'bg-purple-700 hover:bg-purple-800')
             }
           >
-            {isSelected ? 'Selected' : 'Booking'}
+            {isSelected ? t('selectedButton') : t('bookButton')}
           </button>
         </div>
       </CardContent>

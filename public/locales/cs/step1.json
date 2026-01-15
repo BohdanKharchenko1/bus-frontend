@@ -6,7 +6,12 @@
   "returnDate": "Datum návratu",
   "passengers": "Cestující",
   "findConnection": "Najít spoj",
-  "errors": {
-    "incompleteForm": "Vyplňte prosím povinná pole před pokračováním."
+  "validation": {
+    "startDate": {
+      "startDateCantLowerThanToday": "Datum odjezdu nemůže být dřívější než dnešní datum"
+    },
+    "endDate": {
+      "endDateCantLowerThanToday": "Datum návratu nemůže být dřívější než dnešní datum"
+    }
   }
-}
+} 

@@ -3,7 +3,7 @@ import { useBookingStore } from '../../../../stores/bookingStore.ts';
 import { buildNewOrderPayload } from '../utils/buildNewOrderPayload.ts';
 import { newOrder } from '../../../../api/bus.ts';
 
-export function useCreateNewOrder() {
+export default function useCreateNewOrder() {
   const setNewOrder = useBookingStore((s) => s.setNewOrder);
 
   useEffect(() => {

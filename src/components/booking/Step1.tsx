@@ -2,7 +2,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { useBookingStore } from '../../stores/bookingStore';
 import { useShallow } from 'zustand/react/shallow';
 import { useTranslation } from 'react-i18next';
-import { toast } from 'sonner';
 import { Step1Form } from './step1/components/Step1Form';
 import { useStep1Form } from './step1/hooks/useStep1Form';
 import { Step1FormValues } from '@/components/booking/step1/schema/step1Schema.ts';
@@ -62,13 +61,8 @@ export default function Step1({ onNext }: Step1Props) {
           <CardTitle className="text-2xl md:text-3xl">{t('title')}</CardTitle>
         </CardHeader>
 
-        <CardContent className="pt-4 px-4 md:px-6 overflow-visible">
-          <Step1Form
-            form={form}
-            onSubmit={onSubmit}
-            onError={() => toast.error(t('errors.incompleteForm'))}
-            t={t}
-          />
+        <CardContent className="pt-4 px-4 md:px-6 overflow-visible h-max">
+          <Step1Form form={form} onSubmit={onSubmit} t={t} />
         </CardContent>
       </Card>
     </div>

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getFreeSeats, getPlan } from '../../../../api/bus';
 import { BookingState } from '../../../../stores/bookingStore';
 
@@ -17,8 +17,10 @@ export const useSeatsLoader = ({
   bustypeIdBack,
   setBusPlanAndFreeSeats,
 }: SeatsLoaderParams) => {
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const load = async () => {
+      setIsLoading(true);
       const [freeSeatsThere, freeSeatsBack, busPlanThere, busPlanBack] = await Promise.all([
         getFreeSeats({ interval_id: intervalIdThere, fixed_types: true }),
         intervalIdBack
@@ -29,7 +31,7 @@ export const useSeatsLoader = ({
           ? getPlan({ bustype_id: bustypeIdBack, v: 2.0, position: 'h', fixed_types: true })
           : Promise.resolve(null),
       ]);
-
+      setIsLoading(false);
       setBusPlanAndFreeSeats({
         busPlanBack: busPlanBack?.data || null,
         freeSeatsThere: freeSeatsThere.data,
@@ -40,4 +42,5 @@ export const useSeatsLoader = ({
 
     load();
   }, [intervalIdThere, intervalIdBack, bustypeIdThere, bustypeIdBack, setBusPlanAndFreeSeats]);
+  return { isLoading };
 };

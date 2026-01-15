@@ -2,6 +2,9 @@
   "title": "Крок 2",
   "noRoutesTitle": "Рейси не знайдено",
   "noRoutesSubtitle": "Спробуйте обрати іншу дату.",
+  "priceLabel": "Ціна:",
+  "bookButton": "Забронювати",
+  "selectedButton": "Обрано",
   "errors": {
     "loadingRoutes": "Не вдалося завантажити рейси. Спробуйте ще раз."
   }

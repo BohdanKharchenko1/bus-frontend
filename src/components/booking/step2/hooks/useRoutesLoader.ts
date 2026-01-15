@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
 import { getRoutes } from '../../../../api/bus';
 import { RouteItemType } from '../../../../types/routes';
@@ -19,8 +19,10 @@ export const useRoutesLoader = ({
   dateTo,
   setAllRoutes,
 }: RoutesLoaderParams) => {
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const fetchRoutes = async () => {
+      setIsLoading(true);
       let resBack: AxiosResponse<RouteItemType[]> | null = null;
       const resThere = await getRoutes({
         id_from: cityFromId,
@@ -35,10 +37,11 @@ export const useRoutesLoader = ({
           date: format(dateTo, 'yyyy-MM-dd'),
         });
       }
-
+      setIsLoading(false);
       setAllRoutes(resThere.data, resBack?.data ?? []);
     };
 
     fetchRoutes();
   }, [cityFromId, cityToId, dateFrom, dateTo, setAllRoutes]);
+  return { isLoading };
 };

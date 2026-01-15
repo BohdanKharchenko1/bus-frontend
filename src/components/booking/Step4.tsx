@@ -2,6 +2,7 @@ import { useShallow } from 'zustand/react/shallow';
 import { useBookingStore } from '../../stores/bookingStore';
 import SeatsPlan from '../partials/SeatsPlan';
 import { useSeatsLoader } from './step4/hooks/useSeatsLoader';
+import { Spinner } from '../../components/ui/spinner.tsx';
 
 interface Step4Props {
   onNext?: () => void;
@@ -19,7 +20,7 @@ export default function Step4({ onPrevious, onNext }: Step4Props) {
       })),
     );
 
-  useSeatsLoader({
+  const { isLoading } = useSeatsLoader({
     intervalIdThere,
     intervalIdBack,
     bustypeIdThere,
@@ -29,7 +30,13 @@ export default function Step4({ onPrevious, onNext }: Step4Props) {
 
   return (
     <div className="max-w-7xl mx-auto pt-8">
-      <SeatsPlan onNext={onNext} onPrevious={onPrevious} />
+      {isLoading ? (
+        <div className="flex flex-1 items-center justify-center">
+          <Spinner className="size-12 text-purple-600" />
+        </div>
+      ) : (
+        <SeatsPlan onNext={onNext} onPrevious={onPrevious} />
+      )}
     </div>
   );
 }

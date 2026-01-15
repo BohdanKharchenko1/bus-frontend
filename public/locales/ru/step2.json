@@ -2,6 +2,9 @@
   "title": "Шаг 2",
   "noRoutesTitle": "Рейсы не найдены",
   "noRoutesSubtitle": "Попробуйте выбрать другую дату.",
+  "priceLabel": "Цена:",
+  "bookButton": "Забронировать",
+  "selectedButton": "Выбрано",
   "errors": {
     "loadingRoutes": "Не удалось загрузить рейсы. Попробуйте снова."
   }

@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { useRoutesLoader } from './step2/hooks/useRoutesLoader';
 import RoutesList from './step2/components/RoutesList';
 import { toast } from 'sonner';
+import { Spinner } from '../../components/ui/spinner.tsx';
 
 interface Step2Props {
   onPrevious?: () => void;
@@ -40,7 +41,7 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
   );
   const [direction, setDirection] = useState<'there' | 'back'>('there');
 
-  useRoutesLoader({
+  const { isLoading } = useRoutesLoader({
     cityFromId: city_from_id,
     cityToId: city_to_id,
     dateFrom,
@@ -107,7 +108,11 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
         </CardHeader>
 
         <CardContent className="flex flex-col gap-6 ">
-          {direction === 'there' ? (
+          {isLoading ? (
+            <div className="flex flex-1 items-center justify-center">
+              <Spinner className="size-12 text-purple-600" />
+            </div>
+          ) : direction === 'there' ? (
             <RoutesList data={allRoutesThere} direction="there" />
           ) : (
             <RoutesList data={allRoutesBack} direction="back" />

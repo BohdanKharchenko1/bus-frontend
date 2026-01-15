@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Input } from '../../components/ui/input';
 import { getPoints } from '../../api/bus';
 import { useBookingStore } from '../../stores/bookingStore.ts';
+import i18n from 'i18next';
 
 export type Point = {
   point_id: number;
@@ -34,7 +35,7 @@ export function SearchableInput({
   const [query, setQuery] = useState(value?.point_name ?? '');
   const [chosen, setChosen] = useState(!!value);
 
-  const lang = useBookingStore((state) => state.lang);
+  const lang = i18n.language;
 
   const clicked = useRef(false);
 

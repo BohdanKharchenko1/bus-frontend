@@ -6,6 +6,14 @@
   "returnDate": "Дата повернення",
   "passengers": "Пасажири",
   "findConnection": "Знайти рейс",
+  "validation": {
+    "startDate": {
+      "startDateCantLowerThanToday": "Дата відправлення не може бути раніше сьогоднішньої дати"
+    },
+    "endDate": {
+      "endDateCantLowerThanToday": "Дата повернення не може бути раніше сьогоднішньої дати"
+    }
+  },
   "errors": {
     "incompleteForm": "Будь ласка, заповніть обов’язкові поля перед продовженням."
   }

@@ -4,7 +4,6 @@ import { Popover, PopoverContent, PopoverTrigger } from '../../components/ui/pop
 import { useEffect, useRef, useState } from 'react';
 import { Input } from '../../components/ui/input';
 import { getPoints } from '../../api/bus';
-import { useBookingStore } from '../../stores/bookingStore.ts';
 import i18n from 'i18next';
 
 export type Point = {

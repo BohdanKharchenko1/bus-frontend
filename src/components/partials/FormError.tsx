@@ -7,5 +7,9 @@ interface FormError {
 export default function FormError({ error }: FormError) {
   const { t } = useTranslation();
 
-  return <p className="text-sm text-red-500 mt-1 min-h-[50px]">{t(error?.message) || ''}</p>;
+  return (
+    <p className="text-sm text-red-500 mt-1 min-h-[50px]">
+      {error?.message ? t(error.message) : ''}
+    </p>
+  );
 }

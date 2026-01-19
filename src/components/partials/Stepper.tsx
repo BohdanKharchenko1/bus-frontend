@@ -1,4 +1,5 @@
 import { Step } from '@/types/step.ts';
+import { useTranslation } from 'react-i18next';
 
 type StepperProps = {
   steps: Step[];
@@ -8,8 +9,9 @@ type StepperProps = {
 };
 
 export function Stepper({ steps, current, onStepChange, allowJumpToFuture = false }: StepperProps) {
+  const { t } = useTranslation('booking');
   return (
-    <nav aria-label="Steps" className="w-full min-w-0">
+    <nav aria-label={t('stepper.label', 'Steps')} className="w-full min-w-0">
       <ol className="flex w-full items-center justify-between gap-1 sm:gap-3 min-w-0">
         {steps.map((step, index) => {
           const isCurrent = index === current;
@@ -44,7 +46,7 @@ export function Stepper({ steps, current, onStepChange, allowJumpToFuture = fals
               ].join(' ')}
             >
               {step.label}
-              {isCurrent && <span className="sr-only"> — текущий шаг</span>}
+              {isCurrent && <span className="sr-only"> — {t('stepper.currentStep', 'current step')}</span>}
             </span>
           );
 

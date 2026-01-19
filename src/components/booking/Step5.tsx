@@ -59,7 +59,7 @@ export default function Step5({ onPrevious }: Step5Props) {
       </div>
 
       <Card className="mt-6 max-w-2xl mx-auto w-full">
-        <CardHeader className="pb-2">
+        <CardHeader className="pb-0">
           <CardTitle className="text-2xl md:text-3xl text-center">{t('title')}</CardTitle>
         </CardHeader>
 
@@ -72,13 +72,13 @@ export default function Step5({ onPrevious }: Step5Props) {
           ))}
         </CardContent>
 
-        <CardFooter className="flex flex-col items-start gap-4">
-          <div className="text-xl md:text-2xl font-semibold text-slate-900">
+        <CardFooter className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="text-lg sm:text-2xl font-semibold text-slate-900">
             {t('total_label')}: {summary.totalDisplay}
           </div>
           <BuyTicketButton
             label={t('continue_button')}
-            className="w-32 px-5 py-2 text-center rounded-lg bg-purple-700 text-white font-medium hover:bg-purple-800 active:scale-[0.97] transition-all"
+            className="w-full sm:w-64 h-12 sm:h-12 text-center rounded-lg bg-purple-700 text-white font-semibold text-base sm:text-lg hover:bg-purple-800 active:scale-[0.97] transition-all"
           />
         </CardFooter>
       </Card>

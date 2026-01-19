@@ -42,6 +42,13 @@ export const createStep3Schema = (needOrderData: boolean) =>
               path: ['surname', i],
             });
           }
+          if (!surname?.match(/^[A-Za-z]+$/)) {
+            ctx.addIssue({
+              code: 'custom',
+              message: 'step3:errors.surnameLatinOnly',
+              path: ['surname', i],
+            });
+          }
         });
       }
     });

@@ -29,7 +29,7 @@ export default function Step4({ onPrevious, onNext }: Step4Props) {
   });
 
   return (
-    <div className="max-w-7xl mx-auto pt-8">
+    <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-0">
       {isLoading ? (
         <div className="flex flex-1 items-center justify-center">
           <Spinner className="size-12 text-purple-600" />

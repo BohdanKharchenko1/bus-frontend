@@ -22,6 +22,7 @@
     "phoneInvalid": "Введіть коректний номер телефону.",
     "nameRequired": "Ім'я є обов'язковим.",
     "nameLatinOnly": "Тільки латинські літери.",
-    "surnameRequired": "Прізвище є обов'язковим."
+    "surnameRequired": "Прізвище є обов'язковим.",
+    "surnameLatinOnly": "Тільки латинські літери."
   }
 }

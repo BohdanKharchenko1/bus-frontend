@@ -1,0 +1,14 @@
+{
+  "title": "Buy Ticket",
+  "steps": {
+    "route": "Route",
+    "date": "Date & Route",
+    "passengers": "Passengers",
+    "seats": "Seats",
+    "payment": "Payment"
+  },
+  "stepper": {
+    "label": "Steps",
+    "currentStep": "current step"
+  }
+}

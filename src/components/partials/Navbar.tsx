@@ -30,9 +30,6 @@ const Navbar: React.FC = () => {
           <Link to="/" className="hover:text-purple-700">
             Главная
           </Link>
-          <a href="#" className="hover:text-purple-700">
-            Расписание
-          </a>
           <Link to="/buy_ticket" className="hover:text-purple-700">
             Купить билет
           </Link>
@@ -80,7 +77,6 @@ const Navbar: React.FC = () => {
             <Link to="/" onClick={() => setOpen(false)}>
               Главная
             </Link>
-            <a href="#">Расписание</a>
             <Link to="/buy_ticket" onClick={() => setOpen(false)}>
               Купить билет
             </Link>

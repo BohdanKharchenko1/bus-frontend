@@ -10,7 +10,7 @@ type FieldGroupProps = {
 
 const FieldGroup = ({ label, children, className }: FieldGroupProps) => (
   <div className={cn('flex flex-col gap-2', className)}>
-    <Label className="text-sm font-medium text-muted-foreground md:text-base">{label}</Label>
+    <Label className="text-base font-medium text-muted-foreground md:text-base">{label}</Label>
     {children}
   </div>
 );

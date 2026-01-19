@@ -1,0 +1,14 @@
+{
+  "title": "Shrnutí",
+  "route_label": "Trasa",
+  "date_label": "Datum/Spoj",
+  "passengers_label": "Cestující",
+  "seats_label": "Místa",
+  "total_label": "K úhradě",
+  "continue_button": "Pokračovat",
+  "previous_button": "Zpět",
+  "empty_value": "-",
+  "auto_seat": "Automatický výběr",
+  "outbound": "Tam",
+  "return": "Zpět"
+}

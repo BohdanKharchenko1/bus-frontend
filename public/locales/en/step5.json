@@ -1,0 +1,14 @@
+{
+  "title": "Summary",
+  "route_label": "Route",
+  "date_label": "Date/Trip",
+  "passengers_label": "Passengers",
+  "seats_label": "Seats",
+  "total_label": "Total to pay",
+  "continue_button": "Continue",
+  "previous_button": "Previous",
+  "empty_value": "-",
+  "auto_seat": "Auto selection",
+  "outbound": "Outbound",
+  "return": "Return"
+}

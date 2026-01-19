@@ -1,0 +1,14 @@
+{
+  "title": "Итог",
+  "route_label": "Маршрут",
+  "date_label": "Дата/Рейс",
+  "passengers_label": "Пассажиры",
+  "seats_label": "Места",
+  "total_label": "К оплате",
+  "continue_button": "Дальше",
+  "previous_button": "Назад",
+  "empty_value": "-",
+  "auto_seat": "Автовыбор",
+  "outbound": "Туда",
+  "return": "Обратно"
+}

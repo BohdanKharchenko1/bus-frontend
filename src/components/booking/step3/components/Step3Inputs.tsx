@@ -18,7 +18,7 @@ const Step3Inputs = ({ form, t }: Step3InputsProps) => {
   } = form;
 
   return (
-    <div className="grid grid-cols-2 gap-3">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
       <div className="flex flex-col gap-1">
         <input {...register('email')} placeholder={t('email')} className={inputClasses} />
         <FormError error={errors.email} />

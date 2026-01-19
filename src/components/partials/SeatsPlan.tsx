@@ -4,12 +4,14 @@ import { useEffect, useState } from 'react';
 import { Card } from '../../components/ui/card.tsx';
 import { Row, SeatCell } from '../../types/routes.ts';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 
 interface SeatPlanProps {
   onPrevious?: () => void;
   onNext?: () => void;
 }
 export default function SeatsPlan({ onPrevious, onNext }: SeatPlanProps) {
+  const { t } = useTranslation('step4');
   const {
     freeSeatsThere,
     freeSeatsBack,
@@ -77,7 +79,7 @@ export default function SeatsPlan({ onPrevious, onNext }: SeatPlanProps) {
 
     if (direction === 'there') {
       if (!thereDone) {
-        toast.error('Ошибка. Выберете все места перед тем как продолжить');
+        toast.error(t('errors.selectSeats'));
         return;
       }
 
@@ -104,15 +106,33 @@ export default function SeatsPlan({ onPrevious, onNext }: SeatPlanProps) {
     onPrevious?.();
   };
 
-  const renderSeatCell = (seatCell: SeatCell) => {
+  const seatBaseClass =
+    'border rounded-md flex items-center justify-center h-[3.25rem] w-[3.25rem] text-base sm:h-12 sm:w-12 sm:text-sm';
+
+  const rowCells =
+    rows?.map((row) =>
+      Object.values(row).flatMap(
+        (rowNumber) => Object.values(rowNumber as Record<string, SeatCell>) as SeatCell[],
+      ),
+    ) ?? [];
+
+  const maxColumns = rowCells.reduce((max, row) => Math.max(max, row.length), 0);
+  const mobileRows = Array.from({ length: maxColumns }, (_, colIndex) =>
+    rowCells
+      .slice()
+      .reverse()
+      .map((row) => row[colIndex]),
+  );
+
+  const renderSeatCell = (seatCell?: SeatCell, index?: number) => {
     if (!seatCell) {
-      return <button className="border aspect-square max-w-12 w-full rounded-md" />;
+      return <button key={index} className={seatBaseClass} />;
     }
 
     if (seatCell.type === 'icon') {
       return (
-        <button className="border aspect-square max-w-12 w-full rounded-md p">
-          <img src={seatCell.icon} alt="" className="w-full h-full object-contain" />
+        <button key={index} className={seatBaseClass}>
+          <img src={seatCell.icon} alt="" className="h-full w-full object-contain" />
         </button>
       );
     }
@@ -123,10 +143,11 @@ export default function SeatsPlan({ onPrevious, onNext }: SeatPlanProps) {
 
       return (
         <button
+          key={index}
           disabled={!isFree}
           onClick={() => isFree && handleClick(seatCell.number)}
           className={
-            `border aspect-square max-w-12 w-full rounded-md flex items-center justify-center ` +
+            `${seatBaseClass} ` +
             (isFree ? (isSelected ? 'bg-yellow-400' : 'bg-white') : 'bg-gray-500')
           }
         >
@@ -135,41 +156,52 @@ export default function SeatsPlan({ onPrevious, onNext }: SeatPlanProps) {
       );
     }
 
-    return <button className="border aspect-square max-w-12 w-full rounded-md" />;
+    return <button key={index} className={seatBaseClass} />;
   };
 
   return (
     <Card>
-      <div className="flex flex-row justify-between px-6">
-        <button
-          type="button"
-          onClick={handlePrevious}
-          className="w-32 px-5 py-2 text-center rounded-lg bg-gray-200 text-gray-700 font-medium hover:bg-gray-300"
-        >
-          ← Previous
-        </button>
+      <div className="flex flex-col gap-4 px-4 sm:px-6">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-[auto_1fr_auto] sm:items-center">
+          <button
+            type="button"
+            onClick={handlePrevious}
+            className="w-full sm:w-32 px-5 py-2 text-center rounded-lg bg-gray-200 text-gray-700 font-medium text-sm sm:text-base hover:bg-gray-300"
+          >
+            ← {t('previous')}
+          </button>
 
-        <h2 className="text-center">
-          Осталось занять {passengerCount - (selectedSeats ? selectedSeats.length : 0)}
-        </h2>
+          <button
+            type="button"
+            onClick={handleNext}
+            className="w-full sm:w-32 px-5 py-2 text-center rounded-lg bg-purple-700 text-white font-medium text-sm sm:text-base hover:bg-purple-800 sm:col-start-3 sm:row-start-1 sm:justify-self-end"
+          >
+            {t('next')} →
+          </button>
 
-        <button
-          type="button"
-          onClick={handleNext}
-          className="w-32 px-5 py-2 text-center rounded-lg bg-purple-700 text-white font-medium hover:bg-purple-800"
-        >
-          Next →
-        </button>
+          <h2 className="text-center text-base sm:text-base sm:col-start-2 sm:row-start-1">
+            {t('seatsRemaining', {
+              count: passengerCount - (selectedSeats ? selectedSeats.length : 0),
+            })}
+          </h2>
+        </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        {rows?.map((row: Row, key) => (
-          <div key={key} className="flex flex-row gap-2 justify-center items-center">
-            {Object.values(row).map((rowNumber: Row) =>
-              Object.values(rowNumber).map(renderSeatCell),
-            )}
-          </div>
-        ))}
+      <div className="flex flex-col gap-2 pb-4 px-4 sm:px-6 sm:pb-2">
+        <div className="flex flex-col gap-2 sm:hidden">
+          {mobileRows.map((row, key) => (
+            <div key={key} className="flex flex-row gap-2 justify-center items-center min-w-max">
+              {row.map(renderSeatCell)}
+            </div>
+          ))}
+        </div>
+        <div className="hidden sm:flex sm:flex-col sm:gap-2">
+          {rowCells.map((row, key) => (
+            <div key={key} className="flex flex-row gap-2 justify-center items-center min-w-max">
+              {row.map(renderSeatCell)}
+            </div>
+          ))}
+        </div>
       </div>
     </Card>
   );

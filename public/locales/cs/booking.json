@@ -1,0 +1,14 @@
+{
+  "title": "Koupit jízdenku",
+  "steps": {
+    "route": "Trasa",
+    "date": "Datum a spoj",
+    "passengers": "Cestující",
+    "seats": "Místa",
+    "payment": "Platba"
+  },
+  "stepper": {
+    "label": "Kroky",
+    "currentStep": "aktuální krok"
+  }
+}

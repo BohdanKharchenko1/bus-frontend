@@ -22,6 +22,7 @@
     "phoneInvalid": "Zadejte platné telefonní číslo.",
     "nameRequired": "Jméno je povinné.",
     "nameLatinOnly": "Používejte pouze latinská písmena.",
-    "surnameRequired": "Příjmení je povinné."
+    "surnameRequired": "Příjmení je povinné.",
+    "surnameLatinOnly": "Používejte pouze latinská písmena."
   }
 }

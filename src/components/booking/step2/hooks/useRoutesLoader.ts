@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 import { getRoutes } from '../../../../api/bus';
 import { RouteItemType } from '../../../../types/routes';
 import { AxiosResponse } from 'axios';
+import i18n from 'i18next';
 
 type RoutesLoaderParams = {
   cityFromId?: number;
@@ -19,6 +20,7 @@ export const useRoutesLoader = ({
   dateTo,
   setAllRoutes,
 }: RoutesLoaderParams) => {
+  const lang = i18n.language;
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const fetchRoutes = async () => {
@@ -28,6 +30,7 @@ export const useRoutesLoader = ({
         id_from: cityFromId,
         id_to: cityToId,
         date: format(dateFrom, 'yyyy-MM-dd'),
+        lang: lang,
       });
 
       if (dateTo) {
@@ -35,6 +38,7 @@ export const useRoutesLoader = ({
           id_from: cityToId,
           id_to: cityFromId,
           date: format(dateTo, 'yyyy-MM-dd'),
+          lang: lang,
         });
       }
       setIsLoading(false);

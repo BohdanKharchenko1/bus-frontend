@@ -22,6 +22,7 @@
     "phoneInvalid": "Please enter a valid phone number.",
     "nameRequired": "First name is required.",
     "nameLatinOnly": "Latin letters only.",
-    "surnameRequired": "Last name is required."
+    "surnameRequired": "Last name is required.",
+    "surnameLatinOnly": "Latin letters only."
   }
 }

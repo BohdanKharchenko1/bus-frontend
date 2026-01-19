@@ -1,0 +1,8 @@
+{
+  "previous": "Previous",
+  "next": "Next",
+  "seatsRemaining": "Seats remaining: {{count}}",
+  "errors": {
+    "selectSeats": "Please select all seats before continuing."
+  }
+}

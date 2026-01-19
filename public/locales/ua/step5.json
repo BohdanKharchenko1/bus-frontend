@@ -1,0 +1,14 @@
+{
+  "title": "Підсумок",
+  "route_label": "Маршрут",
+  "date_label": "Дата/Рейс",
+  "passengers_label": "Пасажири",
+  "seats_label": "Місця",
+  "total_label": "До сплати",
+  "continue_button": "Далі",
+  "previous_button": "Назад",
+  "empty_value": "-",
+  "auto_seat": "Автовибір",
+  "outbound": "Туди",
+  "return": "Назад"
+}

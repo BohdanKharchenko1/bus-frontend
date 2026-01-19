@@ -14,14 +14,15 @@ type Step1FormProps = {
   onError?: (errors: FieldErrors<Step1FormValues>) => void;
 };
 
-const passengerOptions = [1, 2, 3, 4, 5].map((n) => ({ value: n }));
+const passengerOptions = [1, 2, 3, 4, 5, 6, 7].map((n) => ({ value: n }));
+const mobileInputClass = 'text-lg sm:text-base md:text-base';
 
 export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
   const {
     formState: { errors },
   } = form;
   return (
-    <form onSubmit={form.handleSubmit(onSubmit, onError)} className="flex flex-col gap-6 w-full">
+    <form onSubmit={form.handleSubmit(onSubmit, onError)} className="flex flex-col sm:gap-6 w-full">
       <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6 lg:[grid-template-columns:repeat(11,minmax(0,1fr))_auto] lg:gap-6">
         <div className="min-w-0 sm:col-span-2 md:col-span-3 lg:col-span-3 w-full">
           <FieldGroup label={t('from')}>
@@ -33,6 +34,7 @@ export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
                   value={field.value}
                   onChange={field.onChange}
                   placeholder={t('searchLocation')}
+                  className={mobileInputClass}
                 />
               )}
             />
@@ -50,6 +52,7 @@ export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
                   value={field.value}
                   onChange={field.onChange}
                   placeholder={t('searchLocation')}
+                  className={mobileInputClass}
                 />
               )}
             />
@@ -66,7 +69,7 @@ export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
                 <DatePicker
                   value={field.value ?? null}
                   onChange={field.onChange}
-                  className="w-full"
+                  className={`w-full ${mobileInputClass}`}
                   placeholder={t('selectDate')}
                 />
               )}
@@ -82,7 +85,7 @@ export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
                 <DatePicker
                   value={field.value ?? null}
                   onChange={field.onChange}
-                  className="w-full"
+                  className={`w-full ${mobileInputClass}`}
                   placeholder={t('selectDate')}
                 />
               )}
@@ -102,7 +105,7 @@ export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
                   onChange={field.onChange}
                   options={passengerOptions}
                   placeholder="1"
-                  className="w-full"
+                  className={`w-full ${mobileInputClass}`}
                 />
               )}
             />

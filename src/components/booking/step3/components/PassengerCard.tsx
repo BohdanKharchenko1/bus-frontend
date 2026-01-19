@@ -49,7 +49,7 @@ const PassengerCard = ({
         </div>
       </CardHeader>
 
-      <CardContent className="flex flex-col gap-1 px-6 py-6 bg-slate-50">
+      <CardContent className="flex flex-col gap-1 px-4 py-4 sm:px-6 sm:py-6 bg-slate-50">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="flex flex-col gap-2">
             <label className="text-sm font-medium text-slate-800">{t('name')}</label>

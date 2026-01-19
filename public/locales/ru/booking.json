@@ -1,0 +1,14 @@
+{
+  "title": "Купить билет",
+  "steps": {
+    "route": "Маршрут",
+    "date": "Дата и рейс",
+    "passengers": "Пассажиры",
+    "seats": "Места",
+    "payment": "Оплата"
+  },
+  "stepper": {
+    "label": "Шаги",
+    "currentStep": "текущий шаг"
+  }
+}

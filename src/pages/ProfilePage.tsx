@@ -5,7 +5,11 @@ export default function ProfilePage() {
   return (
     <>
       <Navbar />
-      <LoginSignUpSwapper />
+      <main className="flex justify-center px-4 py-8">
+        <div className="w-full max-w-md">
+          <LoginSignUpSwapper />
+        </div>
+      </main>
     </>
   );
 }

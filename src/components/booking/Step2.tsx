@@ -81,25 +81,27 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
   };
 
   return (
-    <div className="max-w-7xl mx-auto pt-8">
+    <div className="max-w-7xl mx-auto pt-8 px-0">
       <Card>
-        <CardHeader className="pb-4">
-          <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4">
+        <CardHeader className="pb-4 p">
+          <div className="flex flex-col gap-3 sm:grid sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-4">
             <button
               type="button"
               onClick={handlePrevious}
-              className="w-32 px-5 py-2 text-center rounded-lg bg-gray-200 text-gray-700 font-medium
+              className="order-2 sm:order-none w-full sm:w-32 px-4 py-2 text-center rounded-lg bg-gray-200 text-gray-700 font-medium text-sm sm:text-base
                hover:bg-gray-300 active:scale-[0.97] transition-all"
             >
               ← Previous
             </button>
 
-            <CardTitle className="text-2xl md:text-3xl text-center">{t('title')}</CardTitle>
+            <CardTitle className="order-1 sm:order-none text-xl sm:text-2xl md:text-3xl text-center">
+              {t('title')}
+            </CardTitle>
 
             <button
               type="button"
               onClick={handleNext}
-              className="w-32 px-5 py-2 text-center rounded-lg bg-purple-700 text-white font-medium
+              className="order-3 sm:order-none w-full sm:w-32 px-5 py-2 text-center rounded-lg bg-purple-700 text-white font-medium text-sm sm:text-base
                hover:bg-purple-800 active:scale-[0.97] transition-all"
             >
               Next →
@@ -107,7 +109,7 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
           </div>
         </CardHeader>
 
-        <CardContent className="flex flex-col gap-6 ">
+        <CardContent className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-6">
           {isLoading ? (
             <div className="flex flex-1 items-center justify-center">
               <Spinner className="size-12 text-purple-600" />

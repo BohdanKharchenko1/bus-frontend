@@ -119,24 +119,27 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
   }, [discountsBack, discountsThere, baggageBack, baggageThere]);
 
   return (
-    <div className="max-w-7xl mx-auto pt-8">
+    <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-0">
       <form onSubmit={handleSubmit(onSubmit)}>
         <Card>
           <CardHeader>
-            <div className="flex justify-between mb-6">
+            <CardTitle className="text-xl text-center mb-3 sm:hidden">{t('title')}</CardTitle>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-6">
               <button
                 type="button"
                 onClick={onPrevious}
-                className="w-32 px-5 py-2 text-center rounded-lg bg-gray-200 text-gray-700 font-medium
+                className="w-full sm:w-32 px-5 py-2 text-center rounded-lg bg-gray-200 text-gray-700 font-medium text-sm sm:text-base
                hover:bg-gray-300 active:scale-[0.97] transition-all"
               >
                 ← Previous
               </button>
-              <CardTitle className="text-2xl md:text-3xl">{t('title')}</CardTitle>
+              <CardTitle className="hidden sm:block text-2xl md:text-3xl text-center">
+                {t('title')}
+              </CardTitle>
 
               <button
                 type="submit"
-                className="w-32 px-5 py-2 text-center rounded-lg bg-purple-700 text-white font-medium
+                className="w-full sm:w-32 px-5 py-2 text-center rounded-lg bg-purple-700 text-white font-medium text-sm sm:text-base
                hover:bg-purple-800 active:scale-[0.97] transition-all"
               >
                 Next →
@@ -144,7 +147,7 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
             </div>
 
             <div className="mt-2 flex flex-col gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
-              <div className="flex items-center justify-between gap-4">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
                 <div className="flex flex-col">
                   <span className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
                     {t('total_price_label')}
@@ -181,7 +184,6 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
           </CardContent>
         </Card>
       </form>
-      <pre className="text-xs">{JSON.stringify(watch(), null, 2)}</pre>
     </div>
   );
 }

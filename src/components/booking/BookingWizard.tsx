@@ -28,11 +28,11 @@ export default function BookingWizard() {
   const currentStepIndex = Math.max(step - 1, 0);
 
   return (
-    <div className="max-w-7xl mx-auto flex flex-1 w-full flex-col justify-center p-4 min-w-0">
+    <div className="max-w-7xl mx-auto flex flex-1 w-full flex-col justify-center p-1 sm:p-4 min-w-0">
       <Card className="w-full">
         <CardHeader>
           <CardTitle className="text-3xl">Купить Билет</CardTitle>
-          <CardContent className="min-w-0 mt-12 px-0">
+          <CardContent className="min-w-0 mt-1 sm:mt-12 px-0">
             <Suspense fallback={<h1>Loading...</h1>}>
               <Stepper steps={steps} current={currentStepIndex} />
               {step === 1 && <Step1 onNext={nextStep} />}

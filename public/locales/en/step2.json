@@ -6,6 +6,7 @@
   "bookButton": "Booking",
   "selectedButton": "Selected",
   "errors": {
-    "loadingRoutes": "Failed to load routes. Please try again."
+    "loadingRoutes": "Failed to load routes. Please try again.",
+    "selectRoute": "Please select a route."
   }
 }

@@ -54,7 +54,7 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
       return;
     }
     if (direction === 'there' && !routeThere) {
-      toast.error('Vyberi ');
+      toast.error(t('errors.selectRoute'));
       return;
     }
 
@@ -62,7 +62,7 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
       if (routeThere) {
         onNext?.();
       } else {
-        toast.error('Vyberi ');
+        toast.error(t('errors.selectRoute'));
         return;
       }
       return;

@@ -48,7 +48,7 @@ export interface BookingState {
   setLang: (lang: string) => void;
 }
 const initialState = {
-  passengerCount: 0,
+  passengerCount: 1,
   from: undefined,
   to: undefined,
   step: 1,

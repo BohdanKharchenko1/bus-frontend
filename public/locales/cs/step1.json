@@ -5,10 +5,19 @@
   "departureDate": "Datum odjezdu",
   "returnDate": "Datum návratu",
   "passengers": "Cestující",
+  "searchLocation": "Zadejte místo",
+  "selectDate": "Vyberte datum",
   "findConnection": "Najít spoj",
   "validation": {
+    "from": {
+      "required": "Vyberte místo odjezdu."
+    },
+    "to": {
+      "required": "Vyberte cíl cesty."
+    },
     "startDate": {
-      "startDateCantLowerThanToday": "Datum odjezdu nemůže být dřívější než dnešní datum"
+      "startDateCantLowerThanToday": "Datum odjezdu nemůže být dřívější než dnešní datum",
+      "required": "Datum odjezdu musí být vybráno"
     },
     "endDate": {
       "endDateCantLowerThanToday": "Datum návratu nemůže být dřívější než dnešní datum"

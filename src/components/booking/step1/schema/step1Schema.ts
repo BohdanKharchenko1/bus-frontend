@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { Point } from '../../../partials/SearchableInput';
 
 export const step1Schema = z.object({
-  from: z.custom<Point>(),
-  to: z.custom<Point>(),
-  startDate: z.string().refine(
+  from: z.custom<Point>().refine((val) => val, { error: 'validation.from.required' }),
+  to: z.custom<Point>().refine((val) => val, { error: 'validation.to.required' }),
+  startDate: z.string({ error: 'validation.startDate.required' }).refine(
     (val) => {
       if (!val) return;
       const selectedDate = new Date(val);

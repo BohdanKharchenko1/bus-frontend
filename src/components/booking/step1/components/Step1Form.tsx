@@ -1,4 +1,4 @@
-import { Controller, FieldErrors, UseFormReturn } from 'react-hook-form';
+import { Controller, FieldError, FieldErrors, UseFormReturn } from 'react-hook-form';
 import { TFunction } from 'i18next';
 import { SearchableSelect } from '../../../partials/SearchableSelect.tsx';
 import { SearchableInput } from '../../../partials/SearchableInput.tsx';
@@ -29,9 +29,14 @@ export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
               control={form.control}
               name="from"
               render={({ field }) => (
-                <SearchableInput value={field.value} onChange={field.onChange} />
+                <SearchableInput
+                  value={field.value}
+                  onChange={field.onChange}
+                  placeholder={t('searchLocation')}
+                />
               )}
             />
+            <FormError error={errors.from as FieldError | undefined} />
           </FieldGroup>
         </div>
 
@@ -41,9 +46,14 @@ export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
               control={form.control}
               name="to"
               render={({ field }) => (
-                <SearchableInput value={field.value} onChange={field.onChange} />
+                <SearchableInput
+                  value={field.value}
+                  onChange={field.onChange}
+                  placeholder={t('searchLocation')}
+                />
               )}
             />
+            <FormError error={errors.to as FieldError | undefined} />
           </FieldGroup>
         </div>
 
@@ -57,6 +67,7 @@ export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
                   value={field.value ?? null}
                   onChange={field.onChange}
                   className="w-full"
+                  placeholder={t('selectDate')}
                 />
               )}
             />
@@ -72,6 +83,7 @@ export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
                   value={field.value ?? null}
                   onChange={field.onChange}
                   className="w-full"
+                  placeholder={t('selectDate')}
                 />
               )}
             />

@@ -16,5 +16,12 @@
   "extra_baggage_count": "Количество доп. мест",
   "extra_baggage_total": "Стоимость доп. багажа",
   "total_price_label": "Итоговая стоимость",
-  "total_price_hint": "Включая билеты и багаж"
+  "total_price_hint": "Включая билеты и багаж",
+  "errors": {
+    "emailInvalid": "Введите корректный адрес электронной почты.",
+    "phoneInvalid": "Введите корректный номер телефона.",
+    "nameRequired": "Имя обязательно для заполнения.",
+    "nameLatinOnly": "Только латинские буквы.",
+    "surnameRequired": "Фамилия обязательна для заполнения."
+  }
 }

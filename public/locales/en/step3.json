@@ -16,5 +16,12 @@
   "extra_baggage_count": "Extra pieces",
   "extra_baggage_total": "Total extra cost",
   "total_price_label": "Trip total",
-  "total_price_hint": "Includes tickets and baggage"
+  "total_price_hint": "Includes tickets and baggage",
+  "errors": {
+    "emailInvalid": "Please enter a valid email address.",
+    "phoneInvalid": "Please enter a valid phone number.",
+    "nameRequired": "First name is required.",
+    "nameLatinOnly": "Latin letters only.",
+    "surnameRequired": "Last name is required."
+  }
 }

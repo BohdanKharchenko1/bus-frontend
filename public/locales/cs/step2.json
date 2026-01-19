@@ -6,6 +6,7 @@
   "bookButton": "Rezervovat",
   "selectedButton": "Vybráno",
   "errors": {
-    "loadingRoutes": "Nepodařilo se načíst spoje. Zkuste to prosím znovu."
+    "loadingRoutes": "Nepodařilo se načíst spoje. Zkuste to prosím znovu.",
+    "selectRoute": "Vyberte prosím spoj."
   }
 }

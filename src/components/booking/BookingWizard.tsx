@@ -1,4 +1,4 @@
-import { CardHeader, CardTitle, Card, CardDescription, CardContent } from '../ui/card.tsx';
+import { CardHeader, CardTitle, Card, CardContent } from '../ui/card.tsx';
 import { useBookingStore } from '../../stores/bookingStore.ts';
 import { Step } from '../../types/step.ts';
 import { Stepper } from '../partials/Stepper.tsx';
@@ -32,10 +32,6 @@ export default function BookingWizard() {
       <Card className="w-full">
         <CardHeader>
           <CardTitle className="text-3xl">Купить Билет</CardTitle>
-          <CardDescription className="font-light text-md">
-            Пять шагов, без формы «Откуда/Куда» - только существующие маршруты
-            {step}
-          </CardDescription>
           <CardContent className="min-w-0 mt-12 px-0">
             <Suspense fallback={<h1>Loading...</h1>}>
               <Stepper steps={steps} current={currentStepIndex} />

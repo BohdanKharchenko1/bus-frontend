@@ -4,6 +4,7 @@ import { TFunction } from 'i18next';
 import { Step3FormValues } from '../schema/step3Schema.ts';
 import { DiscountGroup } from '../utils/price.ts';
 import { BaggageItem, RouteItemType } from '../../../../types/routes.ts';
+import FormError from '../../../partials/FormError.tsx';
 import SelectTicket from './SelectTicket.tsx';
 import BaggageCard from './BaggageCard.tsx';
 
@@ -57,9 +58,7 @@ const PassengerCard = ({
               placeholder={t('name')}
               className="h-12 px-4 rounded-xl border border-slate-200 bg-white shadow-[0_10px_30px_-18px_rgba(15,23,42,0.35)] focus:ring-2 focus:ring-purple-500 focus:border-purple-300 transition-all outline-none text-slate-900"
             />
-            <p className="min-h-[1.25rem] text-sm text-red-500">
-              {errors.name?.[passengerIndex]?.message}
-            </p>
+            <FormError error={errors.name?.[passengerIndex]} />
           </div>
 
           <div className="flex flex-col gap-2">
@@ -69,9 +68,7 @@ const PassengerCard = ({
               placeholder={t('last_name')}
               className="h-12 px-4 rounded-xl border border-slate-200 bg-white shadow-[0_10px_30px_-18px_rgba(15,23,42,0.35)] focus:ring-2 focus:ring-purple-500 focus:border-purple-300 transition-all outline-none text-slate-900"
             />
-            <p className="min-h-[1.25rem] text-sm text-red-500">
-              {errors.surname?.[passengerIndex]?.message}
-            </p>
+            <FormError error={errors.surname?.[passengerIndex]} />
           </div>
         </div>
 

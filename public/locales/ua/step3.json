@@ -16,5 +16,12 @@
   "extra_baggage_count": "Кількість додаткових",
   "extra_baggage_total": "Сума за додатковий багаж",
   "total_price_label": "Загальна вартість",
-  "total_price_hint": "Включає квитки та багаж"
+  "total_price_hint": "Включає квитки та багаж",
+  "errors": {
+    "emailInvalid": "Введіть коректну електронну адресу.",
+    "phoneInvalid": "Введіть коректний номер телефону.",
+    "nameRequired": "Ім'я є обов'язковим.",
+    "nameLatinOnly": "Тільки латинські літери.",
+    "surnameRequired": "Прізвище є обов'язковим."
+  }
 }

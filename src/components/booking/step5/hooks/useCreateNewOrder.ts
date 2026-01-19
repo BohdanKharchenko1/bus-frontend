@@ -3,7 +3,12 @@ import { useBookingStore } from '../../../../stores/bookingStore.ts';
 import { buildNewOrderPayload } from '../utils/buildNewOrderPayload.ts';
 import { newOrder } from '../../../../api/bus.ts';
 
-export default function useCreateNewOrder() {
+type UseCreateNewOrderOptions = {
+  onCreated?: () => void;
+};
+
+export default function useCreateNewOrder(options?: UseCreateNewOrderOptions) {
+  const onCreated = options?.onCreated;
   const setNewOrder = useBookingStore((s) => s.setNewOrder);
 
   useEffect(() => {
@@ -12,8 +17,9 @@ export default function useCreateNewOrder() {
     const load = async () => {
       const response = await newOrder(payload);
       setNewOrder({ newOrder: response.data });
+      onCreated?.();
     };
 
     load();
-  }, []);
+  }, [onCreated, setNewOrder]);
 }

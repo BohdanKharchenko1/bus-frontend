@@ -4,8 +4,12 @@ import validator from 'validator';
 export const createStep3Schema = (needOrderData: boolean) =>
   z
     .object({
-      email: z.string().email(),
-      phone: z.string().refine((v) => validator.isMobilePhone(v, 'any')),
+      email: z.string().email('step3:errors.emailInvalid'),
+      phone: z
+        .string()
+        .refine((v) => validator.isMobilePhone(v, 'any', { strictMode: true }), {
+          message: 'step3:errors.phoneInvalid',
+        }),
       name: z.array(z.string().optional()),
       surname: z.array(z.string().optional()),
       discounts: z.array(z.array(z.number())),
@@ -17,14 +21,14 @@ export const createStep3Schema = (needOrderData: boolean) =>
           if (!name || name.length < 2) {
             ctx.addIssue({
               code: 'custom',
-              message: 'Name is required',
+              message: 'step3:errors.nameRequired',
               path: ['name', i],
             });
           }
           if (!name?.match(/^[A-Za-z]+$/)) {
             ctx.addIssue({
               code: 'custom',
-              message: 'Latin only',
+              message: 'step3:errors.nameLatinOnly',
               path: ['name', i],
             });
           }
@@ -34,7 +38,7 @@ export const createStep3Schema = (needOrderData: boolean) =>
           if (!surname || surname.length < 2) {
             ctx.addIssue({
               code: 'custom',
-              message: 'Surname is required',
+              message: 'step3:errors.surnameRequired',
               path: ['surname', i],
             });
           }

@@ -1,6 +1,7 @@
 import { UseFormReturn } from 'react-hook-form';
 import { TFunction } from 'i18next';
 import { Step3FormValues } from '../schema/step3Schema';
+import FormError from '../../../partials/FormError.tsx';
 
 type Step3InputsProps = {
   form: UseFormReturn<Step3FormValues>;
@@ -20,12 +21,12 @@ const Step3Inputs = ({ form, t }: Step3InputsProps) => {
     <div className="grid grid-cols-2 gap-3">
       <div className="flex flex-col gap-1">
         <input {...register('email')} placeholder={t('email')} className={inputClasses} />
-        {errors.email && <p className="text-sm text-red-500">{errors.email.message}</p>}
+        <FormError error={errors.email} />
       </div>
 
       <div className="flex flex-col gap-1">
         <input {...register('phone')} placeholder={t('phone')} className={inputClasses} />
-        {errors.phone && <p className="text-sm text-red-500">{errors.phone.message}</p>}
+        <FormError error={errors.phone} />
       </div>
     </div>
   );

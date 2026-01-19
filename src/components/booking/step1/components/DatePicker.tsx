@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { ChevronDownIcon } from 'lucide-react';
+import { format } from 'date-fns';
+import { cs, enUS, ru, uk } from 'date-fns/locale';
+import i18n from 'i18next';
 
 import { Button } from '../../../ui/button';
 import { Calendar } from '../../../ui/calendar';
@@ -12,8 +15,22 @@ type Props = {
   className?: string;
   placeholder?: string;
 };
+
+const localeMap = {
+  cs,
+  en: enUS,
+  ru,
+  ua: uk,
+} as const;
+
+const getLocale = (language: string | undefined) => {
+  const normalized = language?.split('-')[0] ?? 'en';
+  return localeMap[normalized as keyof typeof localeMap] ?? enUS;
+};
+
 export function DatePicker({ value, onChange, className, placeholder = 'Select date' }: Props) {
   const [open, setOpen] = React.useState(false);
+  const locale = getLocale(i18n.language);
 
   return (
     <div className="flex flex-col gap-3">
@@ -23,7 +40,7 @@ export function DatePicker({ value, onChange, className, placeholder = 'Select d
             variant="outline"
             className={cn('justify-between font-normal h-[51px] md:text-lg text-base', className)}
           >
-            {value ? new Date(value).toLocaleDateString() : placeholder}
+            {value ? format(new Date(value), 'P', { locale }) : placeholder}
             <ChevronDownIcon className="ml-2 size-4 shrink-0" />
           </Button>
         </PopoverTrigger>
@@ -32,6 +49,7 @@ export function DatePicker({ value, onChange, className, placeholder = 'Select d
           <Calendar
             mode="single"
             selected={value ? new Date(value) : undefined}
+            locale={locale}
             captionLayout="dropdown"
             onSelect={(newDate) => {
               onChange(newDate ? newDate.toISOString() : null);

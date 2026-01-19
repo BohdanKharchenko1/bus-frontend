@@ -16,5 +16,12 @@
   "extra_baggage_count": "Počet kusů navíc",
   "extra_baggage_total": "Cena navíc celkem",
   "total_price_label": "Celková cena cesty",
-  "total_price_hint": "Včetně jízdenek a zavazadel"
+  "total_price_hint": "Včetně jízdenek a zavazadel",
+  "errors": {
+    "emailInvalid": "Zadejte platnou e-mailovou adresu.",
+    "phoneInvalid": "Zadejte platné telefonní číslo.",
+    "nameRequired": "Jméno je povinné.",
+    "nameLatinOnly": "Používejte pouze latinská písmena.",
+    "surnameRequired": "Příjmení je povinné."
+  }
 }

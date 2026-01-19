@@ -1,11 +1,20 @@
 import { useBookingStore } from '../../../../stores/bookingStore.ts';
 import { buyTicket } from '../../../../api/bus.ts';
+import { Button } from '../../../ui/button.tsx';
+import { cn } from '../../../../lib/utils.ts';
+import i18n from 'i18next';
 
-export default function BuyTicketButton() {
+type BuyTicketButtonProps = {
+  label?: string;
+  className?: string;
+};
+
+export default function BuyTicketButton({ label = 'Buy', className }: BuyTicketButtonProps) {
   const order = useBookingStore((s) => s.newOrder);
   const email = useBookingStore((s) => s.email);
+  const orderLanguage = i18n.language;
 
-  const ticketInformation = { order, email };
+  const ticketInformation = { order, email, orderLanguage };
   const handleBuyTicket = async () => {
     const newTab = window.open('', '_blank');
     if (!newTab) return;
@@ -26,8 +35,8 @@ export default function BuyTicketButton() {
   };
 
   return (
-    <button type="button" onClick={handleBuyTicket} className="w-20 h-7 bg-red-500">
-      Buy
-    </button>
+    <Button type="button" onClick={handleBuyTicket} className={cn(className)}>
+      {label}
+    </Button>
   );
 }

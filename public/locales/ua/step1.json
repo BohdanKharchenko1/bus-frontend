@@ -5,9 +5,18 @@
   "departureDate": "Дата відправлення",
   "returnDate": "Дата повернення",
   "passengers": "Пасажири",
+  "searchLocation": "Введіть місце",
+  "selectDate": "Оберіть дату",
   "findConnection": "Знайти рейс",
   "validation": {
+    "from": {
+      "required": "Оберіть місце відправлення"
+    },
+    "to": {
+      "required": "Оберіть пункт призначення"
+    },
     "startDate": {
+      "required": "Оберіть дату відправлення",
       "startDateCantLowerThanToday": "Дата відправлення не може бути раніше сьогоднішньої дати"
     },
     "endDate": {
@@ -15,6 +24,6 @@
     }
   },
   "errors": {
-    "incompleteForm": "Будь ласка, заповніть обов’язкові поля перед продовженням."
+    "incompleteForm": "Будь ласка, заповніть обов’язкові поля перед продовженням"
   }
 }

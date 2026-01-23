@@ -1,0 +1,84 @@
+{
+  "header": {
+    "titleLine1": "International",
+    "titleLine2": "passenger transportation"
+  },
+  "services": {
+    "title": "Private services",
+    "cta": "Leave a request",
+    "cards": [
+      {
+        "title": "Organized tours",
+        "body": "Routes for your group and schedule. We offer comfortable buses and professional drivers for tours across Europe and Ukraine. Flexible route planning and stops at the group's request."
+      },
+      {
+        "title": "Bus rental",
+        "body": "Transfers, corporate trips, excursions, and any events. We provide modern, comfortable buses and minibuses with professional drivers. Flexible rental terms - from a few hours to multi-day trips."
+      }
+    ]
+  },
+  "about": {
+    "title": "About us",
+    "items": [
+      {
+        "title": "Reliability and safety",
+        "body": "Experienced drivers, regular inspections, passenger insurance."
+      },
+      {
+        "title": "Convenience at every step",
+        "body": "Purchase in a minute, e-ticket, clear schedule."
+      },
+      {
+        "title": "Discounts",
+        "body": "Loyalty and promo codes - save on regular trips."
+      },
+      {
+        "title": "Support at every stage",
+        "body": "We’ll help with booking, refunds, and baggage questions."
+      }
+    ]
+  },
+  "reviews": {
+    "title": "Reviews",
+    "items": [
+      {
+        "text": "Found a route in 2 minutes, the trip was comfortable and cozy.",
+        "author": "Ekaterina",
+        "route": "Praha - Wien"
+      },
+      {
+        "text": "Very satisfied with the service and driver. Everything on time.",
+        "author": "Maria",
+        "route": "Brno - Krakow"
+      },
+      {
+        "text": "Good company, comfortable buses and pleasant prices.",
+        "author": "Oleg",
+        "route": "Uzhgorod - Praha"
+      }
+    ]
+  },
+  "promo": {
+    "title": "Ready to go?",
+    "subtitle": "Sign up and get your first trip with 10% off.",
+    "primaryCta": "Sign up",
+    "secondaryCta": "Find a route"
+  },
+  "footer": {
+    "brand": "VO-TRANS",
+    "description": "International bus transportation.",
+    "navigation": {
+      "title": "Navigation",
+      "links": ["Booking", "Account", "Contacts"]
+    },
+    "support": {
+      "title": "Support",
+      "links": ["FAQ", "Terms & refunds", "Privacy policy"]
+    },
+    "contact": {
+      "title": "Contact",
+      "lines": ["+420 000 000 000", "+420 000 000 000", "+420 000 000 000"]
+    },
+    "copyright": "© 2025 VO-TRANS. All rights reserved."
+  }
+}

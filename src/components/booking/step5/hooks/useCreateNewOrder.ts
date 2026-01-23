@@ -13,7 +13,6 @@ export default function useCreateNewOrder(options?: UseCreateNewOrderOptions) {
 
   useEffect(() => {
     const payload = buildNewOrderPayload();
-    console.log(payload);
     const load = async () => {
       const response = await newOrder(payload);
       setNewOrder({ newOrder: response.data });

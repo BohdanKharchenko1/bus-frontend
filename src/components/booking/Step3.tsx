@@ -103,8 +103,10 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
         discountsBack,
         baggageThere,
         baggageBack,
+        routeThere,
+        routeBack,
       }),
-    [allValues, discountsBack, discountsThere, baggageBack, baggageThere],
+    [allValues, discountsThere, discountsBack, baggageThere, baggageBack, routeThere, routeBack],
   );
 
   const totalCurrency = useMemo(() => {
@@ -184,6 +186,7 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
           </CardContent>
         </Card>
       </form>
+      <pre className="text-xs">{JSON.stringify(watch(), null, 2)}</pre>
     </div>
   );
 }

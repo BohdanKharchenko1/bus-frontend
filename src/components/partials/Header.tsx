@@ -1,9 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import headerBg from '../../assets/img/vo-trans-bus-Bhs1Pa4N.webp';
 import logo from '../../assets/img/vo-trans-logo.svg';
 import road from '../../assets/img/destination.svg';
 
 const Header: React.FC = () => {
+  const { t } = useTranslation('home');
   return (
     <header
       className="
@@ -61,8 +63,8 @@ const Header: React.FC = () => {
                         text-[clamp(32px,3vw,56px)]
                     "
         >
-          Международные <br />
-          пассажирские перевозки
+          {t('header.titleLine1')} <br />
+          {t('header.titleLine2')}
         </h2>
 
         <div

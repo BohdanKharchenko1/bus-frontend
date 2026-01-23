@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router';
 import i18n from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation('navbar');
 
   const handleClick = (lang: string): void => {
     i18n.changeLanguage(lang);
@@ -28,16 +30,16 @@ const Navbar: React.FC = () => {
         {/* DESKTOP NAV */}
         <nav className="hidden md:flex items-center space-x-6 lg:space-x-8 2xl:space-x-10 text-sm lg:text-base font-medium text-black">
           <Link to="/" className="hover:text-purple-700">
-            Главная
+            {t('home')}
           </Link>
           <Link to="/buy_ticket" className="hover:text-purple-700">
-            Купить билет
+            {t('buyTicket')}
           </Link>
           <Link to="/profile" className="hover:text-purple-700">
-            Профиль
+            {t('profile')}
           </Link>
           <a href="#" className="hover:text-purple-700">
-            Контакты
+            {t('contacts')}
           </a>
         </nav>
 
@@ -75,15 +77,15 @@ const Navbar: React.FC = () => {
         <div className="md:hidden bg-white border-t shadow-sm">
           <nav className="flex flex-col px-6 py-4 space-y-3 text-sm font-medium">
             <Link to="/" onClick={() => setOpen(false)}>
-              Главная
+              {t('home')}
             </Link>
             <Link to="/buy_ticket" onClick={() => setOpen(false)}>
-              Купить билет
+              {t('buyTicket')}
             </Link>
             <Link to="/profile" onClick={() => setOpen(false)}>
-              Профиль
+              {t('profile')}
             </Link>
-            <a href="#">Контакты</a>
+            <a href="#">{t('contacts')}</a>
 
             <div className="pt-3 border-t flex space-x-4">
               {['ru', 'cs', 'ua', 'en'].map((l) => (

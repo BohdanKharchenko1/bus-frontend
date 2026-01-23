@@ -1,5 +1,5 @@
 import { Step3FormValues } from '../schema/step3Schema';
-import { BaggageItem } from '@/types/routes.ts';
+import { BaggageItem, RouteItemType } from '@/types/routes.ts';
 
 export type DiscountOption = {
   discount_id: number | string;
@@ -17,11 +17,13 @@ type PriceConfig = {
   discountsBack?: DiscountGroup;
   baggageThere?: BaggageItem[];
   baggageBack?: BaggageItem[];
+  routeThere?: RouteItemType;
+  routeBack?: RouteItemType;
 };
 
 export const calculateTotalPrice = (
   values: Step3FormValues,
-  { discountsThere, discountsBack, baggageBack, baggageThere }: PriceConfig,
+  { discountsThere, discountsBack, baggageBack, baggageThere, routeThere, routeBack }: PriceConfig,
 ) => {
   if (!values?.discounts) return 0;
 
@@ -30,7 +32,7 @@ export const calculateTotalPrice = (
   values.discounts.forEach((discountRow, routeIndex) => {
     const discountList = routeIndex === 0 ? discountsThere?.discounts : discountsBack?.discounts;
     if (!discountList) return;
-
+    const route = routeIndex === 0 ? routeThere : routeBack;
     discountRow.forEach((selectedId) => {
       const match = discountList.find(
         (discount) => String(discount.discount_id) === String(selectedId),
@@ -38,6 +40,10 @@ export const calculateTotalPrice = (
 
       if (match) {
         price += match.discount_price;
+      } else {
+        if (route) {
+          price += route?.price_one_way;
+        }
       }
     });
   });

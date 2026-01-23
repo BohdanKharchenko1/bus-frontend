@@ -239,7 +239,7 @@ export interface RouteError {
   detail: string;
 }
 type Discount = {
-  discount_id: string;
+  discount_id: number | null;
   discount_name: string;
   discount_price: number;
   currency: string;

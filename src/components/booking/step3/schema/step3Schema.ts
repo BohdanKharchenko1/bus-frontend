@@ -5,11 +5,9 @@ export const createStep3Schema = (needOrderData: boolean) =>
   z
     .object({
       email: z.string().email('step3:errors.emailInvalid'),
-      phone: z
-        .string()
-        .refine((v) => validator.isMobilePhone(v, 'any', { strictMode: true }), {
-          message: 'step3:errors.phoneInvalid',
-        }),
+      phone: z.string().refine((v) => validator.isMobilePhone(v, 'any', { strictMode: true }), {
+        message: 'step3:errors.phoneInvalid',
+      }),
       name: z.array(z.string().optional()),
       surname: z.array(z.string().optional()),
       discounts: z.array(z.array(z.number())),

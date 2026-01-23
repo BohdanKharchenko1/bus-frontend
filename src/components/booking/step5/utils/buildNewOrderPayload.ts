@@ -8,7 +8,9 @@ const formatDate = (dateStr?: string | null) => {
 
 export const buildNewOrderPayload = () => {
   const state = useBookingStore.getState();
-
+  const formattedDiscounts = state.discounts?.map((row) =>
+    row.map((val) => (val === 0 ? undefined : val)),
+  );
   return {
     date: state.endDate
       ? [formatDate(state.routeThere?.date_from), formatDate(state.routeBack?.date_from)]
@@ -20,7 +22,7 @@ export const buildNewOrderPayload = () => {
     seat: state.seat ?? [],
     name: state.name,
     surname: state.surname,
-    discount_id: state.discounts ?? [],
+    discount_id: formattedDiscounts ?? [],
 
     baggage: state.baggage,
 

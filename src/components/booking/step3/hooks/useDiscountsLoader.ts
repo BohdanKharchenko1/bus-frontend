@@ -4,6 +4,7 @@ import { getBaggage, getDiscount } from '../../../../api/bus.ts';
 import { DiscountResponse, RouteItemType } from '../../../../types/routes.ts';
 import { Step3FormValues } from '../schema/step3Schema';
 import { BookingState } from '../../../../stores/bookingStore.ts';
+import formatDiscounts from '../utils/formatDiscounts.ts';
 
 type UseDiscountsLoaderParams = {
   form: UseFormReturn<Step3FormValues>;
@@ -38,7 +39,7 @@ export const useDiscountsLoader = ({
       const prevThereChanged = resThere?.data.route_id !== discountsThere?.route_id;
       const prevBackChanged = resBack?.data.route_id !== discountsBack?.route_id;
       saveBaggageAndDiscounts({
-        discountsThere: resThere?.data ?? null,
+        discountsThere: formatDiscounts(routeThere, resThere?.data) ?? null,
         discountsBack: resBack?.data ?? null,
         baggageThere: bagThere?.data ?? null,
         baggageBack: bagBack?.data ?? null,

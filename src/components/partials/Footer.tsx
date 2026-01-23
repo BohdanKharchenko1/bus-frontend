@@ -1,9 +1,14 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import line_1 from "../../assets/img/line-1.svg";
 import line_2 from "../../assets/img/line-2.svg";
 import line_3 from "../../assets/img/line-3.svg";
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation('home');
+  const navLinks = t('footer.navigation.links', { returnObjects: true }) as string[];
+  const supportLinks = t('footer.support.links', { returnObjects: true }) as string[];
+  const contactLines = t('footer.contact.lines', { returnObjects: true }) as string[];
   return (
       <footer className="relative bg-white w-full overflow-hidden pt-14 sm:pt-16 lg:pt-20 pb-8 sm:pb-10">
         {/* LINE 3 */}
@@ -54,47 +59,55 @@ const Footer: React.FC = () => {
             {/* Column 1 */}
             <div className="text-center sm:text-left">
               <h2 className="text-lg sm:text-xl font-bold text-purple-800 mb-2">
-                VO-TRANS
+                {t('footer.brand')}
               </h2>
               <p className="text-sm text-gray-700 max-w-xs mx-auto sm:mx-0">
-                Международные автобусные перевозки.
+                {t('footer.description')}
               </p>
             </div>
 
             {/* Column 2 */}
             <div className="text-center sm:text-left">
-              <h3 className="text-purple-800 font-semibold mb-3">Навигация</h3>
+              <h3 className="text-purple-800 font-semibold mb-3">{t('footer.navigation.title')}</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-purple-700">Бронирование</a></li>
-                <li><a href="#" className="hover:text-purple-700">Личный кабинет</a></li>
-                <li><a href="#" className="hover:text-purple-700">Контакты</a></li>
+                {navLinks.map((label) => (
+                  <li key={label}>
+                    <a href="#" className="hover:text-purple-700">
+                      {label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
             {/* Column 3 */}
             <div className="text-center sm:text-left">
-              <h3 className="text-purple-800 font-semibold mb-3">Поддержка</h3>
+              <h3 className="text-purple-800 font-semibold mb-3">{t('footer.support.title')}</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-purple-700">FAQ</a></li>
-                <li><a href="#" className="hover:text-purple-700">Условия и возвраты</a></li>
-                <li><a href="#" className="hover:text-purple-700">Политика конфиденциальности</a></li>
+                {supportLinks.map((label) => (
+                  <li key={label}>
+                    <a href="#" className="hover:text-purple-700">
+                      {label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
             {/* Column 4 */}
             <div className="text-center sm:text-left">
-              <h3 className="text-purple-800 font-semibold mb-3">Связаться</h3>
+              <h3 className="text-purple-800 font-semibold mb-3">{t('footer.contact.title')}</h3>
               <ul className="space-y-2 text-sm">
-                <li>+420 000 000 000</li>
-                <li>+420 000 000 000</li>
-                <li>+420 000 000 000</li>
+                {contactLines.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
               </ul>
             </div>
           </div>
 
           {/* COPYRIGHT */}
           <div className="text-center text-xs text-gray-500 mt-10 sm:mt-12">
-            © 2025 VO-TRANS. All rights reserved.
+            {t('footer.copyright')}
           </div>
         </div>
       </footer>

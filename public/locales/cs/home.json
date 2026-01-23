@@ -1,0 +1,84 @@
+{
+  "header": {
+    "titleLine1": "Mezinarodni",
+    "titleLine2": "autobusova preprava"
+  },
+  "services": {
+    "title": "Soukrome sluzby",
+    "cta": "Odeslat poptavku",
+    "cards": [
+      {
+        "title": "Organizovane zajezdy",
+        "body": "Trasy pro vasu skupinu a podle rozvrhu. Nabizime pohodlne autobusy a profesionalni ridice pro cesty po Evrope a Ukrajine. Flexibilni planovani trasy a zastavky dle prani skupiny."
+      },
+      {
+        "title": "Pronajem autobusu",
+        "body": "Transfery, firemni akce, exkurze a jakekoli udalosti. Poskytujeme moderne pohodlne autobusy a mikrobusy s profesionalnimi ridici. Flexibilni podminky pronajmu - od nekolika hodin po vicedenni cesty."
+      }
+    ]
+  },
+  "about": {
+    "title": "O nas",
+    "items": [
+      {
+        "title": "Spolehlivost a bezpecnost",
+        "body": "Zkuseni ridici, pravidelne technicke kontroly, pojisteni cestujicich."
+      },
+      {
+        "title": "Pohodli na kazdem kroku",
+        "body": "Nakup za minutu, elektronicka jizdenka, prehledny jizdni rad."
+      },
+      {
+        "title": "Slevy",
+        "body": "Vernost a slevove kody - setrete pri pravidelnych cestach."
+      },
+      {
+        "title": "Podpora v kazde fazi",
+        "body": "Pomuzeme s rezervaci, vracenim a dotazy k zavazadlum."
+      }
+    ]
+  },
+  "reviews": {
+    "title": "Recenze",
+    "items": [
+      {
+        "text": "Nasla jsem spoj za 2 minuty, cesta byla pohodlna a prijemna.",
+        "author": "Ekaterina",
+        "route": "Praha - Wien"
+      },
+      {
+        "text": "Velmi spokojena se sluzbou i ridicem. Vse vcas.",
+        "author": "Maria",
+        "route": "Brno - Krakow"
+      },
+      {
+        "text": "Dobra spolecnost, pohodlne autobusy a prijemne ceny.",
+        "author": "Oleg",
+        "route": "Uzhgorod - Praha"
+      }
+    ]
+  },
+  "promo": {
+    "title": "Jste pripraveni vyrazit?",
+    "subtitle": "Zaregistrujte se a ziskejte prvni cestu se slevou 10 %.",
+    "primaryCta": "Zaregistrovat se",
+    "secondaryCta": "Najit spoj"
+  },
+  "footer": {
+    "brand": "VO-TRANS",
+    "description": "Mezinarodni autobusova preprava.",
+    "navigation": {
+      "title": "Navigace",
+      "links": ["Rezervace", "Uzivatelsky ucet", "Kontakty"]
+    },
+    "support": {
+      "title": "Podpora",
+      "links": ["FAQ", "Podminky a vratky", "Zasady ochrany osobnich udaju"]
+    },
+    "contact": {
+      "title": "Kontakt",
+      "lines": ["+420 000 000 000", "+420 000 000 000", "+420 000 000 000"]
+    },
+    "copyright": "© 2025 VO-TRANS. Vsechna prava vyhrazena."
+  }
+}

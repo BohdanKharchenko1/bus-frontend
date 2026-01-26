@@ -6,6 +6,7 @@
   "seats_label": "Seats",
   "total_label": "Total to pay",
   "continue_button": "Continue",
+  "download_button": "Download ticket",
   "previous_button": "Previous",
   "empty_value": "-",
   "auto_seat": "Auto selection",

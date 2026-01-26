@@ -30,6 +30,7 @@ export interface BookingState {
   busPlanBack?: BusPlan;
   seat: string[][];
   newOrder?: { order_id?: string | number; reservation_until: string } | null;
+  ticket?: { orderId: string | number; link: string } | null;
   allRoutesThere: RouteItemType[] | RouteError | null;
   allRoutesBack: RouteItemType[] | RouteError | null;
   setStep1: (data: Partial<BookingState>) => void;
@@ -43,6 +44,7 @@ export interface BookingState {
   saveStep3: (payload: Partial<BookingState>) => void;
   setSeat: (payload: Partial<BookingState>) => void;
   setNewOrder: (payload: Partial<BookingState>) => void;
+  setTicket: (ticket: BookingState['ticket']) => void;
   reset: () => void;
   resetNewOrder: () => void;
   setLang: (lang: string) => void;
@@ -74,6 +76,7 @@ const initialState = {
   allRoutesBack: [],
   seat: [[]],
   newOrder: null,
+  ticket: null,
   trans: undefined,
   lang: undefined,
 } satisfies Omit<
@@ -89,6 +92,7 @@ const initialState = {
   | 'saveStep3'
   | 'setSeat'
   | 'setNewOrder'
+  | 'setTicket'
   | 'reset'
   | 'resetNewOrder'
   | 'setLang'
@@ -126,13 +130,14 @@ export const useBookingStore = create<BookingState>()(
           allRoutesBack: dataBack || null,
         })),
       setNewOrder: (data) => set((state) => ({ ...state, ...data })),
+      setTicket: (ticket) => set(() => ({ ticket })),
       setBusPlanAndFreeSeats: (data) => set((state) => ({ ...state, ...data })),
       setSeat: (data) => set((state) => ({ ...state, ...data })),
       reset: () => {
         set(() => ({ ...initialState }));
         localStorage.removeItem('booking');
       },
-      resetNewOrder: () => set(() => ({ newOrder: undefined })),
+      resetNewOrder: () => set(() => ({ newOrder: undefined, ticket: null })),
     }),
     {
       name: 'booking',

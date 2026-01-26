@@ -10,8 +10,12 @@ type UseCreateNewOrderOptions = {
 export default function useCreateNewOrder(options?: UseCreateNewOrderOptions) {
   const onCreated = options?.onCreated;
   const setNewOrder = useBookingStore((s) => s.setNewOrder);
+  const currentOrder = useBookingStore((s) => s.newOrder);
 
   useEffect(() => {
+    if (currentOrder) {
+      return;
+    }
     const payload = buildNewOrderPayload();
     const load = async () => {
       const response = await newOrder(payload);
@@ -20,5 +24,5 @@ export default function useCreateNewOrder(options?: UseCreateNewOrderOptions) {
     };
 
     load();
-  }, [onCreated, setNewOrder]);
+  }, [onCreated, setNewOrder, currentOrder]);
 }

@@ -40,7 +40,7 @@ export const useDiscountsLoader = ({
       const prevBackChanged = resBack?.data.route_id !== discountsBack?.route_id;
       saveBaggageAndDiscounts({
         discountsThere: formatDiscounts(routeThere, resThere?.data) ?? null,
-        discountsBack: resBack?.data ?? null,
+        discountsBack: formatDiscounts(routeBack, resBack?.data) ?? null,
         baggageThere: bagThere?.data ?? null,
         baggageBack: bagBack?.data ?? null,
       });

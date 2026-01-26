@@ -17,6 +17,7 @@
   "extra_baggage_total": "Cena navíc celkem",
   "total_price_label": "Celková cena cesty",
   "total_price_hint": "Včetně jízdenek a zavazadel",
+  "default_ticket": "Běžná jízdenka",
   "errors": {
     "emailInvalid": "Zadejte platnou e-mailovou adresu.",
     "phoneInvalid": "Zadejte platné telefonní číslo.",

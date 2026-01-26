@@ -7,6 +7,7 @@ import useCreateNewOrder from './step5/hooks/useCreateNewOrder.ts';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../ui/card.tsx';
 import { Button } from '../ui/button.tsx';
 import { buildOrderSummary } from './step5/utils/orderSummary.ts';
+import OrderTimer from './step5/components/OrderTimer.tsx';
 
 type Step5Props = {
   onPrevious?: () => void;
@@ -70,6 +71,7 @@ export default function Step5({ onPrevious }: Step5Props) {
               <span className="text-slate-600">{row.value}</span>
             </div>
           ))}
+          <OrderTimer reservation_until={newOrder?.reservation_until} />
         </CardContent>
 
         <CardFooter className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

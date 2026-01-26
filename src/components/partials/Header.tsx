@@ -73,8 +73,7 @@ const Header: React.FC = () => {
                         text-[clamp(18px,1.6vw,28px)]
                     "
         >
-          <p>+420 000 000 000</p>
-          <p>+420 000 000 000</p>
+          <p>+420 778 003 500</p>
         </div>
       </div>
     </header>

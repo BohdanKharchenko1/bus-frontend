@@ -29,7 +29,7 @@ export interface BookingState {
   busPlanThere: BusPlan | null;
   busPlanBack?: BusPlan;
   seat: string[][];
-  newOrder?: { order_id?: string | number } | null;
+  newOrder?: { order_id?: string | number; reservation_until: string } | null;
   allRoutesThere: RouteItemType[] | RouteError | null;
   allRoutesBack: RouteItemType[] | RouteError | null;
   setStep1: (data: Partial<BookingState>) => void;

@@ -17,6 +17,7 @@
   "extra_baggage_total": "Стоимость доп. багажа",
   "total_price_label": "Итоговая стоимость",
   "total_price_hint": "Включая билеты и багаж",
+  "default_ticket": "Обычный билет",
   "errors": {
     "emailInvalid": "Введите корректный адрес электронной почты.",
     "phoneInvalid": "Введите корректный номер телефона.",

@@ -24,5 +24,6 @@
     "nameLatinOnly": "Тільки латинські літери.",
     "surnameRequired": "Прізвище є обов'язковим.",
     "surnameLatinOnly": "Тільки латинські літери."
-  }
+  },
+  "default_ticket": "Звичайний квиток"
 }

@@ -186,7 +186,6 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
           </CardContent>
         </Card>
       </form>
-      <pre className="text-xs">{JSON.stringify(watch(), null, 2)}</pre>
     </div>
   );
 }

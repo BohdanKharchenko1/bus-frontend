@@ -17,6 +17,7 @@
   "extra_baggage_total": "Total extra cost",
   "total_price_label": "Trip total",
   "total_price_hint": "Includes tickets and baggage",
+  "default_ticket": "Standard ticket",
   "errors": {
     "emailInvalid": "Please enter a valid email address.",
     "phoneInvalid": "Please enter a valid phone number.",

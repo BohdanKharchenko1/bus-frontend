@@ -3,7 +3,7 @@
   "from": "From",
   "to": "To",
   "departureDate": "Departure date",
-  "returnDate": "Return date",
+  "returnDate": "Return date* (Optional)",
   "passengers": "Passengers",
   "searchLocation": "Search location",
   "selectDate": "Select date",

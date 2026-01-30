@@ -38,9 +38,6 @@ const Navbar: React.FC = () => {
           <Link to="/profile" className="hover:text-purple-700">
             {t('profile')}
           </Link>
-          <a href="#" className="hover:text-purple-700">
-            {t('contacts')}
-          </a>
         </nav>
 
         {/* LANG + BURGER */}
@@ -85,7 +82,6 @@ const Navbar: React.FC = () => {
             <Link to="/profile" onClick={() => setOpen(false)}>
               {t('profile')}
             </Link>
-            <a href="#">{t('contacts')}</a>
 
             <div className="pt-3 border-t flex space-x-4">
               {['ru', 'cs', 'ua', 'en'].map((l) => (

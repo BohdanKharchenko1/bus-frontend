@@ -1,0 +1,193 @@
+{
+  "lastUpdated": "Last updated: January 30, 2026",
+  "contact": {
+    "title": "Contact",
+    "company": "VO-Trans EU s.r.o.",
+    "address": ["Cukrovarská 941/21a", "196 00 Praha 9 - Čakovice", "Czech Republic"],
+    "phoneLabel": "Phone",
+    "phone": "+420 778 003 500",
+    "emailLabel": "Email",
+    "email": ""
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "intro": "These Terms and Conditions govern the use of the VO-TRANS website and the booking of passenger transportation services in the Czech Republic and Ukraine. By placing an order, you agree to these Terms.",
+    "sections": [
+      {
+        "title": "1. About us",
+        "body": [
+          "VO-Trans EU s.r.o. operates this website and provides booking services for passenger transportation. We offer tickets and related services for routes in the Czech Republic and Ukraine."
+        ]
+      },
+      {
+        "title": "2. Services and scope",
+        "body": [
+          "We provide online booking and ticketing services. Actual transportation may be performed by third-party carriers and partners, including InfoBus, and their carrier rules may apply in addition to these Terms."
+        ]
+      },
+      {
+        "title": "3. Booking and tickets",
+        "body": [
+          "An order is considered confirmed after successful payment and when you receive a confirmation email with your e-ticket. Tickets are delivered by email and can be downloaded from your booking confirmation.",
+          "You are responsible for providing accurate passenger and travel details. Please review your ticket immediately and contact us by phone if you notice an error."
+        ]
+      },
+      {
+        "title": "4. Prices and payment",
+        "body": [
+          "Prices are shown in the selected currency and may include applicable taxes and service fees. Payment must be completed at the time of booking using the available payment methods.",
+          "Payments are processed by a payment provider. We do not store full payment card details on our servers."
+        ]
+      },
+      {
+        "title": "5. Changes, cancellations, and refunds",
+        "body": [
+          "Changes, cancellations, and refunds are handled by phone only. Eligibility and fees depend on the fare rules, the time before departure, and the carrier policy. No-shows are generally non-refundable.",
+          "Please refer to our Refund and Cancellation Policy for details."
+        ]
+      },
+      {
+        "title": "6. Passenger responsibilities",
+        "body": [
+          "Passengers must arrive before departure, carry valid travel documents, and comply with baggage limits and carrier rules. We may refuse service for safety or rule violations."
+        ]
+      },
+      {
+        "title": "7. Schedule changes and force majeure",
+        "body": [
+          "Departure and arrival times are estimates and may change due to traffic, weather, or operational reasons. If a service is canceled or materially changed, we will provide available options in accordance with carrier rules."
+        ]
+      },
+      {
+        "title": "8. Liability",
+        "body": [
+          "To the maximum extent permitted by law, our liability is limited to the ticket price paid for the affected service. We are not liable for indirect or consequential losses. Nothing in these Terms limits statutory consumer rights."
+        ]
+      },
+      {
+        "title": "9. Privacy",
+        "body": [
+          "We process personal data in accordance with our Privacy Policy and share necessary information with InfoBus and carriers to fulfill your booking."
+        ]
+      },
+      {
+        "title": "10. Governing law",
+        "body": [
+          "These Terms are governed by Czech law. Any disputes will be resolved by the competent courts in the Czech Republic."
+        ]
+      }
+    ]
+  },
+  "refunds": {
+    "title": "Refund and Cancellation Policy",
+    "intro": "This policy explains how cancellations and refunds work for tickets booked on our website. Refunds are available by phone only.",
+    "sections": [
+      {
+        "title": "1. How to request a refund",
+        "body": [
+          "All cancellation and refund requests must be made by phone at +420 778 003 500. Please have your order ID and passenger email available."
+        ]
+      },
+      {
+        "title": "2. Eligibility",
+        "body": [
+          "Refund eligibility depends on the fare rules, the time before departure, and the carrier policy. Requests made after departure or for no-shows are generally not refundable."
+        ]
+      },
+      {
+        "title": "3. Fees and refund amounts",
+        "body": [
+          "Refund amounts are determined by the carrier rules. Service or booking fees may be non-refundable. Any applicable fees will be communicated during your phone request."
+        ]
+      },
+      {
+        "title": "4. Carrier cancellations or major schedule changes",
+        "body": [
+          "If a trip is canceled or materially changed by the carrier, we will offer available options such as rebooking or refund, subject to carrier rules."
+        ]
+      },
+      {
+        "title": "5. Processing time",
+        "body": [
+          "Approved refunds are returned to the original payment method. Processing times vary by bank or card issuer and will be confirmed during your phone request."
+        ]
+      },
+      {
+        "title": "6. Ticket delivery",
+        "body": [
+          "Tickets are delivered by email and can be downloaded from the booking confirmation. If you cannot access your ticket, contact us by phone."
+        ]
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "This Privacy Policy explains how we collect, use, and share personal data when you use our website and booking services.",
+    "sections": [
+      {
+        "title": "1. Data controller",
+        "body": [
+          "VO-Trans EU s.r.o. is the data controller for personal data processed through this website. You can contact us using the details below."
+        ]
+      },
+      {
+        "title": "2. Data we collect",
+        "body": [
+          "We collect information needed to provide services, such as names, email addresses, phone numbers, passenger details, booking details, travel dates, and service preferences.",
+          "We also process technical data such as IP address, device information, and basic cookies required for the site to function."
+        ]
+      },
+      {
+        "title": "3. How we use your data",
+        "body": [
+          "We use your data to provide and manage bookings, deliver tickets by email, communicate about your trip, provide customer support, and meet legal obligations.",
+          "If you opt in to receive promotions, we may send marketing messages. You can opt out at any time."
+        ]
+      },
+      {
+        "title": "4. Sharing of data",
+        "body": [
+          "We share necessary personal data with InfoBus and relevant carriers to fulfill your booking and provide transportation services.",
+          "We may also share data with payment providers, IT and hosting providers, and authorities when required by law."
+        ]
+      },
+      {
+        "title": "5. Legal basis",
+        "body": [
+          "We process personal data to perform our contract with you, to comply with legal obligations, and for legitimate interests such as fraud prevention and service improvement."
+        ]
+      },
+      {
+        "title": "6. International transfers",
+        "body": [
+          "Your data may be processed in the Czech Republic and Ukraine. If data is transferred outside the EEA, we use appropriate safeguards where required by law."
+        ]
+      },
+      {
+        "title": "7. Data retention",
+        "body": [
+          "We retain personal data only as long as necessary for the purposes described in this policy and to comply with legal obligations."
+        ]
+      },
+      {
+        "title": "8. Your rights",
+        "body": [
+          "You have the right to access, correct, delete, or restrict the processing of your personal data, and to object or request data portability where applicable.",
+          "You may also lodge a complaint with the Czech Office for Personal Data Protection (UOOU)."
+        ]
+      },
+      {
+        "title": "9. Cookies",
+        "body": [
+          "We use cookies that are necessary for the website to operate. You can control cookies through your browser settings."
+        ]
+      },
+      {
+        "title": "10. Changes to this policy",
+        "body": [
+          "We may update this Privacy Policy from time to time. The latest version will be posted on this page with an updated date."
+        ]
+      }
+    ]
+  }
+}

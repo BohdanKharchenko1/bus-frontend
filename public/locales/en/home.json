@@ -73,11 +73,21 @@
     },
     "support": {
       "title": "Support",
-      "links": ["FAQ", "Terms & refunds", "Privacy policy"]
+      "links": [
+        { "label": "Terms & Conditions", "href": "/terms" },
+        { "label": "Refunds & cancellations", "href": "/refunds" },
+        { "label": "Privacy policy", "href": "/privacy" }
+      ]
     },
     "contact": {
       "title": "Contact",
-      "lines": ["+420 778 003 500"]
+      "lines": [
+        "VO-Trans EU s.r.o.",
+        "Cukrovarská 941/21a",
+        "196 00 Praha 9 - Čakovice",
+        "Czech Republic",
+        "+420 778 003 500"
+      ]
     },
     "copyright": "© 2025 VO-TRANS. All rights reserved."
   }

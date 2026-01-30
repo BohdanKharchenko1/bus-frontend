@@ -73,11 +73,21 @@
     },
     "support": {
       "title": "Podpora",
-      "links": ["FAQ", "Podminky a vratky", "Zasady ochrany osobnich udaju"]
+      "links": [
+        { "label": "Obchodni podminky", "href": "/terms" },
+        { "label": "Vratky a zruseni", "href": "/refunds" },
+        { "label": "Zasady ochrany osobnich udaju", "href": "/privacy" }
+      ]
     },
     "contact": {
       "title": "Kontakt",
-      "lines": ["+420 778 003 500"]
+      "lines": [
+        "VO-Trans EU s.r.o.",
+        "Cukrovarska 941/21a",
+        "196 00 Praha 9 - Cakovice",
+        "Ceska republika",
+        "+420 778 003 500"
+      ]
     },
     "copyright": "© 2025 VO-TRANS. Vsechna prava vyhrazena."
   }

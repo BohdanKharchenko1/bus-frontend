@@ -1,4 +1,5 @@
 import { useBookingStore } from '../../../../stores/bookingStore';
+import { useUserStore } from '../../../../stores/userStore.ts';
 
 const formatDate = (dateStr?: string | null) => {
   if (!dateStr) return null;
@@ -8,6 +9,7 @@ const formatDate = (dateStr?: string | null) => {
 
 export const buildNewOrderPayload = () => {
   const state = useBookingStore.getState();
+  const userState = useUserStore.getState();
   const formattedDiscounts = state.discounts?.map((row) =>
     row.map((val) => (val === 0 ? undefined : val)),
   );
@@ -27,7 +29,7 @@ export const buildNewOrderPayload = () => {
     baggage: state.baggage,
 
     phone: state.phone ?? '',
-    email: state.email ?? '',
+    email: userState.email ?? state.email ?? '',
     lang: state.lang ?? 'en',
   };
 };

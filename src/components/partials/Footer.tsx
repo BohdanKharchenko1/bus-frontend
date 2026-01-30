@@ -1,14 +1,36 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router';
 import line_1 from "../../assets/img/line-1.svg";
 import line_2 from "../../assets/img/line-2.svg";
 import line_3 from "../../assets/img/line-3.svg";
 
 const Footer: React.FC = () => {
   const { t } = useTranslation('home');
-  const navLinks = t('footer.navigation.links', { returnObjects: true }) as string[];
-  const supportLinks = t('footer.support.links', { returnObjects: true }) as string[];
+  const navLinks = t('footer.navigation.links', { returnObjects: true }) as (
+    | string
+    | { label: string; href: string }
+  )[];
+  const supportLinks = t('footer.support.links', { returnObjects: true }) as (
+    | string
+    | { label: string; href: string }
+  )[];
   const contactLines = t('footer.contact.lines', { returnObjects: true }) as string[];
+
+  const renderFooterLink = (item: string | { label: string; href: string }) => {
+    const label = typeof item === 'string' ? item : item.label;
+    const href = typeof item === 'string' ? '#' : item.href;
+    const isInternal = href.startsWith('/');
+    return isInternal ? (
+      <Link to={href} className="hover:text-purple-700">
+        {label}
+      </Link>
+    ) : (
+      <a href={href} className="hover:text-purple-700">
+        {label}
+      </a>
+    );
+  };
   return (
       <footer className="relative bg-white w-full overflow-hidden pt-14 sm:pt-16 lg:pt-20 pb-8 sm:pb-10">
         {/* LINE 3 */}
@@ -70,13 +92,10 @@ const Footer: React.FC = () => {
             <div className="text-center sm:text-left">
               <h3 className="text-purple-800 font-semibold mb-3">{t('footer.navigation.title')}</h3>
               <ul className="space-y-2 text-sm">
-                {navLinks.map((label) => (
-                  <li key={label}>
-                    <a href="#" className="hover:text-purple-700">
-                      {label}
-                    </a>
-                  </li>
-                ))}
+                {navLinks.map((item) => {
+                  const label = typeof item === 'string' ? item : item.label;
+                  return <li key={label}>{renderFooterLink(item)}</li>;
+                })}
               </ul>
             </div>
 
@@ -84,13 +103,10 @@ const Footer: React.FC = () => {
             <div className="text-center sm:text-left">
               <h3 className="text-purple-800 font-semibold mb-3">{t('footer.support.title')}</h3>
               <ul className="space-y-2 text-sm">
-                {supportLinks.map((label) => (
-                  <li key={label}>
-                    <a href="#" className="hover:text-purple-700">
-                      {label}
-                    </a>
-                  </li>
-                ))}
+                {supportLinks.map((item) => {
+                  const label = typeof item === 'string' ? item : item.label;
+                  return <li key={label}>{renderFooterLink(item)}</li>;
+                })}
               </ul>
             </div>
 

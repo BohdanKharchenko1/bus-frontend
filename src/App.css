@@ -2,6 +2,9 @@
   margin: 0 auto;
   text-align: center;
 }
+button {
+  cursor: pointer;
+}
 
 .logo {
   height: 6em;

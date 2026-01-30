@@ -38,3 +38,6 @@ export const registerUser = async (body: SighUpFormValues): Promise<AxiosRespons
 export const loginUser = async (body: LoginFormValues): Promise<AxiosResponse> => {
   return await baseUrl.post('auth/login', body);
 };
+export const getOrders = async (): Promise<AxiosResponse> => {
+  return await baseUrl.get('/user/get_orders');
+};

@@ -4,9 +4,11 @@ import Footer from '../components/partials/Footer.tsx';
 
 export default function BookingPage() {
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex min-h-screen flex-col">
       <Navbar />
-      <BookingWizard />
+      <div className="flex-1 pb-10 sm:pb-12">
+        <BookingWizard />
+      </div>
       <Footer />
     </div>
   );

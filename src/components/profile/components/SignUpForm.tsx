@@ -7,17 +7,17 @@ import { useSignUpForm } from '../hooks/useAuthForm.ts';
 import { SighUpFormValues } from '../schema/authSchema.ts';
 import { registerUser } from '../../../api/bus.ts';
 
-export function SignupForm({ className, ...props }: React.ComponentProps<'div'>) {
+interface LoginFormProps {
+  setIsLogin: (value: boolean) => void;
+}
+export function SignupForm({ setIsLogin }: LoginFormProps) {
   const { form } = useSignUpForm();
   const { handleSubmit, watch, register } = form;
   const sendRegisterRequest = async (values: SighUpFormValues) => {
     await registerUser(values);
   };
   return (
-    <div
-      className={cn('flex flex-col gap-6 min-h-screen items-center justify-center', className)}
-      {...props}
-    >
+    <div className={cn('flex flex-col gap-6 min-h-screen items-center justify-center')}>
       <Card className="max-w-xl w-full ">
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Create your account</CardTitle>
@@ -75,7 +75,10 @@ export function SignupForm({ className, ...props }: React.ComponentProps<'div'>)
               <Field>
                 <Button type="submit">Create Account</Button>
                 <FieldDescription className="text-center">
-                  Already have an account? <a href="#">Sign in</a>
+                  Already have an account?{' '}
+                  <button type="button" onClick={() => setIsLogin(true)}>
+                    Sign in
+                  </button>
                 </FieldDescription>
               </Field>
             </FieldGroup>

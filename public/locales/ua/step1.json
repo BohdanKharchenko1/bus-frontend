@@ -3,7 +3,7 @@
   "from": "Звідки",
   "to": "Куди",
   "departureDate": "Дата відправлення",
-  "returnDate": "Дата повернення",
+  "returnDate": "Дата повернення* (Необовʼязково)",
   "passengers": "Пасажири",
   "searchLocation": "Введіть місце",
   "selectDate": "Оберіть дату",

@@ -14,7 +14,7 @@ const Header: React.FC = () => {
             "
       style={{
         backgroundImage: `url(${headerBg})`,
-        backgroundPosition: 'center 80%',
+        backgroundPosition: '95% 80%',
       }}
     >
       {/* Overlay */}

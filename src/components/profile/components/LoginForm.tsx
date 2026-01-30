@@ -3,13 +3,15 @@ import { Button } from '../../ui/button.tsx';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../ui/card.tsx';
 import { Field, FieldDescription, FieldGroup, FieldLabel } from '../../ui/field.tsx';
 import { Input } from '../../ui/input.tsx';
-import React from 'react';
 import { useLoginForm } from '../hooks/useAuthForm.ts';
 import { LoginFormValues } from '../schema/authSchema.ts';
 import { loginUser } from '../../../api/bus.ts';
 import { useUserStore } from '../../../stores/userStore.ts';
 
-export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) {
+interface LoginFormProps {
+  setIsLogin: (value: boolean) => void;
+}
+export function LoginForm({ setIsLogin }: LoginFormProps) {
   const { form } = useLoginForm();
   const { handleSubmit, register } = form;
   const setUser = useUserStore((s) => s.setUser);
@@ -20,7 +22,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) 
     if (result.status === 200) setUser(result.data.id, result.data.email);
   };
   return (
-    <div className={cn('flex flex-col gap-6', className)} {...props}>
+    <div className={cn('flex flex-col gap-6')}>
       <Card>
         <CardHeader>
           <CardTitle>Login to your account</CardTitle>
@@ -55,7 +57,11 @@ export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) 
                 <Button type="submit">Login</Button>
 
                 <FieldDescription className="text-center">
-                  Don&apos;t have an account? <a href="#">Sign up</a>
+                  Don&apos;t have an account?{' '}
+                  <button type={'button'} onClick={() => setIsLogin(false)}>
+                    {' '}
+                    Sign up{' '}
+                  </button>
                 </FieldDescription>
               </Field>
             </FieldGroup>

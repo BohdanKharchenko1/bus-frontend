@@ -3,7 +3,7 @@
   "from": "Odkud",
   "to": "Kam",
   "departureDate": "Datum odjezdu",
-  "returnDate": "Datum návratu",
+  "returnDate": "Datum návratu* (Volitelné)",
   "passengers": "Cestující",
   "searchLocation": "Zadejte místo",
   "selectDate": "Vyberte datum",

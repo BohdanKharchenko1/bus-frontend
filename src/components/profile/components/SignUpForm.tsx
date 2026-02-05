@@ -6,13 +6,15 @@ import { Input } from '../../ui/input.tsx';
 import { useSignUpForm } from '../hooks/useAuthForm.ts';
 import { SighUpFormValues } from '../schema/authSchema.ts';
 import { registerUser } from '../../../api/bus.ts';
+import { useTranslation } from 'react-i18next';
 
 interface LoginFormProps {
   setIsLogin: (value: boolean) => void;
 }
 export function SignupForm({ setIsLogin }: LoginFormProps) {
   const { form } = useSignUpForm();
-  const { handleSubmit, watch, register } = form;
+  const { handleSubmit, register } = form;
+  const { t } = useTranslation('profile');
   const sendRegisterRequest = async (values: SighUpFormValues) => {
     await registerUser(values);
   };
@@ -20,49 +22,51 @@ export function SignupForm({ setIsLogin }: LoginFormProps) {
     <div className={cn('flex flex-col gap-6 min-h-screen items-center justify-center')}>
       <Card className="max-w-xl w-full ">
         <CardHeader className="text-center">
-          <CardTitle className="text-xl">Create your account</CardTitle>
-          <CardDescription>Enter your email below to create your account</CardDescription>
+          <CardTitle className="text-xl">{t('auth.signup.title')}</CardTitle>
+          <CardDescription>{t('auth.signup.description')}</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(sendRegisterRequest)}>
             <FieldGroup>
               <Field>
-                <FieldLabel htmlFor="firstName">First name</FieldLabel>
+                <FieldLabel htmlFor="firstName">{t('auth.fields.firstName')}</FieldLabel>
                 <Input
                   id="firstName"
                   type="text"
-                  placeholder="John Doe"
+                  placeholder={t('auth.placeholders.firstName')}
                   required
                   {...register('firstName')}
                 />
               </Field>
               <Field>
-                <FieldLabel htmlFor="lastName">Last name</FieldLabel>
+                <FieldLabel htmlFor="lastName">{t('auth.fields.lastName')}</FieldLabel>
                 <Input
                   id="lastName"
                   type="text"
-                  placeholder="John Doe"
+                  placeholder={t('auth.placeholders.lastName')}
                   required
                   {...register('lastName')}
                 />
               </Field>
               <Field>
-                <FieldLabel htmlFor="email">Email</FieldLabel>
+                <FieldLabel htmlFor="email">{t('auth.fields.email')}</FieldLabel>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder={t('auth.placeholders.email')}
                   required
                   {...register('email')}
                 />
               </Field>
               <Field>
                 <Field>
-                  <FieldLabel htmlFor="password">Password</FieldLabel>
+                  <FieldLabel htmlFor="password">{t('auth.fields.password')}</FieldLabel>
                   <Input id="password" type="password" required {...register('password')} />
                 </Field>
                 <Field>
-                  <FieldLabel htmlFor="confirmPassword">Confirm Password</FieldLabel>
+                  <FieldLabel htmlFor="confirmPassword">
+                    {t('auth.fields.confirmPassword')}
+                  </FieldLabel>
                   <Input
                     id="confirmPassword"
                     type="password"
@@ -70,14 +74,14 @@ export function SignupForm({ setIsLogin }: LoginFormProps) {
                     {...register('confirmPassword')}
                   />
                 </Field>
-                <FieldDescription>Must be at least 8 characters long.</FieldDescription>
+                <FieldDescription>{t('auth.signup.passwordHint')}</FieldDescription>
               </Field>
               <Field>
-                <Button type="submit">Create Account</Button>
+                <Button type="submit">{t('auth.signup.submit')}</Button>
                 <FieldDescription className="text-center">
-                  Already have an account?{' '}
+                  {t('auth.signup.haveAccount')}{' '}
                   <button type="button" onClick={() => setIsLogin(true)}>
-                    Sign in
+                    {t('auth.signup.signIn')}
                   </button>
                 </FieldDescription>
               </Field>
@@ -86,10 +90,11 @@ export function SignupForm({ setIsLogin }: LoginFormProps) {
         </CardContent>
       </Card>
       <FieldDescription className="px-6 text-center">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a> and{' '}
-        <a href="#">Privacy Policy</a>.
+        {t('auth.signup.agreePrefix')}{' '}
+        <a href="#">{t('auth.signup.termsOfService')}</a> {t('auth.signup.agreeAnd')}{' '}
+        <a href="#">{t('auth.signup.privacyPolicy')}</a>
+        {t('auth.signup.agreeSuffix')}
       </FieldDescription>
-      <pre className="text-xs">{JSON.stringify(watch(), null, 2)}</pre>
     </div>
   );
 }

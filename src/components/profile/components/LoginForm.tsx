@@ -7,6 +7,7 @@ import { useLoginForm } from '../hooks/useAuthForm.ts';
 import { LoginFormValues } from '../schema/authSchema.ts';
 import { loginUser } from '../../../api/bus.ts';
 import { useUserStore } from '../../../stores/userStore.ts';
+import { useTranslation } from 'react-i18next';
 
 interface LoginFormProps {
   setIsLogin: (value: boolean) => void;
@@ -15,6 +16,7 @@ export function LoginForm({ setIsLogin }: LoginFormProps) {
   const { form } = useLoginForm();
   const { handleSubmit, register } = form;
   const setUser = useUserStore((s) => s.setUser);
+  const { t } = useTranslation('profile');
   const sendLoginRequest = async (values: LoginFormValues) => {
     const result = await loginUser(values);
     console.log(result);
@@ -25,42 +27,41 @@ export function LoginForm({ setIsLogin }: LoginFormProps) {
     <div className={cn('flex flex-col gap-6')}>
       <Card>
         <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
-          <CardDescription>Enter your email below to login to your account</CardDescription>
+          <CardTitle>{t('auth.login.title')}</CardTitle>
+          <CardDescription>{t('auth.login.description')}</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(sendLoginRequest)}>
             <FieldGroup>
               <Field>
-                <FieldLabel htmlFor="email">Email</FieldLabel>
+                <FieldLabel htmlFor="email">{t('auth.fields.email')}</FieldLabel>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder={t('auth.placeholders.email')}
                   required
                   {...register('email')}
                 />
               </Field>
               <Field>
                 <div className="flex items-center">
-                  <FieldLabel htmlFor="password">Password</FieldLabel>
+                  <FieldLabel htmlFor="password">{t('auth.fields.password')}</FieldLabel>
                   <a
                     href="#"
                     className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
                   >
-                    Forgot your password?
+                    {t('auth.login.forgotPassword')}
                   </a>
                 </div>
                 <Input id="password" type="password" required {...register('password')} />
               </Field>
               <Field>
-                <Button type="submit">Login</Button>
+                <Button type="submit">{t('auth.login.submit')}</Button>
 
                 <FieldDescription className="text-center">
-                  Don&apos;t have an account?{' '}
+                  {t('auth.login.noAccount')}{' '}
                   <button type={'button'} onClick={() => setIsLogin(false)}>
-                    {' '}
-                    Sign up{' '}
+                    {t('auth.login.signUp')}
                   </button>
                 </FieldDescription>
               </Field>

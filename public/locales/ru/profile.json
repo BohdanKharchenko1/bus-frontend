@@ -17,5 +17,40 @@
     "pending": "В ожидании",
     "canceled": "Отменен",
     "paid": "Оплачен"
+  },
+  "auth": {
+    "fields": {
+      "email": "E-mail",
+      "password": "Пароль",
+      "firstName": "Имя",
+      "lastName": "Фамилия",
+      "confirmPassword": "Подтвердите пароль"
+    },
+    "placeholders": {
+      "email": "m@example.com",
+      "firstName": "Иван",
+      "lastName": "Иванов"
+    },
+    "login": {
+      "title": "Войдите в аккаунт",
+      "description": "Введите свой e-mail ниже, чтобы войти в аккаунт",
+      "forgotPassword": "Забыли пароль?",
+      "submit": "Войти",
+      "noAccount": "Нет аккаунта?",
+      "signUp": "Зарегистрироваться"
+    },
+    "signup": {
+      "title": "Создайте аккаунт",
+      "description": "Введите свой e-mail ниже, чтобы создать аккаунт",
+      "passwordHint": "Минимум 8 символов.",
+      "submit": "Создать аккаунт",
+      "haveAccount": "Уже есть аккаунт?",
+      "signIn": "Войти",
+      "agreePrefix": "Нажимая «Продолжить», вы соглашаетесь с нашими",
+      "agreeAnd": "и",
+      "agreeSuffix": ".",
+      "termsOfService": "Условиями обслуживания",
+      "privacyPolicy": "Политикой конфиденциальности"
+    }
   }
 }

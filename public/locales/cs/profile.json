@@ -17,5 +17,40 @@
     "pending": "Čeká",
     "canceled": "Zrušeno",
     "paid": "Zaplaceno"
+  },
+  "auth": {
+    "fields": {
+      "email": "E-mail",
+      "password": "Heslo",
+      "firstName": "Jméno",
+      "lastName": "Příjmení",
+      "confirmPassword": "Potvrdit heslo"
+    },
+    "placeholders": {
+      "email": "m@example.com",
+      "firstName": "Jan",
+      "lastName": "Novák"
+    },
+    "login": {
+      "title": "Přihlaste se ke svému účtu",
+      "description": "Zadejte svůj e-mail níže pro přihlášení k účtu",
+      "forgotPassword": "Zapomněli jste heslo?",
+      "submit": "Přihlásit se",
+      "noAccount": "Nemáte účet?",
+      "signUp": "Zaregistrovat se"
+    },
+    "signup": {
+      "title": "Vytvořte si účet",
+      "description": "Zadejte svůj e-mail níže pro vytvoření účtu",
+      "passwordHint": "Musí mít alespoň 8 znaků.",
+      "submit": "Vytvořit účet",
+      "haveAccount": "Už máte účet?",
+      "signIn": "Přihlásit se",
+      "agreePrefix": "Kliknutím na pokračovat souhlasíte s našimi",
+      "agreeAnd": "a",
+      "agreeSuffix": ".",
+      "termsOfService": "Podmínkami služby",
+      "privacyPolicy": "Zásadami ochrany osobních údajů"
+    }
   }
 }

@@ -17,5 +17,40 @@
     "pending": "Очікує",
     "canceled": "Скасовано",
     "paid": "Сплачено"
+  },
+  "auth": {
+    "fields": {
+      "email": "E-mail",
+      "password": "Пароль",
+      "firstName": "Ім'я",
+      "lastName": "Прізвище",
+      "confirmPassword": "Підтвердьте пароль"
+    },
+    "placeholders": {
+      "email": "m@example.com",
+      "firstName": "Іван",
+      "lastName": "Іваненко"
+    },
+    "login": {
+      "title": "Увійдіть до свого акаунта",
+      "description": "Введіть свій e-mail нижче, щоб увійти до акаунта",
+      "forgotPassword": "Забули пароль?",
+      "submit": "Увійти",
+      "noAccount": "Немає акаунта?",
+      "signUp": "Зареєструватися"
+    },
+    "signup": {
+      "title": "Створіть акаунт",
+      "description": "Введіть свій e-mail нижче, щоб створити акаунт",
+      "passwordHint": "Мінімум 8 символів.",
+      "submit": "Створити акаунт",
+      "haveAccount": "Вже маєте акаунт?",
+      "signIn": "Увійти",
+      "agreePrefix": "Натискаючи «Продовжити», ви погоджуєтеся з нашими",
+      "agreeAnd": "та",
+      "agreeSuffix": ".",
+      "termsOfService": "Умовами використання",
+      "privacyPolicy": "Політикою конфіденційності"
+    }
   }
 }

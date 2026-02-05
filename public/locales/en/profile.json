@@ -17,5 +17,40 @@
     "pending": "Pending",
     "canceled": "Canceled",
     "paid": "Paid"
+  },
+  "auth": {
+    "fields": {
+      "email": "Email",
+      "password": "Password",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "confirmPassword": "Confirm Password"
+    },
+    "placeholders": {
+      "email": "m@example.com",
+      "firstName": "John Doe",
+      "lastName": "John Doe"
+    },
+    "login": {
+      "title": "Login to your account",
+      "description": "Enter your email below to login to your account",
+      "forgotPassword": "Forgot your password?",
+      "submit": "Login",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up"
+    },
+    "signup": {
+      "title": "Create your account",
+      "description": "Enter your email below to create your account",
+      "passwordHint": "Must be at least 8 characters long.",
+      "submit": "Create Account",
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "agreePrefix": "By clicking continue, you agree to our",
+      "agreeAnd": "and",
+      "agreeSuffix": ".",
+      "termsOfService": "Terms of Service",
+      "privacyPolicy": "Privacy Policy"
+    }
   }
 }

@@ -1,5 +1,7 @@
 {
   "title": "Крок 2",
+  "previous": "Назад",
+  "next": "Далі",
   "noRoutesTitle": "Рейси не знайдено",
   "noRoutesSubtitle": "Спробуйте обрати іншу дату.",
   "priceLabel": "Ціна:",

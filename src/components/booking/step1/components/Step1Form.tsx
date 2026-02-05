@@ -23,7 +23,7 @@ export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
   } = form;
   return (
     <form onSubmit={form.handleSubmit(onSubmit, onError)} className="flex flex-col sm:gap-6 w-full">
-      <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6 lg:[grid-template-columns:repeat(11,minmax(0,1fr))_auto] lg:gap-6">
+      <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6 lg:[grid-template-columns:repeat(9,minmax(0,1fr))_auto] lg:gap-6">
         <div className="min-w-0 sm:col-span-2 md:col-span-3 lg:col-span-3 w-full">
           <FieldGroup label={t('from')}>
             <Controller
@@ -60,7 +60,7 @@ export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
           </FieldGroup>
         </div>
 
-        <div className="min-w-0 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:col-span-2 md:col-span-6 lg:col-span-4">
+        <div className="min-w-0  sm:col-span-2 md:col-span-3 lg:col-span-2">
           <FieldGroup label={t('departureDate')}>
             <Controller
               name="startDate"
@@ -75,22 +75,6 @@ export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
               )}
             />
             <FormError error={errors.startDate} />
-          </FieldGroup>
-
-          <FieldGroup label={t('returnDate')}>
-            <Controller
-              name="endDate"
-              control={form.control}
-              render={({ field }) => (
-                <DatePicker
-                  value={field.value ?? null}
-                  onChange={field.onChange}
-                  className={`w-full ${mobileInputClass}`}
-                  placeholder={t('selectDate')}
-                />
-              )}
-            />
-            <FormError error={errors.endDate} />
           </FieldGroup>
         </div>
 
@@ -113,7 +97,7 @@ export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
           </FieldGroup>
         </div>
 
-        <div className="min-w-0 sm:col-span-2 md:col-span-3 lg:col-span-1 lg:col-start-12 w-full">
+        <div className="min-w-0 sm:col-span-2 md:col-span-6 lg:col-start-10 lg:col-span-2 w-full">
           <div className="flex flex-col gap-2">
             <div className="h-[24px]" />
             <button

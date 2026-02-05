@@ -1,5 +1,7 @@
 {
   "title": "Step 3 — Passenger Details",
+  "previous": "Previous",
+  "next": "Next",
   "email": "E-mail",
   "phone": "Phone",
   "name": "First name",

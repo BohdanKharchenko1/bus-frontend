@@ -1,5 +1,7 @@
 {
   "title": "Шаг 2",
+  "previous": "Назад",
+  "next": "Далее",
   "noRoutesTitle": "Рейсы не найдены",
   "noRoutesSubtitle": "Попробуйте выбрать другую дату.",
   "priceLabel": "Цена:",

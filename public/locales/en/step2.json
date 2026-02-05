@@ -1,5 +1,7 @@
 {
   "title": "Step 2",
+  "previous": "Previous",
+  "next": "Next",
   "noRoutesTitle": "No routes found",
   "noRoutesSubtitle": "Try selecting a different date.",
   "priceLabel": "Price:",

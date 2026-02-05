@@ -133,7 +133,7 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
                 className="w-full sm:w-32 px-5 py-2 text-center rounded-lg bg-gray-200 text-gray-700 font-medium text-sm sm:text-base
                hover:bg-gray-300 active:scale-[0.97] transition-all"
               >
-                ← Previous
+                ← {t('previous')}
               </button>
               <CardTitle className="hidden sm:block text-2xl md:text-3xl text-center">
                 {t('title')}
@@ -144,7 +144,7 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
                 className="w-full sm:w-32 px-5 py-2 text-center rounded-lg bg-purple-700 text-white font-medium text-sm sm:text-base
                hover:bg-purple-800 active:scale-[0.97] transition-all"
               >
-                Next →
+                {t('next')} →
               </button>
             </div>
 

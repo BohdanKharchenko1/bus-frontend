@@ -1,5 +1,7 @@
 {
   "title": "Krok 2",
+  "previous": "Zpět",
+  "next": "Další",
   "noRoutesTitle": "Spoje nenalezeny",
   "noRoutesSubtitle": "Zkuste prosím vybrat jiné datum.",
   "priceLabel": "Cena:",

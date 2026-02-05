@@ -1,0 +1,21 @@
+{
+  "title": "Vaše jízdenky",
+  "subtitle": "Sledujte své rezervace a přístup k jízdence na jednom místě.",
+  "empty": "Zatím žádné jízdenky.",
+  "labels": {
+    "order": "Objednávka"
+  },
+  "route": {
+    "unknown": "Trasa neuvedena"
+  },
+  "actions": {
+    "openTicket": "Otevřít jízdenku",
+    "ticketUnavailable": "Jízdenka není k dispozici"
+  },
+  "status": {
+    "created": "Vytvořeno",
+    "pending": "Čeká",
+    "canceled": "Zrušeno",
+    "paid": "Zaplaceno"
+  }
+}

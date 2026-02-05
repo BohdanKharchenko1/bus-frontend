@@ -1,0 +1,21 @@
+{
+  "title": "Your Tickets",
+  "subtitle": "Track your bookings and access tickets in one place.",
+  "empty": "No tickets yet.",
+  "labels": {
+    "order": "Order"
+  },
+  "route": {
+    "unknown": "Route not specified"
+  },
+  "actions": {
+    "openTicket": "Open ticket",
+    "ticketUnavailable": "Ticket not available"
+  },
+  "status": {
+    "created": "Created",
+    "pending": "Pending",
+    "canceled": "Canceled",
+    "paid": "Paid"
+  }
+}

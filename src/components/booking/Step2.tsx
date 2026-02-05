@@ -91,7 +91,7 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
               className="order-2 sm:order-none w-full sm:w-32 px-4 py-2 text-center rounded-lg bg-gray-200 text-gray-700 font-medium text-sm sm:text-base
                hover:bg-gray-300 active:scale-[0.97] transition-all"
             >
-              ← Previous
+              ← {t('previous')}
             </button>
 
             <CardTitle className="order-1 sm:order-none text-xl sm:text-2xl md:text-3xl text-center">
@@ -104,7 +104,7 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
               className="order-3 sm:order-none w-full sm:w-32 px-5 py-2 text-center rounded-lg bg-purple-700 text-white font-medium text-sm sm:text-base
                hover:bg-purple-800 active:scale-[0.97] transition-all"
             >
-              Next →
+              {t('next')} →
             </button>
           </div>
         </CardHeader>

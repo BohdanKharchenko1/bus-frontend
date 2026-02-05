@@ -1,5 +1,7 @@
 {
   "title": "Krok 3 — Údaje o cestujících",
+  "previous": "Zpět",
+  "next": "Další",
   "email": "E-mail",
   "phone": "Telefon",
   "name": "Jméno",

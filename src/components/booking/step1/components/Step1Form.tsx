@@ -78,7 +78,7 @@ export const Step1Form = ({ form, t, onSubmit, onError }: Step1FormProps) => {
           </FieldGroup>
         </div>
 
-        <div className="min-w-0 sm:col-span-1 md:col-span-3 lg:col-span-1 w-full">
+        <div className="min-w-0 sm:col-span-2 md:col-span-3 lg:col-span-1 w-full">
           <FieldGroup label={t('passengers')}>
             <Controller
               name="passengerCount"

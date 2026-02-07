@@ -24,6 +24,16 @@ export default function BaggageCard({
   baggageBack,
   index,
 }: BaggageCardProps) {
+  const getBaggageTitle = (title: string | undefined) => {
+    if (!title) return '';
+    const key = title
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '');
+    return key ? t(`baggage_titles.${key}`, { defaultValue: title }) : title;
+  };
+
   return (
     <div className="grid grid-cols-1 gap-6">
       {index === 0 && routeThere && baggageThere?.[0] && (
@@ -41,9 +51,11 @@ export default function BaggageCard({
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-[1.1fr_1fr_1fr_auto] gap-4 items-center">
             <div className="flex flex-col gap-1">
-              <span className="text-xs text-slate-500 uppercase tracking-[0.08em]">Type</span>
+              <span className="text-xs text-slate-500 uppercase tracking-[0.08em]">
+                {t('baggage_type_label')}
+              </span>
               <span className="text-sm font-semibold text-slate-900">
-                {baggageThere[0].baggage_title}
+                {getBaggageTitle(baggageThere[0].baggage_title)}
               </span>
             </div>
 
@@ -52,7 +64,7 @@ export default function BaggageCard({
             </div>
 
             <div className="text-sm text-slate-700">
-              {`${baggageThere[0].max_per_person} включительно`}
+              {t('baggage_included', { value: baggageThere[0].max_per_person })}
             </div>
             <div className="sm:col-span-4 justify-self-stretch">
               <AddBaggage
@@ -83,9 +95,11 @@ export default function BaggageCard({
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-[1.1fr_1fr_1fr_auto] gap-4 items-end">
             <div className="flex flex-col gap-1">
-              <span className="text-xs text-slate-500 uppercase tracking-[0.08em]">Type</span>
+              <span className="text-xs text-slate-500 uppercase tracking-[0.08em]">
+                {t('baggage_type_label')}
+              </span>
               <span className="text-sm font-semibold text-slate-900">
-                {baggageBack[0].baggage_title}
+                {getBaggageTitle(baggageBack[0].baggage_title)}
               </span>
             </div>
 
@@ -94,7 +108,7 @@ export default function BaggageCard({
             </div>
 
             <div className="text-sm text-slate-700">
-              {`${baggageBack[0].max_per_person} включительно`}
+              {t('baggage_included', { value: baggageBack[0].max_per_person })}
             </div>
             <div className="sm:col-span-4 justify-self-stretch">
               <AddBaggage

@@ -20,6 +20,11 @@
   "total_price_label": "Celková cena cesty",
   "total_price_hint": "Včetně jízdenek a zavazadel",
   "default_ticket": "Běžná jízdenka",
+  "baggage_type_label": "Typ",
+  "baggage_included": "Včetně: {{value}}",
+  "baggage_titles": {
+    "large_luggage": "Velké zavazadlo"
+  },
   "errors": {
     "emailInvalid": "Zadejte platnou e-mailovou adresu.",
     "phoneInvalid": "Zadejte platné telefonní číslo.",

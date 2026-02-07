@@ -27,5 +27,10 @@
     "surnameRequired": "Прізвище є обов'язковим.",
     "surnameLatinOnly": "Тільки латинські літери."
   },
-  "default_ticket": "Звичайний квиток"
+  "default_ticket": "Звичайний квиток",
+  "baggage_type_label": "Тип",
+  "baggage_included": "Включено: {{value}}",
+  "baggage_titles": {
+    "large_luggage": "Великий багаж"
+  }
 }

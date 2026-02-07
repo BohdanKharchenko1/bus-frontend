@@ -20,6 +20,11 @@
   "total_price_label": "Итоговая стоимость",
   "total_price_hint": "Включая билеты и багаж",
   "default_ticket": "Обычный билет",
+  "baggage_type_label": "Тип",
+  "baggage_included": "Включено: {{value}}",
+  "baggage_titles": {
+    "large_luggage": "Крупный багаж"
+  },
   "errors": {
     "emailInvalid": "Введите корректный адрес электронной почты.",
     "phoneInvalid": "Введите корректный номер телефона.",

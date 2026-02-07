@@ -20,6 +20,11 @@
   "total_price_label": "Trip total",
   "total_price_hint": "Includes tickets and baggage",
   "default_ticket": "Standard ticket",
+  "baggage_type_label": "Type",
+  "baggage_included": "Included: {{value}}",
+  "baggage_titles": {
+    "large_luggage": "Large luggage"
+  },
   "errors": {
     "emailInvalid": "Please enter a valid email address.",
     "phoneInvalid": "Please enter a valid phone number.",

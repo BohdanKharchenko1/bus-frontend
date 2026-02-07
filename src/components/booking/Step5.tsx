@@ -98,18 +98,22 @@ export default function Step5({ onPrevious }: Step5Props) {
               <span className="text-slate-600">{row.value}</span>
             </div>
           ))}
-          {!ticket?.link && <OrderTimer reservation_until={newOrder?.reservation_until} />}
         </CardContent>
 
-        <CardFooter className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="text-lg sm:text-2xl font-semibold text-slate-900">
-            {t('total_label')}: {summary.totalDisplay}
+        <CardFooter className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="flex flex-col items-start gap-1">
+            <div className="text-lg sm:text-2xl font-semibold text-slate-900">
+              {t('total_label')}: {summary.totalDisplay}
+            </div>
           </div>
           {!ticket?.link ? (
-            <BuyTicketButton
-              label={t('continue_button')}
-              className="w-full sm:w-64 h-12 sm:h-12 text-center rounded-lg bg-purple-700 text-white font-semibold text-base sm:text-lg hover:bg-purple-800 active:scale-[0.97] transition-all"
-            />
+            <div className="flex w-full flex-col gap-2 sm:w-auto sm:items-end">
+              <OrderTimer reservation_until={newOrder?.reservation_until} />
+              <BuyTicketButton
+                label={t('continue_button')}
+                className="w-full sm:w-64 h-12 sm:h-12 text-center rounded-lg bg-purple-700 text-white font-semibold text-base sm:text-lg hover:bg-purple-800 active:scale-[0.97] transition-all"
+              />
+            </div>
           ) : (
             <Button
               type="button"

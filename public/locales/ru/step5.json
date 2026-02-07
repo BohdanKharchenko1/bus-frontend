@@ -5,6 +5,8 @@
   "passengers_label": "Пассажиры",
   "seats_label": "Места",
   "total_label": "К оплате",
+  "time_left_label": "Осталось времени",
+  "reservation_expired": "Срок бронирования истек",
   "continue_button": "Дальше",
   "download_button": "Скачать билет",
   "previous_button": "Назад",

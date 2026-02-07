@@ -5,6 +5,8 @@
   "passengers_label": "Пасажири",
   "seats_label": "Місця",
   "total_label": "До сплати",
+  "time_left_label": "Залишилось часу",
+  "reservation_expired": "Термін бронювання минув",
   "continue_button": "Далі",
   "download_button": "Завантажити квиток",
   "previous_button": "Назад",

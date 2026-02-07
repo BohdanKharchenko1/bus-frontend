@@ -1,7 +1,9 @@
 import { parseUtcPlus1 } from '../utils/parseUtc+1';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function OrderTimer({ reservation_until }: { reservation_until?: string }) {
+  const { t } = useTranslation('step5');
   const [remainingMs, setRemainingMs] = useState(0);
 
   useEffect(() => {
@@ -23,15 +25,15 @@ export default function OrderTimer({ reservation_until }: { reservation_until?: 
   }
 
   if (remainingMs === 0) {
-    return <span>Reservation expired</span>;
+    return <span className="text-sm font-medium text-slate-500">{t('reservation_expired')}</span>;
   }
 
   const sec = Math.ceil(remainingMs / 1000);
   const min = Math.floor(sec / 60);
 
   return (
-    <span>
-      Time left: {min}:{String(sec % 60).padStart(2, '0')}
+    <span className="text-sm font-medium text-slate-600">
+      {t('time_left_label')}: {min}:{String(sec % 60).padStart(2, '0')}
     </span>
   );
 }

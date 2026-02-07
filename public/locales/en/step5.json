@@ -5,6 +5,8 @@
   "passengers_label": "Passengers",
   "seats_label": "Seats",
   "total_label": "Total to pay",
+  "time_left_label": "Time left",
+  "reservation_expired": "Reservation expired",
   "continue_button": "Continue",
   "download_button": "Download ticket",
   "previous_button": "Previous",

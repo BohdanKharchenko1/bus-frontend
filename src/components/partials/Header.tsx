@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import headerBg from '../../assets/img/vo-trans-bus-Bhs1Pa4N.webp';
+import headerBgMobile from '../../assets/img/img.webp';
+import headerBgDesktop from '../../assets/img/img.png';
 import logo from '../../assets/img/vo-trans-logo.svg';
 import road from '../../assets/img/destination.svg';
 
@@ -9,14 +10,23 @@ const Header: React.FC = () => {
   return (
     <header
       className="
-                relative text-white bg-cover bg-no-repeat overflow-hidden
+                relative text-white overflow-hidden
                 h-[clamp(760px,55vw,1100px)]
             "
-      style={{
-        backgroundImage: `url(${headerBg})`,
-        backgroundPosition: '95% 80%',
-      }}
     >
+      <img
+        src={headerBgMobile}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover object-[85%_90%] lg:hidden"
+      />
+      <img
+        src={headerBgDesktop}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 hidden h-full w-full object-cover object-[100%_60%] lg:block"
+      />
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
 
@@ -37,7 +47,7 @@ const Header: React.FC = () => {
                     absolute inset-0 z-10
                     hidden lg:flex items-center justify-center
                     translate-y-[clamp(90px,6vw,150px)]
-                    -translate-x-[clamp(24px,3vw,48px)]
+                    translate-x-[clamp(24px,3vw,48px)]
                 "
       >
         <img

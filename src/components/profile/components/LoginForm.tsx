@@ -1,3 +1,4 @@
+import { startTransition } from 'react';
 import { cn } from '../../../lib/utils.ts';
 import { Button } from '../../ui/button.tsx';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../ui/card.tsx';
@@ -8,6 +9,7 @@ import { LoginFormValues } from '../schema/authSchema.ts';
 import { loginUser } from '../../../api/bus.ts';
 import { useUserStore } from '../../../stores/userStore.ts';
 import { useTranslation } from 'react-i18next';
+import i18n from 'i18next';
 
 interface LoginFormProps {
   setIsLogin: (value: boolean) => void;
@@ -20,7 +22,14 @@ export function LoginForm({ setIsLogin }: LoginFormProps) {
   const sendLoginRequest = async (values: LoginFormValues) => {
     const result = await loginUser(values);
     console.log(result);
-    if (result.status === 200) setUser(result.data.id, result.data.email, result.data.role);
+    if (result.status === 200) {
+      if (result.data.role === 'admin') {
+        await i18n.loadNamespaces(['booking']);
+      }
+      startTransition(() => {
+        setUser(result.data.id, result.data.email, result.data.role);
+      });
+    }
   };
   return (
     <div className={cn('flex flex-col gap-6')}>

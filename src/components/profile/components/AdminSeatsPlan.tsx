@@ -9,10 +9,12 @@ import { saveBlockedSeats } from '../../../api/bus.ts';
 import { useSeatsLoader } from '../../../components/booking/step4/hooks/useSeatsLoader.ts';
 import { useUserStore } from '../../../stores/userStore.ts';
 import { isAxiosError } from 'axios';
+import { normalizeSeatMatrix } from '../utils/normalizeSeatMatrix.ts';
 
 interface SeatPlanProps {
   onPrevious?: () => void;
 }
+
 export default function AdminSeatsPlan({ onPrevious }: SeatPlanProps) {
   const { t } = useTranslation('step4');
   const {
@@ -57,13 +59,19 @@ export default function AdminSeatsPlan({ onPrevious }: SeatPlanProps) {
     setBusPlanAndFreeSeats,
   });
 
-  const [blockedSeatsChosen, setBlockedSeatsChosen] = useState<string[][]>(blockedSeats);
+  const [blockedSeatsChosen, setBlockedSeatsChosen] = useState<string[][]>(() =>
+    normalizeSeatMatrix(blockedSeats),
+  );
   const [direction, setDirection] = useState<'there' | 'back'>('there');
   const index = direction === 'there' ? 0 : 1;
 
   useEffect(() => {
     if (!routeThere) setDirection('back');
   }, [routeThere]);
+
+  useEffect(() => {
+    setBlockedSeatsChosen(normalizeSeatMatrix(blockedSeats));
+  }, [blockedSeats]);
 
   const rows: Row[] | null =
     direction === 'there'
@@ -79,11 +87,16 @@ export default function AdminSeatsPlan({ onPrevious }: SeatPlanProps) {
           ?.filter((s) => s.seat_free)
           .map((s) => s.seat_number) ?? []);
 
-  const selectedSeats = blockedSeatsChosen[index];
+  const selectedSeats = blockedSeatsChosen[index] ?? [];
 
   const handleClick = (seatNumber: string) => {
     setBlockedSeatsChosen((prev) => {
-      const copy = prev.map((r) => [...r]);
+      const copy = normalizeSeatMatrix(prev).map((r) => [...r]);
+
+      while (copy.length <= index) {
+        copy.push([]);
+      }
+
       const target = copy[index];
 
       if (target.includes(seatNumber)) {
@@ -192,12 +205,6 @@ export default function AdminSeatsPlan({ onPrevious }: SeatPlanProps) {
             >
               {t('save')}
             </button>
-
-            <h2 className="text-center text-base sm:text-base sm:col-start-2 sm:row-start-1">
-              {t('seatsRemaining', {
-                count: passengerCount - (selectedSeats ? selectedSeats.length : 0),
-              })}
-            </h2>
           </div>
         </div>
 

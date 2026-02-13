@@ -1,3 +1,4 @@
+import { startTransition } from 'react';
 import { cn } from '../../../lib/utils.ts';
 import { Button } from '../../ui/button.tsx';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../ui/card.tsx';
@@ -8,6 +9,7 @@ import { SighUpFormValues } from '../schema/authSchema.ts';
 import { registerUser } from '../../../api/bus.ts';
 import { useTranslation } from 'react-i18next';
 import { useUserStore } from '../../../stores/userStore.ts';
+import i18n from 'i18next';
 
 interface LoginFormProps {
   setIsLogin: (value: boolean) => void;
@@ -28,8 +30,21 @@ export function SignupForm({ setIsLogin }: LoginFormProps) {
     const result = await registerUser(values);
     const payload = result.data as RegisterResponse;
 
-    if ((typeof payload.id === 'string' || typeof payload.id === 'number') && payload.email) {
-      setUser(String(payload.id), payload.email, payload.role ?? null);
+    if (
+      (typeof payload.id === 'string' || typeof payload.id === 'number') &&
+      typeof payload.email === 'string'
+    ) {
+      const id = String(payload.id);
+      const email = payload.email;
+      const role = payload.role ?? null;
+
+      if (role === 'admin') {
+        await i18n.loadNamespaces(['booking']);
+      }
+
+      startTransition(() => {
+        setUser(id, email, role);
+      });
     } else {
       setIsLogin(true);
     }

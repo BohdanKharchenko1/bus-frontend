@@ -18,6 +18,15 @@ export const useSeatsLoader = ({
   setBusPlanAndFreeSeats,
 }: SeatsLoaderParams) => {
   const [isLoading, setIsLoading] = useState(false);
+
+  const normalizeBlockedSeats = (value: unknown): string[][] => {
+    if (!Array.isArray(value)) return [[]];
+    const normalized = value.map((row) =>
+      Array.isArray(row) ? row.map((seat) => String(seat)) : [],
+    );
+    return normalized.length > 0 ? normalized : [[]];
+  };
+
   useEffect(() => {
     const load = async () => {
       setIsLoading(true);
@@ -37,7 +46,7 @@ export const useSeatsLoader = ({
         freeSeatsThere: freeSeatsThere.data,
         freeSeatsBack: freeSeatsBack?.data || null,
         busPlanThere: busPlanThere.data,
-        blockedSeats: freeSeatsThere?.data?.blockedSeats || null,
+        blockedSeats: normalizeBlockedSeats(freeSeatsThere?.data?.blockedSeats),
       });
     };
 

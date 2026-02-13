@@ -37,6 +37,7 @@ export const useSeatsLoader = ({
         freeSeatsThere: freeSeatsThere.data,
         freeSeatsBack: freeSeatsBack?.data || null,
         busPlanThere: busPlanThere.data,
+        blockedSeats: freeSeatsThere?.data?.blockedSeats || null,
       });
     };
 

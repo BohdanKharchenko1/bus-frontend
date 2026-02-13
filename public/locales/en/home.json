@@ -1,11 +1,30 @@
 {
   "header": {
     "titleLine1": "International",
-    "titleLine2": "passenger transportation"
+    "titleLine2": "passenger transportation",
+    "phones": {
+      "ua": "+380 67 756 66 99 | +380 98 704 75 57",
+      "cz": "+420 778 003 500 | +420 608 259 674"
+    }
   },
   "services": {
     "title": "Private services",
     "cta": "Leave a request",
+    "modal": {
+      "title": "Inquiry",
+      "description": "Please fill in your details for service: {{service}}",
+      "fields": {
+        "name": "Name",
+        "email": "E-mail",
+        "phone": "Phone"
+      },
+      "placeholders": {
+        "name": "John Doe",
+        "email": "john@example.com",
+        "phone": "+420 777 123 456"
+      },
+      "submit": "Submit"
+    },
     "cards": [
       {
         "title": "Organized tours",
@@ -44,17 +63,17 @@
       {
         "text": "Found a route in 2 minutes, the trip was comfortable and cozy.",
         "author": "Ekaterina",
-        "route": "Praha - Wien"
+        "route": "Prague-Irshava"
       },
       {
         "text": "Very satisfied with the service and driver. Everything on time.",
         "author": "Maria",
-        "route": "Brno - Krakow"
+        "route": "Khust-Plzen"
       },
       {
         "text": "Good company, comfortable buses and pleasant prices.",
         "author": "Oleg",
-        "route": "Uzhgorod - Praha"
+        "route": "Brno-Vynohradiv"
       }
     ]
   },
@@ -74,9 +93,9 @@
     "support": {
       "title": "Support",
       "links": [
-        { "label": "Terms & Conditions", "href": "/terms" },
-        { "label": "Refunds & cancellations", "href": "/refunds" },
-        { "label": "Privacy policy", "href": "/privacy" }
+        { "label": "Terms and Conditions", "href": "/terms" },
+        { "label": "Refund and Cancellation Policy", "href": "/refunds" },
+        { "label": "Privacy Policy", "href": "/privacy" }
       ]
     },
     "contact": {
@@ -86,7 +105,10 @@
         "Cukrovarská 941/21a",
         "196 00 Praha 9 - Čakovice",
         "Czech Republic",
-        "+420 778 003 500"
+        "+380 67 756 66 99",
+        "+380 98 704 75 57",
+        "+420 778 003 500",
+        "+420 608 259 674"
       ]
     },
     "copyright": "© 2025 VO-TRANS. All rights reserved."

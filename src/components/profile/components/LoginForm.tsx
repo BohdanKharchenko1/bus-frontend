@@ -20,8 +20,7 @@ export function LoginForm({ setIsLogin }: LoginFormProps) {
   const sendLoginRequest = async (values: LoginFormValues) => {
     const result = await loginUser(values);
     console.log(result);
-
-    if (result.status === 200) setUser(result.data.id, result.data.email);
+    if (result.status === 200) setUser(result.data.id, result.data.email, result.data.role);
   };
   return (
     <div className={cn('flex flex-col gap-6')}>

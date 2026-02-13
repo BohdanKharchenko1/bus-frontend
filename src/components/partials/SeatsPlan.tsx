@@ -5,6 +5,7 @@ import { Card } from '../../components/ui/card.tsx';
 import { Row, SeatCell } from '../../types/routes.ts';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
+import { filterBlockedSeats } from '../booking/step5/utils/filterBlockedSeats.ts';
 
 interface SeatPlanProps {
   onPrevious?: () => void;
@@ -51,8 +52,12 @@ export default function SeatsPlan({ onPrevious, onNext }: SeatPlanProps) {
 
   const freeSeats: string[] =
     direction === 'there'
-      ? (freeSeatsThere?.[0]?.free_seat?.filter((s) => s.seat_free).map((s) => s.seat_number) ?? [])
-      : (freeSeatsBack?.[0]?.free_seat?.filter((s) => s.seat_free).map((s) => s.seat_number) ?? []);
+      ? (filterBlockedSeats(freeSeatsThere?.blockedSeats, freeSeatsThere?.providerSeats)?.[0]
+          ?.free_seat?.filter((s) => s.seat_free)
+          .map((s) => s.seat_number) ?? [])
+      : (freeSeatsBack?.providerSeats?.[0]?.free_seat
+          ?.filter((s) => s.seat_free)
+          .map((s) => s.seat_number) ?? []);
 
   const selectedSeats = seatsChosen[index];
 

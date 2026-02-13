@@ -7,6 +7,7 @@ import { useSignUpForm } from '../hooks/useAuthForm.ts';
 import { SighUpFormValues } from '../schema/authSchema.ts';
 import { registerUser } from '../../../api/bus.ts';
 import { useTranslation } from 'react-i18next';
+import { useUserStore } from '../../../stores/userStore.ts';
 
 interface LoginFormProps {
   setIsLogin: (value: boolean) => void;
@@ -15,8 +16,23 @@ export function SignupForm({ setIsLogin }: LoginFormProps) {
   const { form } = useSignUpForm();
   const { handleSubmit, register } = form;
   const { t } = useTranslation('profile');
+  const setUser = useUserStore((s) => s.setUser);
+
+  type RegisterResponse = {
+    id?: string | number;
+    email?: string;
+    role?: string | null;
+  };
+
   const sendRegisterRequest = async (values: SighUpFormValues) => {
-    await registerUser(values);
+    const result = await registerUser(values);
+    const payload = result.data as RegisterResponse;
+
+    if ((typeof payload.id === 'string' || typeof payload.id === 'number') && payload.email) {
+      setUser(String(payload.id), payload.email, payload.role ?? null);
+    } else {
+      setIsLogin(true);
+    }
   };
   return (
     <div className={cn('flex flex-col gap-6 min-h-screen items-center justify-center')}>

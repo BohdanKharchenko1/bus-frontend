@@ -22,7 +22,7 @@ export default function Step5({ onPrevious }: Step5Props) {
   const ticket = useBookingStore((s) => s.ticket);
 
   const handleReturn = async () => {
-    if (newOrder?.order_id) {
+    if (newOrder?.order_id && !ticket) {
       await cancelTicket({ order_id: newOrder.order_id });
     }
     resetNewOrder();

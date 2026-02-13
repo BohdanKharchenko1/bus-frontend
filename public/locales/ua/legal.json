@@ -1,191 +1,191 @@
 {
-  "lastUpdated": "Last updated: January 30, 2026",
+  "lastUpdated": "Оновлено: 30 січня 2026",
   "contact": {
-    "title": "Contact",
+    "title": "Контакти",
     "company": "VO-Trans EU s.r.o.",
-    "address": ["Cukrovarská 941/21a", "196 00 Praha 9 - Čakovice", "Czech Republic"],
-    "phoneLabel": "Phone",
+    "address": ["Cukrovarská 941/21a", "196 00 Praha 9 - Čakovice", "Чеська Республіка"],
+    "phoneLabel": "Телефон",
     "phone": "+420 778 003 500",
-    "emailLabel": "Email",
+    "emailLabel": "E-mail",
     "email": ""
   },
   "terms": {
-    "title": "Terms and Conditions",
-    "intro": "These Terms and Conditions govern the use of the VO-TRANS website and the booking of passenger transportation services in the Czech Republic and Ukraine. By placing an order, you agree to these Terms.",
+    "title": "Умови та положення",
+    "intro": "Ці Умови та положення регулюють використання вебсайту VO-TRANS та бронювання послуг пасажирських перевезень у Чеській Республіці та Україні. Оформлюючи замовлення, ви погоджуєтеся з цими Умовами.",
     "sections": [
       {
-        "title": "1. About us",
+        "title": "1. Про нас",
         "body": [
-          "VO-Trans EU s.r.o. operates this website and provides booking services for passenger transportation. We offer tickets and related services for routes in the Czech Republic and Ukraine."
+          "VO-Trans EU s.r.o. управляє цим вебсайтом і надає послуги бронювання пасажирських перевезень. Ми пропонуємо квитки та супутні послуги для маршрутів у Чеській Республіці та Україні."
         ]
       },
       {
-        "title": "2. Services and scope",
+        "title": "2. Послуги та сфера дії",
         "body": [
-          "We provide online booking and ticketing services. Actual transportation may be performed by third-party carriers and partners, including InfoBus, and their carrier rules may apply in addition to these Terms."
+          "Ми надаємо послуги онлайн-бронювання та оформлення квитків. Фактичне перевезення можуть виконувати сторонні перевізники та партнери, включно з InfoBus, і їхні правила перевезення можуть застосовуватися додатково до цих Умов."
         ]
       },
       {
-        "title": "3. Booking and tickets",
+        "title": "3. Бронювання та квитки",
         "body": [
-          "An order is considered confirmed after successful payment and when you receive a confirmation email with your e-ticket. Tickets are delivered by email and can be downloaded from your booking confirmation.",
-          "You are responsible for providing accurate passenger and travel details. Please review your ticket immediately and contact us by phone if you notice an error."
+          "Замовлення вважається підтвердженим після успішної оплати та отримання вами листа-підтвердження з електронним квитком. Квитки надсилаються на e-mail і можуть бути завантажені з підтвердження бронювання.",
+          "Ви несете відповідальність за правильність даних пасажира та поїздки. Будь ласка, одразу перевірте квиток і зв'яжіться з нами телефоном, якщо помітили помилку."
         ]
       },
       {
-        "title": "4. Prices and payment",
+        "title": "4. Ціни та оплата",
         "body": [
-          "Prices are shown in the selected currency and may include applicable taxes and service fees. Payment must be completed at the time of booking using the available payment methods.",
-          "Payments are processed by a payment provider. We do not store full payment card details on our servers."
+          "Ціни відображаються в обраній валюті та можуть включати застосовні податки і сервісні збори. Оплата має бути здійснена під час бронювання доступними способами оплати.",
+          "Платежі обробляються платіжним провайдером. Ми не зберігаємо повні дані платіжних карток на наших серверах."
         ]
       },
       {
-        "title": "5. Changes, cancellations, and refunds",
+        "title": "5. Зміни, скасування та повернення",
         "body": [
-          "Changes, cancellations, and refunds are handled by phone only. Eligibility and fees depend on the fare rules, the time before departure, and the carrier policy. No-shows are generally non-refundable.",
-          "Please refer to our Refund and Cancellation Policy for details."
+          "Зміни, скасування та повернення обробляються лише телефоном. Право на повернення та розмір зборів залежать від тарифних правил, часу до відправлення та політики перевізника. За неявки повернення зазвичай не здійснюється.",
+          "Детальніше дивіться в нашій Політиці повернення та скасування."
         ]
       },
       {
-        "title": "6. Passenger responsibilities",
+        "title": "6. Обов'язки пасажира",
         "body": [
-          "Passengers must arrive before departure, carry valid travel documents, and comply with baggage limits and carrier rules. We may refuse service for safety or rule violations."
+          "Пасажири повинні прибути до відправлення завчасно, мати чинні проїзні документи та дотримуватися норм багажу й правил перевізника. Ми можемо відмовити в обслуговуванні з міркувань безпеки або у разі порушення правил."
         ]
       },
       {
-        "title": "7. Schedule changes and force majeure",
+        "title": "7. Зміни розкладу та форс-мажор",
         "body": [
-          "Departure and arrival times are estimates and may change due to traffic, weather, or operational reasons. If a service is canceled or materially changed, we will provide available options in accordance with carrier rules."
+          "Час відправлення та прибуття є орієнтовним і може змінюватися через дорожню ситуацію, погоду або операційні причини. Якщо рейс скасовано або суттєво змінено, ми надамо доступні варіанти відповідно до правил перевізника."
         ]
       },
       {
-        "title": "8. Liability",
+        "title": "8. Відповідальність",
         "body": [
-          "To the maximum extent permitted by law, our liability is limited to the ticket price paid for the affected service. We are not liable for indirect or consequential losses. Nothing in these Terms limits statutory consumer rights."
+          "У максимально дозволеному законом обсязі наша відповідальність обмежується вартістю квитка, сплаченою за відповідну послугу. Ми не несемо відповідальності за непрямі або наслідкові збитки. Ніщо в цих Умовах не обмежує передбачені законом права споживача."
         ]
       },
       {
-        "title": "9. Privacy",
+        "title": "9. Конфіденційність",
         "body": [
-          "We process personal data in accordance with our Privacy Policy and share necessary information with InfoBus and carriers to fulfill your booking."
+          "Ми обробляємо персональні дані відповідно до нашої Політики конфіденційності та передаємо необхідну інформацію InfoBus і перевізникам для виконання вашого бронювання."
         ]
       },
       {
-        "title": "10. Governing law",
+        "title": "10. Застосовне право",
         "body": [
-          "These Terms are governed by Czech law. Any disputes will be resolved by the competent courts in the Czech Republic."
+          "Ці Умови регулюються законодавством Чеської Республіки. Будь-які спори вирішуються компетентними судами Чеської Республіки."
         ]
       }
     ]
   },
   "refunds": {
-    "title": "Refund and Cancellation Policy",
-    "intro": "This policy explains how cancellations and refunds work for tickets booked on our website. Refunds are available by phone only.",
+    "title": "Повернення та скасування",
+    "intro": "Ця політика пояснює, як працюють скасування та повернення коштів за квитки, заброньовані на нашому вебсайті. Повернення оформлюються лише телефоном.",
     "sections": [
       {
-        "title": "1. How to request a refund",
+        "title": "1. Як подати запит на повернення",
         "body": [
-          "All cancellation and refund requests must be made by phone at +420 778 003 500. Please have your order ID and passenger email available."
+          "Усі запити на скасування та повернення потрібно подавати телефоном за номером +420 778 003 500. Будь ласка, підготуйте ID замовлення та e-mail пасажира."
         ]
       },
       {
-        "title": "2. Eligibility",
+        "title": "2. Право на повернення",
         "body": [
-          "Refund eligibility depends on the fare rules, the time before departure, and the carrier policy. Requests made after departure or for no-shows are generally not refundable."
+          "Право на повернення залежить від тарифних правил, часу до відправлення та політики перевізника. Запити після відправлення або у разі неявки зазвичай не підлягають поверненню."
         ]
       },
       {
-        "title": "3. Fees and refund amounts",
+        "title": "3. Комісії та сума повернення",
         "body": [
-          "Refund amounts are determined by the carrier rules. Service or booking fees may be non-refundable. Any applicable fees will be communicated during your phone request."
+          "Сума повернення визначається правилами перевізника. Сервісні або бронювальні збори можуть бути неповерненими. Усі застосовні комісії будуть повідомлені під час телефонного звернення."
         ]
       },
       {
-        "title": "4. Carrier cancellations or major schedule changes",
+        "title": "4. Скасування перевізником або суттєві зміни розкладу",
         "body": [
-          "If a trip is canceled or materially changed by the carrier, we will offer available options such as rebooking or refund, subject to carrier rules."
+          "Якщо поїздку скасовано або суттєво змінено перевізником, ми запропонуємо доступні варіанти, наприклад перебронювання або повернення коштів, відповідно до правил перевізника."
         ]
       },
       {
-        "title": "5. Processing time",
+        "title": "5. Строк обробки",
         "body": [
-          "Approved refunds are returned to the original payment method. Processing times vary by bank or card issuer and will be confirmed during your phone request."
+          "Схвалені повернення коштів здійснюються на початковий спосіб оплати. Строки обробки залежать від банку або емітента картки та будуть підтверджені під час телефонного звернення."
         ]
       },
       {
-        "title": "6. Ticket delivery",
+        "title": "6. Доставка квитка",
         "body": [
-          "Tickets are delivered by email and can be downloaded from the booking confirmation. If you cannot access your ticket, contact us by phone."
+          "Квитки надсилаються на e-mail і можуть бути завантажені з підтвердження бронювання. Якщо у вас немає доступу до квитка, зв'яжіться з нами телефоном."
         ]
       }
     ]
   },
   "privacy": {
-    "title": "Privacy Policy",
-    "intro": "This Privacy Policy explains how we collect, use, and share personal data when you use our website and booking services.",
+    "title": "Політика конфіденційності",
+    "intro": "Ця Політика конфіденційності пояснює, як ми збираємо, використовуємо та передаємо персональні дані, коли ви користуєтеся нашим вебсайтом і сервісами бронювання.",
     "sections": [
       {
-        "title": "1. Data controller",
+        "title": "1. Володілець персональних даних",
         "body": [
-          "VO-Trans EU s.r.o. is the data controller for personal data processed through this website. You can contact us using the details below."
+          "VO-Trans EU s.r.o. є володільцем персональних даних, що обробляються через цей вебсайт. Ви можете зв'язатися з нами за наведеними нижче контактами."
         ]
       },
       {
-        "title": "2. Data we collect",
+        "title": "2. Які дані ми збираємо",
         "body": [
-          "We collect information needed to provide services, such as names, email addresses, phone numbers, passenger details, booking details, travel dates, and service preferences.",
-          "We also process technical data such as IP address, device information, and basic cookies required for the site to function."
+          "Ми збираємо інформацію, необхідну для надання послуг, зокрема імена, адреси e-mail, номери телефонів, дані пасажирів, дані бронювання, дати поїздки та сервісні вподобання.",
+          "Ми також обробляємо технічні дані, такі як IP-адреса, інформація про пристрій і базові cookies, потрібні для роботи сайту."
         ]
       },
       {
-        "title": "3. How we use your data",
+        "title": "3. Як ми використовуємо ваші дані",
         "body": [
-          "We use your data to provide and manage bookings, deliver tickets by email, communicate about your trip, provide customer support, and meet legal obligations.",
-          "If you opt in to receive promotions, we may send marketing messages. You can opt out at any time."
+          "Ми використовуємо ваші дані для створення та керування бронюваннями, надсилання квитків на e-mail, комунікації щодо поїздки, надання підтримки клієнтам і виконання юридичних обов'язків.",
+          "Якщо ви погодилися на отримання пропозицій, ми можемо надсилати маркетингові повідомлення. Ви можете відмовитися від них у будь-який час."
         ]
       },
       {
-        "title": "4. Sharing of data",
+        "title": "4. Передача даних",
         "body": [
-          "We share necessary personal data with InfoBus and relevant carriers to fulfill your booking and provide transportation services.",
-          "We may also share data with payment providers, IT and hosting providers, and authorities when required by law."
+          "Ми передаємо необхідні персональні дані InfoBus і відповідним перевізникам для виконання бронювання та надання транспортних послуг.",
+          "Ми також можемо передавати дані платіжним провайдерам, IT- та хостинг-провайдерам, а також державним органам, якщо цього вимагає закон."
         ]
       },
       {
-        "title": "5. Legal basis",
+        "title": "5. Правові підстави",
         "body": [
-          "We process personal data to perform our contract with you, to comply with legal obligations, and for legitimate interests such as fraud prevention and service improvement."
+          "Ми обробляємо персональні дані для виконання договору з вами, дотримання юридичних обов'язків і на підставі законних інтересів, таких як запобігання шахрайству та покращення сервісу."
         ]
       },
       {
-        "title": "6. International transfers",
+        "title": "6. Міжнародна передача",
         "body": [
-          "Your data may be processed in the Czech Republic and Ukraine. If data is transferred outside the EEA, we use appropriate safeguards where required by law."
+          "Ваші дані можуть оброблятися в Чеській Республіці та Україні. Якщо дані передаються за межі ЄЕЗ, ми застосовуємо належні гарантії відповідно до вимог законодавства."
         ]
       },
       {
-        "title": "7. Data retention",
+        "title": "7. Строк зберігання даних",
         "body": [
-          "We retain personal data only as long as necessary for the purposes described in this policy and to comply with legal obligations."
+          "Ми зберігаємо персональні дані лише стільки, скільки це необхідно для цілей, описаних у цій політиці, і для виконання юридичних обов'язків."
         ]
       },
       {
-        "title": "8. Your rights",
+        "title": "8. Ваші права",
         "body": [
-          "You have the right to access, correct, delete, or restrict the processing of your personal data, and to object or request data portability where applicable.",
-          "You may also lodge a complaint with the Czech Office for Personal Data Protection (UOOU)."
+          "Ви маєте право на доступ, виправлення, видалення або обмеження обробки ваших персональних даних, а також право заперечити проти обробки або запросити перенесення даних, якщо це застосовно.",
+          "Ви також можете подати скаргу до Уповноваженого органу з питань захисту персональних даних Чеської Республіки (UOOU)."
         ]
       },
       {
-        "title": "9. Cookies",
+        "title": "9. Файли cookie",
         "body": [
-          "We use cookies that are necessary for the website to operate. You can control cookies through your browser settings."
+          "Ми використовуємо cookies, необхідні для роботи вебсайту. Ви можете керувати cookies через налаштування вашого браузера."
         ]
       },
       {
-        "title": "10. Changes to this policy",
+        "title": "10. Зміни до цієї політики",
         "body": [
-          "We may update this Privacy Policy from time to time. The latest version will be posted on this page with an updated date."
+          "Ми можемо час від часу оновлювати цю Політику конфіденційності. Остання версія буде опублікована на цій сторінці з оновленою датою."
         ]
       }
     ]

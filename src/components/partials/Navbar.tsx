@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center space-x-4 2xl:space-x-6">
           {/* LANG SWITCH */}
           <div className="hidden sm:flex border border-black rounded-full px-4 py-1 text-sm">
-            {['ru', 'cs', 'ua', 'en'].map((l, i) => (
+            {['cs', 'ua', 'en'].map((l, i) => (
               <span key={l}>
                 <span
                   onClick={() => handleClick(l)}
@@ -52,7 +52,7 @@ const Navbar: React.FC = () => {
                 >
                   {l}
                 </span>
-                {i < 3 && ' | '}
+                {i < 2 && ' | '}
               </span>
             ))}
           </div>
@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
             </Link>
 
             <div className="pt-3 border-t flex space-x-4">
-              {['ru', 'cs', 'ua', 'en'].map((l) => (
+              {['cs', 'ua', 'en'].map((l) => (
                 <span
                   key={l}
                   onClick={() => handleClick(l)}

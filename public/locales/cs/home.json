@@ -1,11 +1,30 @@
 {
   "header": {
     "titleLine1": "Mezinarodni",
-    "titleLine2": "autobusova preprava"
+    "titleLine2": "autobusova preprava",
+    "phones": {
+      "ua": "+380 67 756 66 99 | +380 98 704 75 57",
+      "cz": "+420 778 003 500 | +420 608 259 674"
+    }
   },
   "services": {
     "title": "Soukrome sluzby",
     "cta": "Odeslat poptavku",
+    "modal": {
+      "title": "Nezavazna poptavka",
+      "description": "Vyplnte prosim udaje pro sluzbu: {{service}}",
+      "fields": {
+        "name": "Jmeno",
+        "email": "E-mail",
+        "phone": "Telefon"
+      },
+      "placeholders": {
+        "name": "Jan Novak",
+        "email": "jan@example.com",
+        "phone": "+420 777 123 456"
+      },
+      "submit": "Odeslat"
+    },
     "cards": [
       {
         "title": "Organizovane zajezdy",
@@ -44,17 +63,17 @@
       {
         "text": "Nasla jsem spoj za 2 minuty, cesta byla pohodlna a prijemna.",
         "author": "Ekaterina",
-        "route": "Praha - Wien"
+        "route": "Praha-Irsava"
       },
       {
         "text": "Velmi spokojena se sluzbou i ridicem. Vse vcas.",
         "author": "Maria",
-        "route": "Brno - Krakow"
+        "route": "Chust-Plzen"
       },
       {
         "text": "Dobra spolecnost, pohodlne autobusy a prijemne ceny.",
         "author": "Oleg",
-        "route": "Uzhgorod - Praha"
+        "route": "Brno-Vynohradiv"
       }
     ]
   },
@@ -74,9 +93,9 @@
     "support": {
       "title": "Podpora",
       "links": [
-        { "label": "Obchodni podminky", "href": "/terms" },
-        { "label": "Vratky a zruseni", "href": "/refunds" },
-        { "label": "Zasady ochrany osobnich udaju", "href": "/privacy" }
+        { "label": "Obchodní podmínky", "href": "/terms" },
+        { "label": "Vrátky a zrušení", "href": "/refunds" },
+        { "label": "Zásady ochrany osobních údajů", "href": "/privacy" }
       ]
     },
     "contact": {
@@ -86,7 +105,10 @@
         "Cukrovarska 941/21a",
         "196 00 Praha 9 - Cakovice",
         "Ceska republika",
-        "+420 778 003 500"
+        "+380 67 756 66 99",
+        "+380 98 704 75 57",
+        "+420 778 003 500",
+        "+420 608 259 674"
       ]
     },
     "copyright": "© 2025 VO-TRANS. Vsechna prava vyhrazena."

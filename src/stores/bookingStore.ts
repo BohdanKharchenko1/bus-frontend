@@ -1,6 +1,12 @@
 import { create } from 'zustand/react';
 import { Point } from '@/components/partials/SearchableInput.tsx';
-import { BaggageItem, BusPlan, FreeSeats, RouteError, RouteItemType } from '@/types/routes.ts';
+import {
+  BaggageItem,
+  BusPlan,
+  FreeSeatsResponse,
+  RouteError,
+  RouteItemType,
+} from '@/types/routes.ts';
 import { persist } from 'zustand/middleware';
 
 export interface BookingState {
@@ -24,11 +30,12 @@ export interface BookingState {
   discounts?: number[][];
   routeThere?: RouteItemType | undefined;
   routeBack?: RouteItemType | undefined;
-  freeSeatsThere: FreeSeats[];
-  freeSeatsBack?: FreeSeats[];
+  freeSeatsThere: FreeSeatsResponse | undefined;
+  freeSeatsBack?: FreeSeatsResponse | undefined;
   busPlanThere: BusPlan | null;
   busPlanBack?: BusPlan;
   seat: string[][];
+  blockedSeats: string[][];
   newOrder?: { order_id?: string | number; reservation_until: string } | null;
   ticket?: { orderId: string | number; link: string } | null;
   allRoutesThere: RouteItemType[] | RouteError | null;
@@ -45,6 +52,7 @@ export interface BookingState {
   setSeat: (payload: Partial<BookingState>) => void;
   setNewOrder: (payload: Partial<BookingState>) => void;
   setTicket: (ticket: BookingState['ticket']) => void;
+  setBlockedSeats: (payload: Partial<BookingState>) => void;
   reset: () => void;
   resetNewOrder: () => void;
   setLang: (lang: string) => void;
@@ -68,13 +76,14 @@ const initialState = {
   baggage: [[]],
   routeThere: undefined,
   routeBack: undefined,
-  freeSeatsThere: [],
-  freeSeatsBack: [],
+  freeSeatsThere: undefined,
+  freeSeatsBack: undefined,
   busPlanThere: null,
   busPlanBack: undefined,
   allRoutesThere: [],
   allRoutesBack: [],
   seat: [[]],
+  blockedSeats: [[]],
   newOrder: null,
   ticket: null,
   trans: undefined,
@@ -93,6 +102,7 @@ const initialState = {
   | 'setSeat'
   | 'setNewOrder'
   | 'setTicket'
+  | 'setBlockedSeats'
   | 'reset'
   | 'resetNewOrder'
   | 'setLang'
@@ -119,7 +129,7 @@ export const useBookingStore = create<BookingState>()(
       setRoute: (route: RouteItemType | undefined, direction: 'there' | 'back') =>
         set(() => (direction === 'there' ? { routeThere: route } : { routeBack: route })),
       setLang: (lang: string) => set(() => ({ lang: lang })),
-
+      setBlockedSeats: (data) => set((state) => ({ ...state, ...data })),
       setStep1: (data) => set((state) => ({ ...state, ...data })),
       nextStep: () => set((s) => ({ step: Math.min(s.step + 1, 5) })),
       previousStep: () => set((s) => ({ step: Math.max(s.step - 1, 1) })),

@@ -1,6 +1,7 @@
 {
   "previous": "Previous",
   "next": "Next",
+  "save": "Save",
   "seatsRemaining": "Seats remaining: {{count}}",
   "errors": {
     "selectSeats": "Please select all seats before continuing."

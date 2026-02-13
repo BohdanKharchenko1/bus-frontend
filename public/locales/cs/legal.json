@@ -1,191 +1,191 @@
 {
-  "lastUpdated": "Last updated: January 30, 2026",
+  "lastUpdated": "Posledni aktualizace: 30. ledna 2026",
   "contact": {
-    "title": "Contact",
+    "title": "Kontakt",
     "company": "VO-Trans EU s.r.o.",
-    "address": ["Cukrovarská 941/21a", "196 00 Praha 9 - Čakovice", "Czech Republic"],
-    "phoneLabel": "Phone",
+    "address": ["Cukrovarska 941/21a", "196 00 Praha 9 - Cakovice", "Ceska republika"],
+    "phoneLabel": "Telefon",
     "phone": "+420 778 003 500",
-    "emailLabel": "Email",
+    "emailLabel": "E-mail",
     "email": ""
   },
   "terms": {
-    "title": "Terms and Conditions",
-    "intro": "These Terms and Conditions govern the use of the VO-TRANS website and the booking of passenger transportation services in the Czech Republic and Ukraine. By placing an order, you agree to these Terms.",
+    "title": "Obchodní podmínky",
+    "intro": "Tyto obchodni podminky upravuji pouzivani webu VO-TRANS a rezervaci sluzeb osobni dopravy v Ceske republice a na Ukrajine. Odeslanim objednavky souhlasite s temi podminkami.",
     "sections": [
       {
-        "title": "1. About us",
+        "title": "1. O nas",
         "body": [
-          "VO-Trans EU s.r.o. operates this website and provides booking services for passenger transportation. We offer tickets and related services for routes in the Czech Republic and Ukraine."
+          "Spolecnost VO-Trans EU s.r.o. provozuje tento web a poskytuje rezervacni sluzby pro osobni dopravu. Nabizime jizdenky a souvisejici sluzby pro trasy v Ceske republice a na Ukrajine."
         ]
       },
       {
-        "title": "2. Services and scope",
+        "title": "2. Sluzby a rozsah",
         "body": [
-          "We provide online booking and ticketing services. Actual transportation may be performed by third-party carriers and partners, including InfoBus, and their carrier rules may apply in addition to these Terms."
+          "Poskytujeme online rezervace a vystaveni jizdenek. Samotnou prepravu mohou zajistovat dopravci a partneri tretich stran vcetne InfoBus, a jejich pravidla se mohou uplatnit vedle techto podminek."
         ]
       },
       {
-        "title": "3. Booking and tickets",
+        "title": "3. Rezervace a jizdenky",
         "body": [
-          "An order is considered confirmed after successful payment and when you receive a confirmation email with your e-ticket. Tickets are delivered by email and can be downloaded from your booking confirmation.",
-          "You are responsible for providing accurate passenger and travel details. Please review your ticket immediately and contact us by phone if you notice an error."
+          "Objednavka je povazovana za potvrzenou po uspesne platbe a po doruceni potvrzovaciho e-mailu s e-jizdenkou. Jizdenky jsou dorucovany e-mailem a lze je stahnout z potvrzeni rezervace.",
+          "Jste odpovedni za spravnost udaju o cestujicim a ceste. Po obdrzeni jizdenky ji ihned zkontrolujte a v pripade chyby nas kontaktujte telefonicky."
         ]
       },
       {
-        "title": "4. Prices and payment",
+        "title": "4. Ceny a platba",
         "body": [
-          "Prices are shown in the selected currency and may include applicable taxes and service fees. Payment must be completed at the time of booking using the available payment methods.",
-          "Payments are processed by a payment provider. We do not store full payment card details on our servers."
+          "Ceny jsou zobrazeny ve zvolene mene a mohou zahrnovat prislusne dane a servisni poplatky. Platba musi byt provedena v okamziku rezervace pomoci dostupnych platebnich metod.",
+          "Platby zpracovava platebni poskytovatel. Uplne udaje platebnich karet na nasich serverech neukladame."
         ]
       },
       {
-        "title": "5. Changes, cancellations, and refunds",
+        "title": "5. Zmeny, storna a vratky",
         "body": [
-          "Changes, cancellations, and refunds are handled by phone only. Eligibility and fees depend on the fare rules, the time before departure, and the carrier policy. No-shows are generally non-refundable.",
-          "Please refer to our Refund and Cancellation Policy for details."
+          "Zmeny, storna a vratky resime pouze telefonicky. Narok a poplatky zaviseji na tarifnich podminkach, case pred odjezdem a pravidlech dopravce. Nedostaveni se k odjezdu zpravidla nezaklada narok na vraceni penez.",
+          "Podrobnosti najdete v Zasadach vratek a zruseni."
         ]
       },
       {
-        "title": "6. Passenger responsibilities",
+        "title": "6. Povinnosti cestujiciho",
         "body": [
-          "Passengers must arrive before departure, carry valid travel documents, and comply with baggage limits and carrier rules. We may refuse service for safety or rule violations."
+          "Cestujici musi dorazit pred odjezdem, mit platne cestovni doklady a dodrzovat limity zavazadel a pravidla dopravce. Pri poruseni bezpecnostnich nebo prepravnich pravidel muzeme sluzbu odmitnout."
         ]
       },
       {
-        "title": "7. Schedule changes and force majeure",
+        "title": "7. Zmeny jizdniho radu a vyssi moc",
         "body": [
-          "Departure and arrival times are estimates and may change due to traffic, weather, or operational reasons. If a service is canceled or materially changed, we will provide available options in accordance with carrier rules."
+          "Casy odjezdu a prijezdu jsou orientacni a mohou se zmenit z duvodu dopravy, pocasi nebo provoznich okolnosti. Pokud je spoj zrusen nebo vyznamne zmenen, nabidneme dostupne moznosti podle pravidel dopravce."
         ]
       },
       {
-        "title": "8. Liability",
+        "title": "8. Odpovednost",
         "body": [
-          "To the maximum extent permitted by law, our liability is limited to the ticket price paid for the affected service. We are not liable for indirect or consequential losses. Nothing in these Terms limits statutory consumer rights."
+          "V maximalnim rozsahu povolenem zakonem je nase odpovednost omezena na cenu jizdenky zaplacenou za dotcenou sluzbu. Neodpovidame za neprime nebo nasledne skody. Nic v techto podminkach neomezuje zakonem dana prava spotrebitele."
         ]
       },
       {
-        "title": "9. Privacy",
+        "title": "9. Ochrana osobnich udaju",
         "body": [
-          "We process personal data in accordance with our Privacy Policy and share necessary information with InfoBus and carriers to fulfill your booking."
+          "Osobni udaje zpracovavame v souladu se Zasadami ochrany osobnich udaju a s InfoBus a dopravci sdilime pouze nezbytne informace pro vyrizeni rezervace."
         ]
       },
       {
-        "title": "10. Governing law",
+        "title": "10. Rozhodne pravo",
         "body": [
-          "These Terms are governed by Czech law. Any disputes will be resolved by the competent courts in the Czech Republic."
+          "Tyto podminky se ridi pravem Ceske republiky. Pripadne spory budou reseny prislusnymi soudy v Ceske republice."
         ]
       }
     ]
   },
   "refunds": {
-    "title": "Refund and Cancellation Policy",
-    "intro": "This policy explains how cancellations and refunds work for tickets booked on our website. Refunds are available by phone only.",
+    "title": "Vrátky a zrušení",
+    "intro": "Tyto zasady vysvetluji, jak funguje zruseni a vraceni penez za jizdenky zakoupene na nasem webu. Vratky vyrizujeme pouze telefonicky.",
     "sections": [
       {
-        "title": "1. How to request a refund",
+        "title": "1. Jak pozadat o vratku",
         "body": [
-          "All cancellation and refund requests must be made by phone at +420 778 003 500. Please have your order ID and passenger email available."
+          "Vsechny zadosti o zruseni a vratku je nutne podat telefonicky na cisle +420 778 003 500. Pripravte si prosim ID objednavky a e-mail cestujiciho."
         ]
       },
       {
-        "title": "2. Eligibility",
+        "title": "2. Narok na vratku",
         "body": [
-          "Refund eligibility depends on the fare rules, the time before departure, and the carrier policy. Requests made after departure or for no-shows are generally not refundable."
+          "Narok na vratku zavisi na tarifnich podminkach, case pred odjezdem a pravidlech dopravce. Zadosti po odjezdu nebo pri nedostaveni se k odjezdu obvykle nejsou vratne."
         ]
       },
       {
-        "title": "3. Fees and refund amounts",
+        "title": "3. Poplatky a vracena castka",
         "body": [
-          "Refund amounts are determined by the carrier rules. Service or booking fees may be non-refundable. Any applicable fees will be communicated during your phone request."
+          "Vracena castka se urcuje podle pravidel dopravce. Servisni nebo rezervacni poplatky mohou byt nevratne. Pripadne poplatky vam sdelime pri telefonickem vyrizeni zadosti."
         ]
       },
       {
-        "title": "4. Carrier cancellations or major schedule changes",
+        "title": "4. Zruseni ze strany dopravce nebo vyznamna zmena spoje",
         "body": [
-          "If a trip is canceled or materially changed by the carrier, we will offer available options such as rebooking or refund, subject to carrier rules."
+          "Pokud je cesta zrusena nebo vyznamne zmenena ze strany dopravce, nabidneme dostupne moznosti, napr. prebookovani nebo vratku, podle pravidel dopravce."
         ]
       },
       {
-        "title": "5. Processing time",
+        "title": "5. Doba zpracovani",
         "body": [
-          "Approved refunds are returned to the original payment method. Processing times vary by bank or card issuer and will be confirmed during your phone request."
+          "Schvalene vratky vracime na puvodni platebni metodu. Doba zpracovani se lisi podle banky nebo vydavatele karty a bude potvrzena pri telefonickem vyrizeni."
         ]
       },
       {
-        "title": "6. Ticket delivery",
+        "title": "6. Doruceni jizdenky",
         "body": [
-          "Tickets are delivered by email and can be downloaded from the booking confirmation. If you cannot access your ticket, contact us by phone."
+          "Jizdenky jsou dorucovany e-mailem a lze je stahnout z potvrzeni rezervace. Pokud se k jizdence nemuzete dostat, kontaktujte nas telefonicky."
         ]
       }
     ]
   },
   "privacy": {
-    "title": "Privacy Policy",
-    "intro": "This Privacy Policy explains how we collect, use, and share personal data when you use our website and booking services.",
+    "title": "Zásady ochrany osobních údajů",
+    "intro": "Tyto zasady ochrany osobnich udaju vysvetluji, jak shromazdujeme, pouzivame a sdilime osobni udaje pri pouzivani naseho webu a rezervacnich sluzeb.",
     "sections": [
       {
-        "title": "1. Data controller",
+        "title": "1. Spravce udaju",
         "body": [
-          "VO-Trans EU s.r.o. is the data controller for personal data processed through this website. You can contact us using the details below."
+          "VO-Trans EU s.r.o. je spravcem osobnich udaju zpracovavanych prostrednictvim tohoto webu. Muzete nas kontaktovat pomoci nize uvedenych udaju."
         ]
       },
       {
-        "title": "2. Data we collect",
+        "title": "2. Jake udaje shromazdujeme",
         "body": [
-          "We collect information needed to provide services, such as names, email addresses, phone numbers, passenger details, booking details, travel dates, and service preferences.",
-          "We also process technical data such as IP address, device information, and basic cookies required for the site to function."
+          "Shromazdujeme informace potrebne k poskytovani sluzeb, napriklad jmena, e-mailove adresy, telefonni cisla, udaje o cestujicich, udaje o rezervaci, data cesty a preference sluzeb.",
+          "Zpracovavame take technicke udaje, jako je IP adresa, informace o zarizeni a zakladni cookies nezbytne pro fungovani webu."
         ]
       },
       {
-        "title": "3. How we use your data",
+        "title": "3. Jak vase udaje pouzivame",
         "body": [
-          "We use your data to provide and manage bookings, deliver tickets by email, communicate about your trip, provide customer support, and meet legal obligations.",
-          "If you opt in to receive promotions, we may send marketing messages. You can opt out at any time."
+          "Vase udaje pouzivame k vytvoreni a sprave rezervaci, doruceni jizdenek e-mailem, komunikaci o vasi ceste, poskytovani zakaznicke podpory a plneni pravnich povinnosti.",
+          "Pokud date souhlas se zasilanim nabidek, muzeme vam posilat marketingove zpravy. Odhlaseni je mozne kdykoli."
         ]
       },
       {
-        "title": "4. Sharing of data",
+        "title": "4. Sdileni udaju",
         "body": [
-          "We share necessary personal data with InfoBus and relevant carriers to fulfill your booking and provide transportation services.",
-          "We may also share data with payment providers, IT and hosting providers, and authorities when required by law."
+          "Nezbytne osobni udaje sdilime s InfoBus a relevantnimi dopravci pro vyrizeni rezervace a poskytnuti prepravni sluzby.",
+          "Udaje muzeme sdilet take s poskytovateli plateb, IT a hostingovymi partnery a s organy verejne moci, pokud to vyzaduje zakon."
         ]
       },
       {
-        "title": "5. Legal basis",
+        "title": "5. Pravni zaklad",
         "body": [
-          "We process personal data to perform our contract with you, to comply with legal obligations, and for legitimate interests such as fraud prevention and service improvement."
+          "Osobni udaje zpracovavame za ucelem plneni smlouvy s vami, plneni pravnich povinnosti a na zaklade opravnenych zajmu, napr. prevence podvodu a zlepsovani sluzeb."
         ]
       },
       {
-        "title": "6. International transfers",
+        "title": "6. Mezinarodni predavani",
         "body": [
-          "Your data may be processed in the Czech Republic and Ukraine. If data is transferred outside the EEA, we use appropriate safeguards where required by law."
+          "Vase udaje mohou byt zpracovavany v Ceske republice a na Ukrajine. Pokud dochazi k predani mimo EHP, pouzivame primerene zaruky podle platnych pravnich predpisu."
         ]
       },
       {
-        "title": "7. Data retention",
+        "title": "7. Doba uchovani udaju",
         "body": [
-          "We retain personal data only as long as necessary for the purposes described in this policy and to comply with legal obligations."
+          "Osobni udaje uchovavame pouze po dobu nezbytne nutnou pro ucely popsane v techto zasadach a pro splneni pravnich povinnosti."
         ]
       },
       {
-        "title": "8. Your rights",
+        "title": "8. Vase prava",
         "body": [
-          "You have the right to access, correct, delete, or restrict the processing of your personal data, and to object or request data portability where applicable.",
-          "You may also lodge a complaint with the Czech Office for Personal Data Protection (UOOU)."
+          "Mate pravo na pristup k osobnim udajum, jejich opravu, vymaz nebo omezeni zpracovani a take pravo vznet namitku nebo pozadovat prenositelnost udaju, pokud je to relevantni.",
+          "Take muzete podat stiznost u UOOU (Uradu pro ochranu osobnich udaju)."
         ]
       },
       {
         "title": "9. Cookies",
         "body": [
-          "We use cookies that are necessary for the website to operate. You can control cookies through your browser settings."
+          "Pouzivame cookies, ktere jsou nezbytne pro provoz webu. Cookies muzete spravovat v nastaveni sveho prohlizece."
         ]
       },
       {
-        "title": "10. Changes to this policy",
+        "title": "10. Zmeny techto zasad",
         "body": [
-          "We may update this Privacy Policy from time to time. The latest version will be posted on this page with an updated date."
+          "Tyto zasady ochrany osobnich udaju muzeme cas od casu aktualizovat. Nejaktualnejsi verze bude zverejnena na teto strance s aktualizovanym datem."
         ]
       }
     ]

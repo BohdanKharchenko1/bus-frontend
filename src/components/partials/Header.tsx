@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import headerBgMobile from '../../assets/img/img.webp';
-import headerBgDesktop from '../../assets/img/img.png';
+import headerBgMobile from '../../assets/img/img_1.png';
+import headerBgDesktop from '../../assets/img/img_1.png';
 import logo from '../../assets/img/vo-trans-logo.svg';
 import road from '../../assets/img/destination.svg';
 
@@ -18,13 +18,13 @@ const Header: React.FC = () => {
         src={headerBgMobile}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover object-[85%_90%] lg:hidden"
+        className="absolute inset-0 h-[68%] w-full object-cover object-[70%_90%] lg:hidden"
       />
       <img
         src={headerBgDesktop}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 hidden h-full w-full object-cover object-[100%_60%] lg:block"
+        className="absolute inset-0 hidden h-full w-full object-cover object-[100%_100%] lg:block"
       />
 
       {/* Overlay */}
@@ -64,13 +64,13 @@ const Header: React.FC = () => {
         className="
                     absolute z-20 text-left
                     left-8
-                    bottom-[clamp(140px,12vw,220px)]
+                    bottom-[clamp(270px,12vw,220px)]
                 "
       >
         <h2
           className="
                         font-bold leading-tight
-                        text-[clamp(32px,3vw,56px)]
+                        text-[clamp(25px,3vw,56px)]
                     "
         >
           {t('header.titleLine1')} <br />
@@ -83,7 +83,8 @@ const Header: React.FC = () => {
                         text-[clamp(18px,1.6vw,28px)]
                     "
         >
-          <p>+420 778 003 500</p>
+          <p>{t('header.phones.ua')}</p>
+          <p>{t('header.phones.cz')}</p>
         </div>
       </div>
     </header>

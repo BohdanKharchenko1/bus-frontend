@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router';
 
 const PromoSection = () => {
   const { t } = useTranslation('home');
@@ -25,7 +26,8 @@ const PromoSection = () => {
 
       {/* Buttons */}
       <div className="flex space-x-4">
-        <button
+        <Link
+          to="/profile"
           className="
                         bg-white text-purple-800 font-medium
                         px-6 py-3
@@ -34,8 +36,9 @@ const PromoSection = () => {
                     "
         >
           {t('promo.primaryCta')}
-        </button>
-        <button
+        </Link>
+        <Link
+          to="/buy_ticket"
           className="
                         border border-white text-white font-medium
                         px-6 py-3
@@ -44,7 +47,7 @@ const PromoSection = () => {
                     "
         >
           {t('promo.secondaryCta')}
-        </button>
+        </Link>
       </div>
     </section>
   );

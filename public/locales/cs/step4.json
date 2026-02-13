@@ -1,6 +1,7 @@
 {
   "previous": "Zpět",
   "next": "Další",
+  "save": "Uložit",
   "seatsRemaining": "Zbývá obsadit {{count}}",
   "errors": {
     "selectSeats": "Vyberte všechna místa před pokračováním."

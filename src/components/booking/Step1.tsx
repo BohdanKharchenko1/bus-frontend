@@ -9,9 +9,10 @@ import { useNavigate } from 'react-router';
 
 type Step1Props = {
   onNext?: () => void;
+  shouldRedirect?: boolean;
 };
 
-export default function Step1({ onNext }: Step1Props) {
+export default function Step1({ onNext, shouldRedirect }: Step1Props) {
   const { t } = useTranslation('step1');
   const navigate = useNavigate();
   const { from, to, startDate, endDate, passengerCount, setStep1 } = useBookingStore(
@@ -50,8 +51,7 @@ export default function Step1({ onNext }: Step1Props) {
       endDate: normalizedEndDate,
     });
     onNext?.();
-
-    navigate('/buy_ticket');
+    if (shouldRedirect) navigate('/buy_ticket');
   };
 
   return (

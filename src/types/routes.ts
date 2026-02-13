@@ -183,6 +183,11 @@ export interface StationInfo {
     };
   };
 }
+export interface FreeSeatsResponse {
+  providerSeats: FreeSeats[];
+  blockedSeats: string[][];
+}
+
 export interface FreeSeats {
   bustype_id: string;
   has_plan: boolean;

@@ -27,7 +27,7 @@
       "confirmPassword": "Potvrdit heslo"
     },
     "placeholders": {
-      "email": "m@example.com",
+      "email": "",
       "firstName": "Jan",
       "lastName": "Novák"
     },

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ChevronDownIcon } from 'lucide-react';
 import { format } from 'date-fns';
-import { cs, enUS, ru, uk } from 'date-fns/locale';
+import { cs, enUS, uk } from 'date-fns/locale';
 import i18n from 'i18next';
 
 import { Button } from '../../../ui/button';
@@ -19,7 +19,6 @@ type Props = {
 const localeMap = {
   cs,
   en: enUS,
-  ru,
   ua: uk,
 } as const;
 

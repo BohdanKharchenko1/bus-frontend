@@ -41,3 +41,9 @@ export const loginUser = async (body: LoginFormValues): Promise<AxiosResponse> =
 export const getOrders = async (): Promise<AxiosResponse> => {
   return await baseUrl.get('/user/get_orders');
 };
+export const saveBlockedSeats = async (body: any): Promise<AxiosResponse> => {
+  return await baseUrl.put('/booking/save_blocked_seats', body);
+};
+export const sendInquiry = async (body: any): Promise<AxiosResponse> => {
+  return await baseUrl.post('/booking/send_inquiry', body);
+};

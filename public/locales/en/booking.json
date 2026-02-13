@@ -1,5 +1,6 @@
 {
   "title": "Buy Ticket",
+  "adminTitle": "Sales Management",
   "steps": {
     "route": "Route",
     "date": "Date & Route",

@@ -21,10 +21,10 @@ export default function MainPage() {
         <div
           className="
             relative z-30
-            -mt-24 sm:-mt-32 md:-mt-40 lg:-mt-48
+            -mt-72 sm:-mt-72 md:-mt-72 lg:-mt-48
           "
         >
-          <Step1 onNext={nextStep} />
+          <Step1 onNext={nextStep} shouldRedirect={true} />
         </div>
       </div>
 

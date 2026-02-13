@@ -1,5 +1,6 @@
 {
   "title": "Koupit jízdenku",
+  "adminTitle": "Správa prodeje",
   "steps": {
     "route": "Trasa",
     "date": "Datum a spoj",

@@ -5,8 +5,9 @@ import { Order } from '../types/user.ts';
 interface UserState {
   id: string | null;
   email: string | null;
+  role: string | null;
   paymentLink: string | null;
-  setUser: (id: string, email: string) => void;
+  setUser: (id: string, email: string, role: string | null) => void;
   clearUser: () => void;
   setPaymentLink: (id: string) => void;
   clearPaymentLink: () => void;
@@ -19,10 +20,11 @@ export const useUserStore = create<UserState>()(
     (set) => ({
       id: null,
       email: null,
+      role: null,
       paymentLink: null,
       orders: [],
-      setUser: (id, email) => set({ id, email }),
-      clearUser: () => set({ id: null, email: null }),
+      setUser: (id, email, role) => set({ id, email, role }),
+      clearUser: () => set({ id: null, email: null, role: null }),
       setPaymentLink: (link: string) => set({ paymentLink: link }),
       clearPaymentLink: () => set({ paymentLink: null }),
       setOrders: (orders: Order[]) => set({ orders }),

@@ -47,3 +47,6 @@ export const saveBlockedSeats = async (body: any): Promise<AxiosResponse> => {
 export const sendInquiry = async (body: any): Promise<AxiosResponse> => {
   return await baseUrl.post('/booking/send_inquiry', body);
 };
+export const reserveTicket = async (body: any): Promise<AxiosResponse> => {
+  return await baseUrl.post('/booking/reserve_ticket', body);
+};

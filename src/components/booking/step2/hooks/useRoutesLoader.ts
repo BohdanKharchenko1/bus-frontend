@@ -4,6 +4,7 @@ import { getRoutes } from '../../../../api/bus';
 import { RouteItemType } from '../../../../types/routes';
 import { AxiosResponse } from 'axios';
 import i18n from 'i18next';
+import useCurrency from '../../../../hooks/useCurrency.tsx';
 
 type RoutesLoaderParams = {
   cityFromId?: number;
@@ -21,6 +22,7 @@ export const useRoutesLoader = ({
   setAllRoutes,
 }: RoutesLoaderParams) => {
   const lang = i18n.language;
+  const { currency } = useCurrency();
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const fetchRoutes = async () => {
@@ -31,6 +33,7 @@ export const useRoutesLoader = ({
         id_to: cityToId,
         date: format(dateFrom, 'yyyy-MM-dd'),
         lang: lang,
+        currency: currency,
       });
 
       if (dateTo) {

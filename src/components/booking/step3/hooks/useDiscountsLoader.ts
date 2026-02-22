@@ -5,6 +5,7 @@ import { DiscountResponse, RouteItemType } from '../../../../types/routes.ts';
 import { Step3FormValues } from '../schema/step3Schema';
 import { BookingState } from '../../../../stores/bookingStore.ts';
 import formatDiscounts from '../utils/formatDiscounts.ts';
+import useCurrency from '../../../../hooks/useCurrency.tsx';
 
 type UseDiscountsLoaderParams = {
   form: UseFormReturn<Step3FormValues>;
@@ -27,13 +28,16 @@ export const useDiscountsLoader = ({
 }: UseDiscountsLoaderParams) => {
   const prevThereId = useRef<number | undefined>(routeThere?.route_id);
   const prevBackId = useRef<number | undefined>(routeBack?.route_id);
-  console.log(prevThereId + 'useRef initial');
+  const { currency } = useCurrency();
+
   useEffect(() => {
     const load = async () => {
       const [resThere, resBack, bagThere, bagBack] = await Promise.all([
-        routeThere ? getDiscount({ interval_id: routeThere.interval_id }) : null,
+        routeThere
+          ? getDiscount({ interval_id: routeThere.interval_id, currency: currency })
+          : null,
         routeBack ? getDiscount({ interval_id: routeBack.interval_id }) : null,
-        routeThere ? getBaggage({ interval_id: routeThere.interval_id }) : null,
+        routeThere ? getBaggage({ interval_id: routeThere.interval_id, currency: currency }) : null,
         routeBack ? getBaggage({ interval_id: routeBack.interval_id }) : null,
       ]);
       const prevThereChanged = resThere?.data.route_id !== discountsThere?.route_id;

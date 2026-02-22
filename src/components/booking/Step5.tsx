@@ -100,28 +100,36 @@ export default function Step5({ onPrevious }: Step5Props) {
           ))}
         </CardContent>
 
-        <CardFooter className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div className="flex flex-col items-start gap-1">
-            <div className="text-lg sm:text-2xl font-semibold text-slate-900">
-              {t('total_label')}: {summary.totalDisplay}
-            </div>
-          </div>
+        <CardFooter className="pt-2">
           {!ticket?.link ? (
-            <div className="flex w-full flex-col gap-2 sm:w-auto sm:items-end">
-              <OrderTimer reservation_until={newOrder?.reservation_until} />
+            <div className="w-full rounded-2xl  border-slate-200 p-4 sm:p-5 shadow-sm">
+              <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                <div className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
+                  {t('total_label')}: {summary.totalDisplay}
+                </div>
+                <OrderTimer reservation_until={newOrder?.reservation_until} />
+              </div>
               <BuyTicketButton
-                label={t('continue_button')}
-                className="w-full sm:w-64 h-12 sm:h-12 text-center rounded-lg bg-purple-700 text-white font-semibold text-base sm:text-lg hover:bg-purple-800 active:scale-[0.97] transition-all"
+                payNowLabel={t('continue_button')}
+                payOnBoardLabel={t('pay_on_board_button')}
+                containerClassName="grid w-full grid-cols-1 gap-3 sm:grid-cols-2"
+                payNowClassName="w-full h-12 sm:h-14 text-center rounded-xl bg-purple-700 text-white font-semibold text-base sm:text-lg hover:bg-purple-800 active:scale-[0.97] transition-all"
+                payOnBoardClassName="w-full h-12 sm:h-14 text-center rounded-xl border border-purple-300 bg-white text-purple-700 font-semibold text-base sm:text-lg hover:bg-purple-50 active:scale-[0.97] transition-all"
               />
             </div>
           ) : (
-            <Button
-              type="button"
-              onClick={handleDownloadTicket}
-              className="w-full sm:w-64 h-12 sm:h-12 text-center rounded-lg bg-purple-700 text-white font-semibold text-base sm:text-lg hover:bg-purple-800 active:scale-[0.97] transition-all"
-            >
-              {t('download_button')}
-            </Button>
+            <div className="w-full rounded-2xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-4 sm:p-5 shadow-sm">
+              <div className="mb-4 text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
+                {t('total_label')}: {summary.totalDisplay}
+              </div>
+              <Button
+                type="button"
+                onClick={handleDownloadTicket}
+                className="w-full h-12 text-center rounded-xl bg-purple-700 text-white font-semibold text-base sm:text-lg hover:bg-purple-800 active:scale-[0.97] transition-all"
+              >
+                {t('download_button')}
+              </Button>
+            </div>
           )}
         </CardFooter>
       </Card>

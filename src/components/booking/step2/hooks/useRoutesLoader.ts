@@ -22,7 +22,7 @@ export const useRoutesLoader = ({
   setAllRoutes,
 }: RoutesLoaderParams) => {
   const lang = i18n.language;
-  const { currency } = useCurrency();
+  const currency = useCurrency();
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const fetchRoutes = async () => {

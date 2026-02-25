@@ -28,7 +28,7 @@ export const useDiscountsLoader = ({
 }: UseDiscountsLoaderParams) => {
   const prevThereId = useRef<number | undefined>(routeThere?.route_id);
   const prevBackId = useRef<number | undefined>(routeBack?.route_id);
-  const { currency } = useCurrency();
+  const currency = useCurrency();
 
   useEffect(() => {
     const load = async () => {

@@ -22,11 +22,14 @@ export default function BuyTicketButton({
 }: BuyTicketButtonProps) {
   const order = useBookingStore((s) => s.newOrder);
   const email = useBookingStore((s) => s.email);
+  const setNewOrder = useBookingStore((s) => s.setNewOrder);
+  const reservationConfirmed = useBookingStore((s) => s.reservationConfirmed);
   const orderLanguage = i18n.language;
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const ticketInformation = { order, email, orderLanguage };
   const handleBuyTicket = async () => {
+    if (reservationConfirmed) return;
     setIsSubmitting(true);
     const newTab = window.open('', '_blank');
     if (!newTab) {
@@ -52,9 +55,11 @@ export default function BuyTicketButton({
   };
 
   const handleReserveTicket = async () => {
+    if (reservationConfirmed) return;
     try {
       setIsSubmitting(true);
       await reserveTicket(ticketInformation);
+      setNewOrder({ reservationConfirmed: true });
     } finally {
       setIsSubmitting(false);
     }
@@ -65,7 +70,7 @@ export default function BuyTicketButton({
       <Button
         type="button"
         onClick={handleBuyTicket}
-        disabled={isSubmitting}
+        disabled={isSubmitting || reservationConfirmed}
         className={cn(payNowClassName)}
       >
         {payNowLabel}
@@ -73,7 +78,7 @@ export default function BuyTicketButton({
       <Button
         type="button"
         onClick={handleReserveTicket}
-        disabled={isSubmitting}
+        disabled={isSubmitting || reservationConfirmed}
         className={cn(payOnBoardClassName)}
       >
         {payOnBoardLabel}

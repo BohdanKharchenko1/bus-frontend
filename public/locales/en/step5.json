@@ -9,6 +9,8 @@
   "reservation_expired": "Reservation expired",
   "continue_button": "Pay by card",
   "pay_on_board_button": "Pay on boarding",
+  "reservation_success_title": "Reservation successful",
+  "reservation_success_text": "Your seat is reserved. Further actions are locked to prevent duplicate reservation or payment.",
   "download_button": "Download ticket",
   "previous_button": "Previous",
   "empty_value": "-",

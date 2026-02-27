@@ -38,6 +38,7 @@ export interface BookingState {
   blockedSeats: string[][];
   newOrder?: { order_id?: string | number; reservation_until: string } | null;
   ticket?: { orderId: string | number; link: string } | null;
+  reservationConfirmed: boolean;
   allRoutesThere: RouteItemType[] | RouteError | null;
   allRoutesBack: RouteItemType[] | RouteError | null;
   setStep1: (data: Partial<BookingState>) => void;
@@ -86,6 +87,7 @@ const initialState = {
   blockedSeats: [[]],
   newOrder: null,
   ticket: null,
+  reservationConfirmed: false,
   trans: undefined,
   lang: undefined,
 } satisfies Omit<
@@ -147,7 +149,8 @@ export const useBookingStore = create<BookingState>()(
         set(() => ({ ...initialState }));
         localStorage.removeItem('booking');
       },
-      resetNewOrder: () => set(() => ({ newOrder: undefined, ticket: null })),
+      resetNewOrder: () =>
+        set(() => ({ newOrder: undefined, ticket: null, reservationConfirmed: false })),
     }),
     {
       name: 'booking',

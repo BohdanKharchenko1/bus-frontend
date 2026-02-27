@@ -9,6 +9,8 @@
   "reservation_expired": "Rezervace vypršela",
   "continue_button": "Zaplatit kartou",
   "pay_on_board_button": "Platba při nástupu",
+  "reservation_success_title": "Rezervace byla úspěšná",
+  "reservation_success_text": "Místo je rezervováno.",
   "download_button": "Stáhnout lístek",
   "previous_button": "Zpět",
   "empty_value": "-",

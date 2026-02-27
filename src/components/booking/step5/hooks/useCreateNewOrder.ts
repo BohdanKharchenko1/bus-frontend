@@ -19,7 +19,7 @@ export default function useCreateNewOrder(options?: UseCreateNewOrderOptions) {
     const payload = buildNewOrderPayload();
     const load = async () => {
       const response = await newOrder(payload);
-      setNewOrder({ newOrder: response.data });
+      setNewOrder({ newOrder: response.data, reservationConfirmed: false });
       onCreated?.();
     };
 

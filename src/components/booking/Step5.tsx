@@ -20,9 +20,10 @@ export default function Step5({ onPrevious }: Step5Props) {
   const resetNewOrder = useBookingStore((s) => s.resetNewOrder);
   const orderId = newOrder?.order_id;
   const ticket = useBookingStore((s) => s.ticket);
+  const reservationConfirmed = useBookingStore((s) => s.reservationConfirmed);
 
   const handleReturn = async () => {
-    if (newOrder?.order_id && !ticket) {
+    if (newOrder?.order_id && !ticket && !reservationConfirmed) {
       await cancelTicket({ order_id: newOrder.order_id });
     }
     resetNewOrder();
@@ -109,13 +110,20 @@ export default function Step5({ onPrevious }: Step5Props) {
                 </div>
                 <OrderTimer reservation_until={newOrder?.reservation_until} />
               </div>
-              <BuyTicketButton
-                payNowLabel={t('continue_button')}
-                payOnBoardLabel={t('pay_on_board_button')}
-                containerClassName="grid w-full grid-cols-1 gap-3 sm:grid-cols-2"
-                payNowClassName="w-full h-12 sm:h-14 text-center rounded-xl bg-purple-700 text-white font-semibold text-base sm:text-lg hover:bg-purple-800 active:scale-[0.97] transition-all"
-                payOnBoardClassName="w-full h-12 sm:h-14 text-center rounded-xl border border-purple-300 bg-white text-purple-700 font-semibold text-base sm:text-lg hover:bg-purple-50 active:scale-[0.97] transition-all"
-              />
+              {reservationConfirmed ? (
+                <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-emerald-900">
+                  <p className="text-base font-semibold">{t('reservation_success_title')}</p>
+                  <p className="mt-1 text-sm">{t('reservation_success_text')}</p>
+                </div>
+              ) : (
+                <BuyTicketButton
+                  payNowLabel={t('continue_button')}
+                  payOnBoardLabel={t('pay_on_board_button')}
+                  containerClassName="grid w-full grid-cols-1 gap-3 sm:grid-cols-2"
+                  payNowClassName="w-full h-12 sm:h-14 text-center rounded-xl bg-purple-700 text-white font-semibold text-base sm:text-lg hover:bg-purple-800 active:scale-[0.97] transition-all"
+                  payOnBoardClassName="w-full h-12 sm:h-14 text-center rounded-xl border border-purple-300 bg-white text-purple-700 font-semibold text-base sm:text-lg hover:bg-purple-50 active:scale-[0.97] transition-all"
+                />
+              )}
             </div>
           ) : (
             <div className="w-full rounded-2xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-4 sm:p-5 shadow-sm">

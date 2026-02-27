@@ -9,6 +9,8 @@
   "reservation_expired": "Термін бронювання минув",
   "continue_button": "Оплатити карткою",
   "pay_on_board_button": "Оплата при посадці",
+  "reservation_success_title": "Бронювання успішне",
+  "reservation_success_text": "Ваше місце заброньовано. Подальші дії заблоковано, щоб уникнути дублювання бронювання або оплати.",
   "download_button": "Завантажити квиток",
   "previous_button": "Назад",
   "empty_value": "-",

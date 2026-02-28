@@ -81,13 +81,7 @@ export function SignupForm({ setIsLogin }: LoginFormProps) {
               </Field>
               <Field>
                 <FieldLabel htmlFor="email">{t('auth.fields.email')}</FieldLabel>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder={t('auth.placeholders.email')}
-                  required
-                  {...register('email')}
-                />
+                <Input id="email" type="email" required {...register('email')} />
               </Field>
               <Field>
                 <Field>
@@ -121,9 +115,8 @@ export function SignupForm({ setIsLogin }: LoginFormProps) {
         </CardContent>
       </Card>
       <FieldDescription className="px-6 text-center">
-        {t('auth.signup.agreePrefix')}{' '}
-        <a href="#">{t('auth.signup.termsOfService')}</a> {t('auth.signup.agreeAnd')}{' '}
-        <a href="#">{t('auth.signup.privacyPolicy')}</a>
+        {t('auth.signup.agreePrefix')} <a href="#">{t('auth.signup.termsOfService')}</a>{' '}
+        {t('auth.signup.agreeAnd')} <a href="#">{t('auth.signup.privacyPolicy')}</a>
         {t('auth.signup.agreeSuffix')}
       </FieldDescription>
     </div>

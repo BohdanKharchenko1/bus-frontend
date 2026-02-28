@@ -43,13 +43,7 @@ export function LoginForm({ setIsLogin }: LoginFormProps) {
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="email">{t('auth.fields.email')}</FieldLabel>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder={t('auth.placeholders.email')}
-                  required
-                  {...register('email')}
-                />
+                <Input id="email" type="email" required {...register('email')} />
               </Field>
               <Field>
                 <div className="flex items-center">

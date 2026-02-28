@@ -80,7 +80,7 @@ const Header: React.FC = () => {
         <div
           className="
                         mt-4 space-y-2 font-semibold
-                        text-[clamp(18px,1.6vw,28px)]
+                        text-[clamp(16px,1.6vw,28px)]
                     "
         >
           <p>{t('header.phones.ua')}</p>

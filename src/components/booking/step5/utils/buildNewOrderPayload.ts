@@ -28,7 +28,7 @@ export const buildNewOrderPayload = () => {
       discount_id: formattedDiscounts ?? [],
 
       baggage: state.baggage,
-      currency: state.lang === 'ua' ? 'UAH' : 'CZK',
+      currency: state.currency ?? 'CZK',
       phone: state.phone ?? '',
       email: state.email ?? '',
       lang: state.lang ?? 'en',

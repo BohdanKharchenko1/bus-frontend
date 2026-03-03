@@ -15,13 +15,14 @@ type Step1Props = {
 export default function Step1({ onNext, shouldRedirect }: Step1Props) {
   const { t } = useTranslation('step1');
   const navigate = useNavigate();
-  const { from, to, startDate, endDate, passengerCount, setStep1 } = useBookingStore(
+  const { from, to, startDate, endDate, passengerCount, currency, setStep1 } = useBookingStore(
     useShallow((state) => ({
       from: state.from,
       to: state.to,
       startDate: state.startDate,
       endDate: state.endDate,
       passengerCount: state.passengerCount,
+      currency: state.currency,
       setStep1: state.setStep1,
     })),
   );
@@ -32,6 +33,7 @@ export default function Step1({ onNext, shouldRedirect }: Step1Props) {
     startDate,
     endDate,
     passengerCount,
+    currency,
   });
 
   const onSubmit = (data: Step1FormValues) => {
@@ -42,7 +44,8 @@ export default function Step1({ onNext, shouldRedirect }: Step1Props) {
       data.from !== from ||
       data.to !== to ||
       normalizedStartDate !== startDate ||
-      normalizedEndDate !== endDate;
+      normalizedEndDate !== endDate ||
+      data.currency !== currency;
 
     if (shouldReset) useBookingStore.getState().reset();
     setStep1({

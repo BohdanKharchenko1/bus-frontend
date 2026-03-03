@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Step1FormValues, step1Schema } from '../schema/step1Schema';
 import { Point } from '../../../partials/SearchableInput';
+import i18n from 'i18next';
 
 type UseStep1FormParams = {
   from?: Point;
@@ -9,6 +10,7 @@ type UseStep1FormParams = {
   startDate?: string;
   endDate?: string | null;
   passengerCount?: number;
+  currency?: Step1FormValues['currency'];
 };
 
 export const useStep1Form = ({
@@ -17,7 +19,10 @@ export const useStep1Form = ({
   startDate,
   endDate,
   passengerCount,
+  currency,
 }: UseStep1FormParams) => {
+  const defaultCurrency = i18n.language === 'ua' ? 'UAH' : 'CZK';
+
   const form = useForm<Step1FormValues>({
     resolver: zodResolver(step1Schema),
     defaultValues: {
@@ -26,6 +31,7 @@ export const useStep1Form = ({
       startDate: startDate || '',
       endDate: endDate || null,
       passengerCount: passengerCount,
+      currency: currency ?? defaultCurrency,
     },
   });
 

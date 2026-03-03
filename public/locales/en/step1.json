@@ -5,6 +5,7 @@
   "departureDate": "Departure date",
   "returnDate": "Return date* (Optional)",
   "passengers": "Passengers",
+  "currency": "Currency",
   "searchLocation": "Search location",
   "selectDate": "Select date",
   "findConnection": "Find connection",

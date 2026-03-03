@@ -25,6 +25,7 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
     setAllRoutes,
     routeBack,
     routeThere,
+    currency,
   } = useBookingStore(
     useShallow((state) => ({
       city_from_id: state.from?.point_id,
@@ -37,6 +38,7 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
       setAllRoutes: state.setAllRoutes,
       routeBack: state.routeBack,
       routeThere: state.routeThere,
+      currency: state.currency,
     })),
   );
   const [direction, setDirection] = useState<'there' | 'back'>('there');
@@ -46,6 +48,7 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
     cityToId: city_to_id,
     dateFrom,
     dateTo,
+    currency,
     setAllRoutes,
   });
   const handleNext = () => {

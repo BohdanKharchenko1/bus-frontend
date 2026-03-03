@@ -36,6 +36,7 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
     needMiddleName,
     needBirthDate,
     baggage,
+    currency,
   } = useBookingStore(
     useShallow((state) => ({
       passengerCount: state.passengerCount,
@@ -56,6 +57,7 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
       baggageThere: state.baggageThere,
       baggageBack: state.baggageBack,
       baggage: state.baggage,
+      currency: state.currency,
     })),
   );
 
@@ -93,6 +95,7 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
     saveBaggageAndDiscounts,
     discountsThere,
     discountsBack,
+    currency,
   });
 
   const allValues = watch();

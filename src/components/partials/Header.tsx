@@ -31,7 +31,7 @@ const Header: React.FC = () => {
       <div className="absolute inset-0 bg-black/40"></div>
 
       {/* LOGO */}
-      <div className="absolute z-20 top-8 left-8">
+      <div className="absolute z-20 top-8 sm:left-8 ">
         <img
           src={logo}
           alt="VO-TRANS logo"

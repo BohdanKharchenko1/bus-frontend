@@ -5,6 +5,7 @@
   "departureDate": "Дата відправлення",
   "returnDate": "Дата повернення* (Необовʼязково)",
   "passengers": "Пасажири",
+  "currency": "Валюта",
   "searchLocation": "Введіть місце",
   "selectDate": "Оберіть дату",
   "findConnection": "Знайти рейс",

@@ -13,6 +13,7 @@ export interface BookingState {
   trans?: string;
   lang?: string;
   passengerCount: number;
+  currency?: 'UAH' | 'CZK';
   email: string;
   phone: string;
   from?: Point;
@@ -60,6 +61,7 @@ export interface BookingState {
 }
 const initialState = {
   passengerCount: 1,
+  currency: undefined,
   from: undefined,
   to: undefined,
   step: 1,

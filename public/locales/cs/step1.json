@@ -5,6 +5,7 @@
   "departureDate": "Datum odjezdu",
   "returnDate": "Datum návratu* (Volitelné)",
   "passengers": "Cestující",
+  "currency": "Měna",
   "searchLocation": "Zadejte místo",
   "selectDate": "Vyberte datum",
   "findConnection": "Najít spoj",

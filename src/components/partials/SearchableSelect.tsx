@@ -12,13 +12,14 @@ import { Popover, PopoverContent, PopoverTrigger } from '../../components/ui/pop
 import { Button } from '../../components/ui/button';
 
 type Option = {
-  value: number;
+  value: number | string;
+  label?: string;
 };
 
 interface SearchableSelectProps {
   options?: Option[];
-  value?: number;
-  onChange?: (value: number) => void;
+  value?: number | string;
+  onChange?: (value: number | string) => void;
   placeholder?: string;
   searchPlaceholder?: string;
   className?: string;
@@ -61,15 +62,14 @@ export function SearchableSelect({
               {options?.map((option) => (
                 <CommandItem
                   className={cn('sm:text-lg justify-center')}
-                  key={option.value}
+                  key={String(option.value)}
                   value={String(option.value)}
-                  onSelect={(currentValue) => {
-                    onChange?.(Number(currentValue));
-                    console.log(Number(currentValue));
+                  onSelect={() => {
+                    onChange?.(option.value);
                     setOpen(false);
                   }}
                 >
-                  {option.value}
+                  {option.label ?? option.value}
                 </CommandItem>
               ))}
             </CommandGroup>

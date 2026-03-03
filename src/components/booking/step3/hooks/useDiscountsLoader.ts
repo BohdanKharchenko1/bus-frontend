@@ -5,7 +5,6 @@ import { DiscountResponse, RouteItemType } from '../../../../types/routes.ts';
 import { Step3FormValues } from '../schema/step3Schema';
 import { BookingState } from '../../../../stores/bookingStore.ts';
 import formatDiscounts from '../utils/formatDiscounts.ts';
-import useCurrency from '../../../../hooks/useCurrency.tsx';
 import i18n from 'i18next';
 
 type UseDiscountsLoaderParams = {
@@ -15,6 +14,7 @@ type UseDiscountsLoaderParams = {
   routeBack?: RouteItemType;
   discountsThere?: DiscountResponse;
   discountsBack?: DiscountResponse;
+  currency?: string;
   saveBaggageAndDiscounts: (payload: Partial<BookingState>) => void;
 };
 
@@ -26,10 +26,10 @@ export const useDiscountsLoader = ({
   saveBaggageAndDiscounts,
   discountsThere,
   discountsBack,
+  currency,
 }: UseDiscountsLoaderParams) => {
   const prevThereId = useRef<number | undefined>(routeThere?.route_id);
   const prevBackId = useRef<number | undefined>(routeBack?.route_id);
-  const currency = useCurrency();
   const lang = i18n.language;
 
   useEffect(() => {

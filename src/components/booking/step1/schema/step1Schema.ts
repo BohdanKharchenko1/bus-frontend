@@ -30,6 +30,7 @@ export const step1Schema = z.object({
       { error: 'validation.endDate.endDateCantLowerThanToday' },
     ),
   passengerCount: z.number().optional(),
+  currency: z.enum(['UAH', 'CZK']).optional(),
 });
 
 export type Step1FormSchema = typeof step1Schema;

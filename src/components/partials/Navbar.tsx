@@ -25,7 +25,9 @@ const Navbar: React.FC = () => {
         "
       >
         {/* LOGO */}
-        <div className="text-xl lg:text-2xl font-bold text-purple-800">VO-TRANS</div>
+        <div className="text-xl lg:text-2xl font-bold text-purple-800">
+          <Link to="/">VO-TRANS</Link>
+        </div>
 
         {/* DESKTOP NAV */}
         <nav className="hidden md:flex items-center space-x-6 lg:space-x-8 2xl:space-x-10 text-sm lg:text-base font-medium text-black">

@@ -1,15 +1,43 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import i18n from 'i18next';
 import { useTranslation } from 'react-i18next';
+import { logoutUser } from '../../api/bus.ts';
+import { useUserStore } from '../../stores/userStore.ts';
+import { useBookingStore } from '../../stores/bookingStore.ts';
 
 const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
   const { t } = useTranslation('navbar');
+  const navigate = useNavigate();
+  const userId = useUserStore((state) => state.id);
+  const clearUser = useUserStore((state) => state.clearUser);
+  const resetBooking = useBookingStore((state) => state.reset);
 
   const handleClick = (lang: string): void => {
     i18n.changeLanguage(lang);
     setOpen(false);
+  };
+
+  const handleLogout = async () => {
+    if (isLoggingOut) {
+      return;
+    }
+
+    setIsLoggingOut(true);
+    try {
+      await logoutUser();
+    } catch {
+      // local logout should still proceed even when API call fails
+    } finally {
+      clearUser();
+      resetBooking();
+      localStorage.clear();
+      setOpen(false);
+      navigate('/profile');
+      setIsLoggingOut(false);
+    }
   };
 
   return (
@@ -40,6 +68,16 @@ const Navbar: React.FC = () => {
           <Link to="/profile" className="hover:text-purple-700">
             {t('profile')}
           </Link>
+          {userId ? (
+            <button
+              type="button"
+              onClick={handleLogout}
+              disabled={isLoggingOut}
+              className="hover:text-purple-700 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {t('logout')}
+            </button>
+          ) : null}
         </nav>
 
         {/* LANG + BURGER */}
@@ -84,6 +122,16 @@ const Navbar: React.FC = () => {
             <Link to="/profile" onClick={() => setOpen(false)}>
               {t('profile')}
             </Link>
+            {userId ? (
+              <button
+                type="button"
+                onClick={handleLogout}
+                disabled={isLoggingOut}
+                className="text-left disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {t('logout')}
+              </button>
+            ) : null}
 
             <div className="pt-3 border-t flex space-x-4">
               {['cs', 'ua', 'en'].map((l) => (

@@ -2,5 +2,6 @@
   "home": "Home",
   "buyTicket": "Buy ticket",
   "profile": "Profile",
-  "contacts": "Contacts"
+  "contacts": "Contacts",
+  "logout": "Log out"
 }

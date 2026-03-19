@@ -24,7 +24,7 @@ export const useUserStore = create<UserState>()(
       paymentLink: null,
       orders: [],
       setUser: (id, email, role) => set({ id, email, role }),
-      clearUser: () => set({ id: null, email: null, role: null }),
+      clearUser: () => set({ id: null, email: null, role: null, paymentLink: null, orders: [] }),
       setPaymentLink: (link: string) => set({ paymentLink: link }),
       clearPaymentLink: () => set({ paymentLink: null }),
       setOrders: (orders: Order[]) => set({ orders }),

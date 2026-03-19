@@ -2,6 +2,8 @@
   "title": "Крок 2",
   "previous": "Назад",
   "next": "Далі",
+  "downloadExcel": "Завантажити Excel",
+  "downloadingExcel": "Завантаження...",
   "noRoutesTitle": "Рейси не знайдено",
   "noRoutesSubtitle": "Спробуйте обрати іншу дату.",
   "priceLabel": "Ціна:",
@@ -9,6 +11,8 @@
   "selectedButton": "Обрано",
   "errors": {
     "loadingRoutes": "Не вдалося завантажити рейси. Спробуйте ще раз.",
-    "selectRoute": "Будь ласка, оберіть рейс."
+    "selectRoute": "Будь ласка, оберіть рейс.",
+    "downloadExcelMissingDate": "Спочатку виберіть дату відправлення.",
+    "downloadExcel": "Не вдалося завантажити файл Excel."
   }
 }

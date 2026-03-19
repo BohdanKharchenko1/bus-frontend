@@ -2,6 +2,8 @@
   "title": "Krok 2",
   "previous": "Zpět",
   "next": "Další",
+  "downloadExcel": "Stáhnout Excel",
+  "downloadingExcel": "Stahuji...",
   "noRoutesTitle": "Spoje nenalezeny",
   "noRoutesSubtitle": "Zkuste prosím vybrat jiné datum.",
   "priceLabel": "Cena:",
@@ -9,6 +11,8 @@
   "selectedButton": "Vybráno",
   "errors": {
     "loadingRoutes": "Nepodařilo se načíst spoje. Zkuste to prosím znovu.",
-    "selectRoute": "Vyberte prosím spoj."
+    "selectRoute": "Vyberte prosím spoj.",
+    "downloadExcelMissingDate": "Nejprve vyberte datum odjezdu.",
+    "downloadExcel": "Nepodařilo se stáhnout Excel soubor."
   }
 }

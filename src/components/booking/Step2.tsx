@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useBookingStore } from '../../stores/bookingStore';
+import { useUserStore } from '../../stores/userStore.ts';
 import { useShallow } from 'zustand/react/shallow';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { useRoutesLoader } from './step2/hooks/useRoutesLoader';
 import RoutesList from './step2/components/RoutesList';
 import { toast } from 'sonner';
 import { Spinner } from '../../components/ui/spinner.tsx';
+import { downloadTicketImportExcel } from '../../api/bus.ts';
 
 interface Step2Props {
   onPrevious?: () => void;
@@ -15,6 +17,8 @@ interface Step2Props {
 
 export default function Step2({ onPrevious, onNext }: Step2Props) {
   const { t } = useTranslation('step2');
+  const role = useUserStore((state) => state.role);
+  const isAdmin = role === 'admin';
   const {
     city_from_id,
     city_to_id,
@@ -42,6 +46,7 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
     })),
   );
   const [direction, setDirection] = useState<'there' | 'back'>('there');
+  const [isDownloadingExcel, setIsDownloadingExcel] = useState(false);
 
   const { isLoading } = useRoutesLoader({
     cityFromId: city_from_id,
@@ -83,6 +88,64 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
     onPrevious?.();
   };
 
+  const formatDateToRefDat = (value?: string | null): string | null => {
+    if (!value) {
+      return null;
+    }
+
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) {
+      return null;
+    }
+
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = String(date.getFullYear());
+    return `${day}.${month}.${year}`;
+  };
+
+  const getFileNameFromHeader = (headerValue?: string): string | null => {
+    if (!headerValue) {
+      return null;
+    }
+
+    const fileNameMatch = headerValue.match(/filename\*?=(?:UTF-8''|")?([^";]+)"?/i);
+    return fileNameMatch?.[1] ? decodeURIComponent(fileNameMatch[1]) : null;
+  };
+
+  const handleDownloadExcel = async () => {
+    const reportDate = formatDateToRefDat(dateFrom);
+    if (!reportDate) {
+      toast.error(t('errors.downloadExcelMissingDate'));
+      return;
+    }
+
+    setIsDownloadingExcel(true);
+    try {
+      const response = await downloadTicketImportExcel(reportDate);
+      const fileName =
+        getFileNameFromHeader(response.headers['content-disposition']) ??
+        `ticket-import-${reportDate.replace(/\./g, '-')}.xls`;
+      const blob =
+        response.data instanceof Blob
+          ? response.data
+          : new Blob([response.data], { type: 'application/vnd.ms-excel' });
+
+      const url = window.URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = fileName;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      window.URL.revokeObjectURL(url);
+    } catch {
+      toast.error(t('errors.downloadExcel'));
+    } finally {
+      setIsDownloadingExcel(false);
+    }
+  };
+
   return (
     <div className="max-w-7xl mx-auto pt-8 px-0">
       <Card>
@@ -101,14 +164,27 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
               {t('title')}
             </CardTitle>
 
-            <button
-              type="button"
-              onClick={handleNext}
-              className="order-3 sm:order-none w-full sm:w-32 px-5 py-2 text-center rounded-lg bg-purple-700 text-white font-medium text-sm sm:text-base
-               hover:bg-purple-800 active:scale-[0.97] transition-all"
-            >
-              {t('next')} →
-            </button>
+            <div className="order-3 sm:order-none flex w-full sm:w-auto flex-col sm:flex-row gap-2">
+              {isAdmin ? (
+                <button
+                  type="button"
+                  onClick={handleDownloadExcel}
+                  disabled={!dateFrom || isDownloadingExcel}
+                  className="w-full sm:w-auto px-4 py-2 text-center rounded-lg border border-purple-300 bg-white text-purple-700 font-medium text-sm sm:text-base
+                   hover:bg-purple-50 active:scale-[0.97] transition-all disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {isDownloadingExcel ? t('downloadingExcel') : t('downloadExcel')}
+                </button>
+              ) : null}
+              <button
+                type="button"
+                onClick={handleNext}
+                className="w-full sm:w-32 px-5 py-2 text-center rounded-lg bg-purple-700 text-white font-medium text-sm sm:text-base
+                 hover:bg-purple-800 active:scale-[0.97] transition-all"
+              >
+                {t('next')} →
+              </button>
+            </div>
           </div>
         </CardHeader>
 

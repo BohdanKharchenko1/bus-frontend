@@ -139,8 +139,8 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
       anchor.click();
       anchor.remove();
       window.URL.revokeObjectURL(url);
-    } catch (e){
-      toast.error(t('errors.downloadExcel') + e);
+    } catch {
+      toast.error(t('errors.downloadExcel'));
     } finally {
       setIsDownloadingExcel(false);
     }

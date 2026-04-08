@@ -114,18 +114,22 @@ export default function Step2({ onPrevious, onNext }: Step2Props) {
   };
 
   const handleDownloadExcel = async () => {
-    const reportDate = formatDateToRefDat(dateFrom);
-    if (!reportDate) {
+    const reportDateFrom = formatDateToRefDat(dateFrom);
+    const reportDateTo = formatDateToRefDat(dateTo);
+    if (!reportDateFrom) {
       toast.error(t('errors.downloadExcelMissingDate'));
       return;
     }
 
     setIsDownloadingExcel(true);
     try {
-      const response = await downloadTicketImportExcel(reportDate);
+      const response = await downloadTicketImportExcel(reportDateFrom, reportDateTo);
+      const fallbackFileName =
+        reportDateTo && reportDateTo !== reportDateFrom
+          ? `ticket-import-${reportDateFrom.replace(/\./g, '-')}_to_${reportDateTo.replace(/\./g, '-')}.xls`
+          : `ticket-import-${reportDateFrom.replace(/\./g, '-')}.xls`;
       const fileName =
-        getFileNameFromHeader(response.headers['content-disposition']) ??
-        `ticket-import-${reportDate.replace(/\./g, '-')}.xls`;
+        getFileNameFromHeader(response.headers['content-disposition']) ?? fallbackFileName;
       const blob =
         response.data instanceof Blob
           ? response.data

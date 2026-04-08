@@ -44,9 +44,17 @@ export const logoutUser = async (): Promise<AxiosResponse> => {
 export const getOrders = async (): Promise<AxiosResponse> => {
   return await baseUrl.get('/user/get_orders');
 };
-export const downloadTicketImportExcel = async (date: string): Promise<AxiosResponse<Blob>> => {
+export const downloadTicketImportExcel = async (
+  dateFrom: string,
+  dateTo?: string | null,
+): Promise<AxiosResponse<Blob>> => {
+  const params: { dateFrom: string; dateTo?: string } = { dateFrom };
+  if (dateTo) {
+    params.dateTo = dateTo;
+  }
+
   return await baseUrl.get('/user/ticket-import', {
-    params: { date },
+    params,
     responseType: 'blob',
   });
 };

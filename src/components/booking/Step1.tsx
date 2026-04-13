@@ -65,7 +65,7 @@ export default function Step1({ onNext, shouldRedirect }: Step1Props) {
         </CardHeader>
 
         <CardContent className="pt-4 px-4 md:px-6 overflow-visible h-max">
-          <Step1Form form={form} onSubmit={onSubmit} t={t} />
+          <Step1Form form={form} onSubmit={onSubmit} showReturnDate={false} t={t} />
         </CardContent>
       </Card>
     </div>

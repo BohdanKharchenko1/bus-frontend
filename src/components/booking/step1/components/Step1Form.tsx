@@ -31,9 +31,17 @@ export const Step1Form = ({
   const {
     formState: { errors },
   } = form;
-  const columnCount = showReturnDate ? (showCurrency ? 12 : 11) : 10;
-  const gridClassName = `grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6 lg:[grid-template-columns:repeat(${columnCount},minmax(0,1fr))_auto] lg:gap-6`;
-  const submitColumnClass = `lg:col-start-${columnCount + 1}`;
+  const desktopGridClassName = showReturnDate
+    ? showCurrency
+      ? 'lg:[grid-template-columns:repeat(12,minmax(0,1fr))_auto]'
+      : 'lg:[grid-template-columns:repeat(11,minmax(0,1fr))_auto]'
+    : 'lg:[grid-template-columns:repeat(10,minmax(0,1fr))_auto]';
+  const submitColumnClass = showReturnDate
+    ? showCurrency
+      ? 'lg:col-start-13'
+      : 'lg:col-start-12'
+    : 'lg:col-start-11';
+  const gridClassName = `grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6 ${desktopGridClassName} lg:gap-6`;
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit, onError)} className="flex flex-col sm:gap-6 w-full">

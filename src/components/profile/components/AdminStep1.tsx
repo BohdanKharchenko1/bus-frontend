@@ -61,7 +61,7 @@ export default function AdminStep1({ onNext }: AdminStep1Props) {
         </CardHeader>
 
         <CardContent className="pt-4 px-4 md:px-6 overflow-visible h-max">
-          <Step1Form form={form} onSubmit={onSubmit} t={t} showReturnDate showCurrency={false} />
+          <Step1Form form={form} onSubmit={onSubmit} t={t} showReturnDate={true} showCurrency={false} />
         </CardContent>
       </Card>
     </div>

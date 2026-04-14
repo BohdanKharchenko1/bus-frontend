@@ -101,7 +101,7 @@ export const Step1Form = ({
         </div>
 
         {showReturnDate ? (
-          <div className="min-w-0 sm:col-span-2 md:col-span-3 lg:col-span-2">
+          <div className="min-w-0 sm:col-span-2 md:col-span-3 lg:col-span-3">
             <FieldGroup label={t('returnDate')}>
               <Controller
                 name="endDate"

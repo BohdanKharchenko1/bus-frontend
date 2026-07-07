@@ -75,7 +75,6 @@ export default function Step3({ onPrevious, onNext }: Step3Props) {
   });
   const { handleSubmit, watch } = form;
   const onSubmit = (data: Step3FormValues) => {
-    console.log(data);
     saveStep3({
       discounts: data?.discounts,
       name: data?.name.map((v) => v || ''),

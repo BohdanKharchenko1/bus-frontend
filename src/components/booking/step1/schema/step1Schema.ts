@@ -4,7 +4,7 @@ import { Point } from '../../../partials/SearchableInput';
 export const step1Schema = z.object({
   from: z.custom<Point>().refine((val) => val, { error: 'validation.from.required' }),
   to: z.custom<Point>().refine((val) => val, { error: 'validation.to.required' }),
-  startDate: z.string({ error: 'validation.startDate.required' }),
+  startDate: z.string({ error: 'validation.startDate.required' }) ,
   endDate: z
     .string()
     .nullish()

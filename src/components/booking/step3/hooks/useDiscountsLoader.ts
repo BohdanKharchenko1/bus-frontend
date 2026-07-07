@@ -56,7 +56,6 @@ export const useDiscountsLoader = ({
       const current = form.getValues('discounts');
       const next = [...current];
 
-      console.log(prevThereId.current + '+' + routeThere?.route_id);
       if (routeThere && prevThereChanged) {
         next[0] = Array.from({ length: passengerCount }, () =>
           Number(resThere?.data?.discounts[0]?.discount_id),
@@ -65,7 +64,6 @@ export const useDiscountsLoader = ({
         prevThereId.current = routeThere.route_id;
       }
 
-      console.log(next[0]);
       if (routeBack && prevBackChanged) {
         next[1] = Array.from({ length: passengerCount }, () =>
           Number(resBack?.data?.discounts[0]?.discount_id),

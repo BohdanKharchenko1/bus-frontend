@@ -1,21 +1,50 @@
-# React + TypeScript + Vite
+# Bus Booking Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend application for searching bus routes, booking tickets, choosing seats, and managing user tickets.
+The app guides a passenger through route search, route selection, passenger details, seat selection, and payment or reservation.
 
-While this project uses React, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+## Tech Stack
 
-## Deploy Your Own
+- React 18
+- TypeScript
+- Vite
+- React Router
+- React Hook Form
+- Zod
+- Zustand
+- Axios
+- Tailwind CSS
+- Radix UI / custom UI components
+- i18next
+- Sonner toasts
 
-Deploy your own Vite project with Vercel.
+## Main Features
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/framework-boilerplates/vite-react&template=vite-react)
+- Bus route search by departure city, arrival city, date, passenger count, and currency.
+- One-way and return-trip booking flow.
+- Route selection for outbound and return directions.
+- Passenger data form with route-dependent fields.
+- Discount and baggage loading for selected routes.
+- Seat plan loading and seat selection.
+- Order creation, reservation, payment flow, and ticket download.
+- User profile with authentication and ticket history.
+- Admin helpers for seat management and ticket import export.
+- Localized UI with Czech, English, and Ukrainian language support.
 
-_Live Example: https://vite-react-example.vercel.app_
+## Implemented Work
 
-### Deploying From Your Terminal
+- Built a multi-step booking wizard from route search to final ticket.
+- Integrated booking API calls for points, routes, discounts, baggage, seats, orders, ticket purchase, reservation, and cancellation.
+- Added persistent booking and user state with Zustand stores.
+- Implemented responsive booking forms and reusable UI components.
+- Added passenger discount, baggage, total price, and order summary logic.
+- Added profile, login, registration, ticket list, and admin-related screens.
 
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
+## Scripts
 
-```shell
-$ vercel
+```bash
+npm run dev
+npm run build
+npm run lint
+npm run preview
 ```
